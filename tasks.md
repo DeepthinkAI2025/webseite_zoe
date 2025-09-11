@@ -152,3 +152,11 @@ Nächster Fokus-Vorschlag: 1) Final Axe Zero Gate + Diff Script 2) Critical Rend
 - [ ] Content Quality Gate Script (Lesbarkeits-Score/Flesch, Keyword Stuffing Warnung, Überschriften-Hierarchie)
 - [ ] Monitoring: GSC API Hook (Impressions/CTR Snapshots monatlich archivieren)
 
+## 12. Nice-to-Have Tasks (Optionale Verbesserungen)
+- [x] Wave 6: Drawers, Popups, Chat, SmartPlanner Vereinheitlichung (Props, Fokus-Trap, ARIA, Motion Reduction) – ServiceDrawer & SupportChatDrawer standardisiert mit Props, FocusLock, ESC, Motion Reduction
+- [ ] Wave 7: Final Visual Regression + Accessibility Re-Check (nach Wave 6)
+- [ ] Visual Regression: Component-scoped Snapshots (nur geänderte Komponenten diffen, reduziert Flakiness)
+- [ ] INP Lab Stabilisierung (EventTiming Headless Limit → ggf. Playwright headed / Real Browser Pipeline)
+- [ ] Icon Pruning Phase 2: Unbenutzte Icons aus Barrel entfernen, dynamischer Icon Loader vorbereiten
+- [ ] Edge Komponenten standardisiert & dokumentiert (Drawers/Chat Props, ARIA, Fokus-Management)
+
