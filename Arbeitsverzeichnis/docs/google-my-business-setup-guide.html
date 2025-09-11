@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Google My Business Setup - ZOE Solar</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .step {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .step:hover {
+            border-color: #12b3c7;
+            box-shadow: 0 5px 15px rgba(18, 179, 199, 0.2);
+        }
+        .step-number {
+            background: linear-gradient(135deg, #12b3c7, #18b364);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .data-box {
+            background: #e8f4fd;
+            border: 1px solid #12b3c7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .important {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #12b3c7, #18b364);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .progress {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-bar {
+            background: linear-gradient(135deg, #12b3c7, #18b364);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .checklist-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .checklist-item::before {
+            content: "☐";
+            margin-right: 10px;
+            color: #12b3c7;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌞</div>
+            <h1>Google My Business Setup</h1>
+            <p class="subtitle">für ZOE Solar - Schritt-für-Schritt Anleitung</p>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="important">
+            <strong>⏰ Zeitaufwand:</strong> 15-20 Minuten<br>
+            <strong>💰 Kosten:</strong> Kostenlos (Postkarte für Verifizierung)<br>
+            <strong>✅ Ergebnis:</strong> Lokale Sichtbarkeit in Google Maps & Suchergebnissen
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">1</span>Account erstellen</h3>
+            <p>Gehe zu <a href="https://www.google.com/business/" target="_blank">www.google.com/business</a></p>
+            <p>Melde dich mit deinem Google-Konto an oder erstelle ein neues.</p>
+            <p>Klicke auf <strong>"Jetzt starten"</strong></p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span>Unternehmensdetails eingeben</h3>
+            <div class="data-box">
+                <strong>Unternehmensname:</strong> ZOE Solar<br>
+                <strong>Kategorie:</strong> Elektriker<br>
+                <strong>Adresse:</strong> Kurfürstenstraße 124, 10785 Berlin, Deutschland<br>
+                <strong>Telefon:</strong> +49-156-78876200<br>
+                <strong>Website:</strong> https://zoe-solar.de
+            </div>
+            <p><strong>Wichtig:</strong> Verwende exakt diese Daten für beste Suchmaschinen-Optimierung!</p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span>Öffnungszeiten festlegen</h3>
+            <div class="data-box">
+                Montag: 08:00 - 20:00<br>
+                Dienstag: 08:00 - 20:00<br>
+                Mittwoch: 08:00 - 20:00<br>
+                Donnerstag: 08:00 - 20:00<br>
+                Freitag: 08:00 - 20:00<br>
+                Samstag: 10:00 - 15:00<br>
+                Sonntag: Geschlossen
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span>Dienstleistungen hinzufügen</h3>
+            <p>Füge diese Dienstleistungen hinzu:</p>
+            <div class="data-box">
+                • Solaranlagen-Installation<br>
+                • Photovoltaik-Beratung<br>
+                • Stromspeicher-Installation<br>
+                • Förderungsberatung<br>
+                • Wartung und Service
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">5</span>Attribute & Merkmale</h3>
+            <p>Aktiviere diese wichtigen Attribute:</p>
+            <div class="checklist">
+                <div class="checklist-item">Kostenlose Beratung</div>
+                <div class="checklist-item">Festpreisgarantie</div>
+                <div class="checklist-item">Förderungsunterstützung</div>
+                <div class="checklist-item">Notdienst verfügbar</div>
+                <div class="checklist-item">Elektrische Anlagen</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">6</span>Fotos hinzufügen (sehr wichtig!)</h3>
+            <p>Lade mindestens 10-15 Fotos hoch:</p>
+            <div class="checklist">
+                <div class="checklist-item">Logo von ZOE Solar</div>
+                <div class="checklist-item">Außenaufnahme des Gebäudes</div>
+                <div class="checklist-item">Eingangsbereich</div>
+                <div class="checklist-item">Büro/Besprechungsraum</div>
+                <div class="checklist-item">Teamfoto</div>
+                <div class="checklist-item">Solaranlagen-Installation</div>
+                <div class="checklist-item">Kundenprojekte</div>
+                <div class="checklist-item">Zertifizierungen</div>
+            </div>
+            <div class="important">
+                <strong>Tipp:</strong> Verwende hochwertige Fotos (mind. 1080x1080px) für beste Darstellung!
+            </div>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">7</span>Verifizierung abschließen</h3>
+            <p>Wähle die <strong>Postkarten-Verifizierung</strong>:</p>
+            <ul>
+                <li>✅ Kostenlos</li>
+                <li>⏱️ 2-3 Wochen Lieferzeit</li>
+                <li>🏠 Post an: Kurfürstenstraße 124, 10785 Berlin</li>
+            </ul>
+            <p><strong>Alternative:</strong> Telefon-Verifizierung (sofort, aber kostenpflichtig)</p>
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">8</span>Nach der Verifizierung</h3>
+            <div class="checklist">
+                <div class="checklist-item">Q&A-Bereich aktivieren</div>
+                <div class="checklist-item">Erste Bewertungen einholen</div>
+                <div class="checklist-item">Regelmäßige Beiträge planen</div>
+                <div class="checklist-item">Google Ads lokale Kampagnen prüfen</div>
+            </div>
+        </div>
+
+        <div class="important">
+            <h4>🎯 Warum Google My Business wichtig ist:</h4>
+            <ul>
+                <li>85% der lokalen Suchen führen zu einem Besuch im Geschäft</li>
+                <li>97% der Suchenden nutzen Google Maps für lokale Suche</li>
+                <li>GMB-Einträge bekommen 7x mehr Klicks als organische Ergebnisse</li>
+                <li>Kostenlose Werbung für dein Unternehmen</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://www.google.com/business/" class="btn" target="_blank">
+                🚀 Jetzt GMB einrichten
+            </a>
+            <a href="docs/google-my-business-setup.json" class="btn" style="background: #666;">
+                📋 Daten kopieren
+            </a>
+        </div>
+
+        <div class="important">
+            <h4>📞 Support & Hilfe:</h4>
+            <p>Bei Problemen:</p>
+            <ul>
+                <li>Prüfe alle Daten auf Tippfehler</li>
+                <li>Verwende die exakte Adresse für beste Ergebnisse</li>
+                <li>Lade hochwertige Fotos hoch</li>
+                <li>Bei Verifizierungsproblemen: support.google.com/business</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Progress bar animation
+        let currentStep = 0;
+        const totalSteps = 8;
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Add click handlers for checklist items
+        document.querySelectorAll('.checklist-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('completed');
+                if (this.classList.contains('completed')) {
+                    this.style.textDecoration = 'line-through';
+                    this.style.opacity = '0.6';
+                } else {
+                    this.style.textDecoration = 'none';
+                    this.style.opacity = '1';
+                }
+            });
+        });
+
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>

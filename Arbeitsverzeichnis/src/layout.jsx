@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import { createPageUrl } from "@/utils";
 import { buildHreflang } from '@/utils/structuredData';
+import { useHreflang } from '@/utils/hreflang';
 import { Sun, Phone, Mail, ChevronDown, Menu, X, Zap, Battery, Award, Shield, HomeIcon, CalcIcon, Users, Star, Wrench, Globe, ArrowUp, MessageSquare, MessageCircle, PhoneCall } from '@/components/icons';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from '@/components/ui/button';
@@ -337,10 +338,13 @@ export default function Layout({ children }) {
       <div className="film-grain" aria-hidden />
       <Helmet>
         <link rel="canonical" href={`${origin}${path}`} />
-        {/* Hreflang auf 'same' bis echte Sprach-Pfade existieren */}
-        {buildHreflang({ origin, path, locales, strategy:'same' }).map(tag => (
-          <link key={tag.hrefLang} rel={tag.rel} hrefLang={tag.hrefLang} href={tag.href} />
-        ))}
+        {/* Hreflang für internationale SEO */}
+        {(() => {
+          const { getHreflangLinks } = useHreflang();
+          return getHreflangLinks(path).map(link => (
+            <link key={link.hreflang} rel={link.rel} hreflang={link.hreflang} href={link.href} />
+          ));
+        })()}
         {/* OpenGraph & Twitter Basis */}
         <meta property="og:site_name" content="ZOE Solar" />
         <meta property="og:type" content="website" />

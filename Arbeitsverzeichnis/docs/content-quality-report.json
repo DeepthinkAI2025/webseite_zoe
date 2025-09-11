@@ -1,0 +1,194 @@
+{
+  "generated": "2025-09-11T16:54:20.779Z",
+  "summary": {
+    "totalFiles": 23,
+    "goodQuality": 17,
+    "needsImprovement": 6
+  },
+  "reports": [
+    {
+      "file": "About",
+      "wordCount": 1498,
+      "headingsCount": 7,
+      "properHierarchy": true,
+      "keywordsFound": 4,
+      "quality": "good"
+    },
+    {
+      "file": "Blog",
+      "wordCount": 391,
+      "headingsCount": 1,
+      "properHierarchy": true,
+      "keywordsFound": 4,
+      "quality": "good"
+    },
+    {
+      "file": "BlogPost",
+      "wordCount": 566,
+      "headingsCount": 0,
+      "properHierarchy": true,
+      "keywordsFound": 3,
+      "quality": "good"
+    },
+    {
+      "file": "Calculator",
+      "wordCount": 1093,
+      "headingsCount": 1,
+      "properHierarchy": true,
+      "keywordsFound": 6,
+      "quality": "good"
+    },
+    {
+      "file": "Contact",
+      "wordCount": 1343,
+      "headingsCount": 10,
+      "properHierarchy": true,
+      "keywordsFound": 4,
+      "quality": "good"
+    },
+    {
+      "file": "Contact_new",
+      "wordCount": 1469,
+      "headingsCount": 9,
+      "properHierarchy": true,
+      "keywordsFound": 5,
+      "quality": "good"
+    },
+    {
+      "file": "Deals",
+      "wordCount": 81,
+      "headingsCount": 1,
+      "properHierarchy": true,
+      "keywordsFound": 1,
+      "quality": "needs-improvement"
+    },
+    {
+      "file": "Faq",
+      "wordCount": 1368,
+      "headingsCount": 3,
+      "properHierarchy": true,
+      "keywordsFound": 6,
+      "quality": "good"
+    },
+    {
+      "file": "Financing",
+      "wordCount": 1289,
+      "headingsCount": 12,
+      "properHierarchy": true,
+      "keywordsFound": 6,
+      "quality": "good"
+    },
+    {
+      "file": "Guide",
+      "wordCount": 78,
+      "headingsCount": 0,
+      "properHierarchy": true,
+      "keywordsFound": 4,
+      "quality": "needs-improvement"
+    },
+    {
+      "file": "Home",
+      "wordCount": 5986,
+      "headingsCount": 11,
+      "properHierarchy": true,
+      "keywordsFound": 6,
+      "quality": "good"
+    },
+    {
+      "file": "Imprint",
+      "wordCount": 96,
+      "headingsCount": 0,
+      "properHierarchy": true,
+      "keywordsFound": 1,
+      "quality": "needs-improvement"
+    },
+    {
+      "file": "NotFound",
+      "wordCount": 88,
+      "headingsCount": 0,
+      "properHierarchy": true,
+      "keywordsFound": 1,
+      "quality": "needs-improvement"
+    },
+    {
+      "file": "PhotovoltaikKosten",
+      "wordCount": 1139,
+      "headingsCount": 11,
+      "properHierarchy": true,
+      "keywordsFound": 6,
+      "quality": "good"
+    },
+    {
+      "file": "Pricing",
+      "wordCount": 489,
+      "headingsCount": 7,
+      "properHierarchy": true,
+      "keywordsFound": 3,
+      "quality": "good"
+    },
+    {
+      "file": "Privacy",
+      "wordCount": 108,
+      "headingsCount": 0,
+      "properHierarchy": true,
+      "keywordsFound": 1,
+      "quality": "needs-improvement"
+    },
+    {
+      "file": "Projects",
+      "wordCount": 1226,
+      "headingsCount": 4,
+      "properHierarchy": true,
+      "keywordsFound": 5,
+      "quality": "good"
+    },
+    {
+      "file": "Service",
+      "wordCount": 1178,
+      "headingsCount": 6,
+      "properHierarchy": true,
+      "keywordsFound": 3,
+      "quality": "good"
+    },
+    {
+      "file": "Stromspeicher",
+      "wordCount": 647,
+      "headingsCount": 10,
+      "properHierarchy": true,
+      "keywordsFound": 5,
+      "quality": "good"
+    },
+    {
+      "file": "SuccessStories",
+      "wordCount": 1027,
+      "headingsCount": 4,
+      "properHierarchy": true,
+      "keywordsFound": 4,
+      "quality": "good"
+    },
+    {
+      "file": "SuccessStory",
+      "wordCount": 371,
+      "headingsCount": 5,
+      "properHierarchy": true,
+      "keywordsFound": 2,
+      "quality": "good"
+    },
+    {
+      "file": "Technology",
+      "wordCount": 880,
+      "headingsCount": 9,
+      "properHierarchy": false,
+      "keywordsFound": 3,
+      "quality": "needs-improvement"
+    },
+    {
+      "file": "WhyUs",
+      "wordCount": 1074,
+      "headingsCount": 6,
+      "properHierarchy": true,
+      "keywordsFound": 5,
+      "quality": "good"
+    }
+  ]
+}

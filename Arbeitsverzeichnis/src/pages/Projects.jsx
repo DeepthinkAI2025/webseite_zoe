@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Zap, TrendingUp, Calendar, Clock, Star, Award, Users, CheckCircle, Phone, Euro, Home, Shield } from "lucide-react";
+import { MapPin, Zap, TrendingUp, Calendar, Clock, Star, Award, Users, CheckCircle, Phone, Euro, Home, Shield } from "@/components/icons";
 import { Heading } from '@/components/ui/heading';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Pill } from "@/components/ui/pill";

@@ -71,6 +71,7 @@ const ServiceDrawer = ({ isOpen: propIsOpen, onToggle, onClose, className = '' }
         <div
             className={`fixed top-1/2 -translate-y-1/2 right-0 z-[60] ${className}`}
             style={{ width: isOpen ? PANEL_WIDTH + HANDLE_WIDTH : HANDLE_WIDTH }}
+            data-testid="service-drawer"
         >
             {/* Wrapper anchored to right; only panel slides */}
             <div className="relative" style={{ width: PANEL_WIDTH + HANDLE_WIDTH }}>

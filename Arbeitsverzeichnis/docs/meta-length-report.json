@@ -1,7 +1,7 @@
 {
-  "generated": "2025-09-04T23:20:10.665Z",
+  "generated": "2025-09-11T16:47:00.851Z",
   "mode": {
-    "suggest": true,
+    "suggest": false,
     "fix": false
   },
   "rows": [
@@ -248,6 +248,17 @@
       "descSuggested": null
     },
     {
+      "page": "SuccessStory.jsx",
+      "title": "{dynamic}",
+      "titleLength": null,
+      "titleStatus": "dynamic_ok",
+      "description": "{dynamic}",
+      "descLength": null,
+      "descStatus": "dynamic_ok",
+      "titleSuggested": null,
+      "descSuggested": null
+    },
+    {
       "page": "Technology.jsx",
       "title": "Solar Technologie 2025 – Komponenten Leistung Autarkie",
       "titleLength": 54,
@@ -271,7 +282,7 @@
     }
   ],
   "summary": {
-    "checked": 24,
+    "checked": 25,
     "titleOk": 23,
     "descOk": 23
   }

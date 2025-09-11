@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { createPageUrl } from "@/utils";
-import { Phone, Mail, MapPin, CheckCircle, Calculator, Star, Clock, Shield, Award, Users, TrendingUp, Zap } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, Calculator, Star, Clock, Shield, Award, Users, TrendingUp, Zap } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field } from "@/components/ui/field";
@@ -353,9 +353,9 @@ export default function Contact() {
                       <Phone className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Kostenlose Hotline</h3>
-                      <p className="text-emerald-700 font-bold text-lg">0800 - 123 456 789</p>
-                      <p className="text-sm text-neutral-600">Mo-Fr: 8-18 Uhr, Sa: 9-14 Uhr</p>
+                      <h3 className="font-semibold">Telefon</h3>
+                      <p className="text-emerald-700 font-bold text-lg">+49-156-78876200</p>
+                      <p className="text-sm text-neutral-600">24/7 Online-Geschäftszeiten</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -364,7 +364,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold">E-Mail</h3>
-                      <p className="text-blue-600">info@zoesolar.de</p>
+                      <p className="text-blue-600">info@zoe-solar.de</p>
                       <p className="text-sm text-neutral-600">Antwort innerhalb 2h</p>
                     </div>
                   </div>
@@ -373,10 +373,44 @@ export default function Contact() {
                       <MapPin className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Servicezentrum</h3>
-                      <p className="text-neutral-700">Musterstraße 123</p>
-                      <p className="text-neutral-700">12345 Musterstadt</p>
+                      <h3 className="font-semibold">Adresse</h3>
+                      <p className="text-neutral-700">Kurfürstenstraße 124</p>
+                      <p className="text-neutral-700">10785 Berlin, Deutschland</p>
                     </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img src="/Logo-ZOE.png" alt="WhatsApp" className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">WhatsApp</h3>
+                    <a href="https://wa.me/4915678876200" className="text-green-700 font-bold text-lg underline" target="_blank" rel="noopener noreferrer">Jetzt chatten</a>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img src="/Logo-ZOE.png" alt="Social" className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Social Media</h3>
+                    <a href="https://www.linkedin.com/company/91625256/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="mx-1 underline">LinkedIn</a>
+                    <a href="https://www.tiktok.com/@zoe_solar" target="_blank" rel="noopener noreferrer" className="mx-1 underline">TikTok</a>
+                    <a href="https://x.com/_zoe_solar" target="_blank" rel="noopener noreferrer" className="mx-1 underline">X</a>
+                    <a href="https://www.youtube.com/channel/UC8jo_fyVGSPKvRuS2ZWAvyA" target="_blank" rel="noopener noreferrer" className="mx-1 underline">YouTube</a>
+                    <a href="https://www.facebook.com/p/ZOE-Solar-100088899755919/" target="_blank" rel="noopener noreferrer" className="mx-1 underline">Facebook</a>
+                    <a href="https://www.instagram.com/_zoe_solar/" target="_blank" rel="noopener noreferrer" className="mx-1 underline">Instagram</a>
+                    <a href="https://de.pinterest.com/ZOEsolarDE/?actingBusinessId=1137159112069607884" target="_blank" rel="noopener noreferrer" className="mx-1 underline">Pinterest</a>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img src="/Logo-ZOE.png" alt="Info" className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Weitere Infos</h3>
+                    <p className="text-neutral-700">Gründungsdatum: 06.06.2018</p>
+                    <p className="text-neutral-700">Online-Geschäftszeiten: 24/7</p>
+                  </div>
+                </div>
                   </div>
                 </CardContent>
               </Card>

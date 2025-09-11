@@ -27,7 +27,7 @@ import {
   Calendar,
   AlertCircle,
   Quote,
-} from "lucide-react";
+} from "@/components/icons";
 import { useTranslation } from 'react-i18next';
 const SmartPlannerLazy = React.lazy(() => import('@/components/SmartPlanner'));
 
@@ -239,6 +239,8 @@ export default function HomePage() {
         <meta property="og:title" content="ZOE Solar – Unabhängigkeit, die sich rechnet" />
         <meta property="og:description" content="Psychologisch optimierte Startseite: von Problem zu Beweis bis Anfrage – klar, modern, überzeugend." />
         <meta property="og:type" content="website" />
+        <meta name="keywords" content="Solaranlage, Photovoltaik, Festpreis, Stromspeicher, Solarförderung, KfW-Förderung, Einspeisevergütung, Solarertrag, Amortisation, Solarinstallation" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href={(typeof window !== 'undefined' ? window.location.origin : '') + location.pathname} />
   <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -246,7 +248,7 @@ export default function HomePage() {
   <link rel="preload" as="image" href="/homepage/herosection/energy-1322810_1920%20(1).webp" type="image/webp" imagesrcset="/homepage/herosection/energy-1322810_1920%20(1).webp 1920w" imagesizes="(max-width: 1024px) 100vw, 1920px" />
   <script type="application/ld+json">{JSON.stringify(serviceLd)}</script>
   <style>{`@keyframes logoMarquee { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }`}</style>
-  <script type="application/ld+json">{JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'ZOE Solar', url: typeof window !== 'undefined' ? window.location.origin : 'https://example.com', logo: '/Logo-ZOE.png' })}</script>
+  <script type="application/ld+json">{JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'ZOE Solar', url: typeof window !== 'undefined' ? window.location.origin : 'https://example.com', logo: '/Logo-ZOE.png', knowsAbout: ['Photovoltaik', 'Solaranlagen', 'Stromspeicher', 'Solarförderungen', 'KfW-Förderung', 'Einspeisevergütung', 'Solarinstallation', 'Solarertrag', 'Amortisation Solaranlage'] })}</script>
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
@@ -264,11 +266,69 @@ export default function HomePage() {
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: 'Solaranlage planen und installieren',
+          description: 'Schritt-für-Schritt Anleitung zur Planung und Installation einer Photovoltaik-Anlage',
+          step: [
+            {
+              '@type': 'HowToStep',
+              name: 'Bedarf analysieren',
+              text: 'Ermitteln Sie Ihren Stromverbrauch und prüfen Sie Dachausrichtung und -fläche'
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Angebot einholen',
+              text: 'Fordern Sie Festpreisangebote mit transparenter Leistungsbeschreibung an'
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Förderungen prüfen',
+              text: 'Wir übernehmen die Beantragung von KfW-Förderungen und Einspeisevergütungen'
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Installation planen',
+              text: 'Terminvereinbarung und Vorbereitung der Montage mit Netzbetreiber-Abstimmung'
+            }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
           '@type': 'FAQPage',
           mainEntity: [
-            { '@type': 'Question', name: 'Wie realistisch sind die Ertragsprognosen?', acceptedAnswer: { '@type': 'Answer', text: 'Wir rechnen konservativ mit Standortdaten und Verbrauchsprofil. Abweichungen besprechen wir transparent.' }},
-            { '@type': 'Question', name: 'Wie schnell geht die Montage?', acceptedAnswer: { '@type': 'Answer', text: 'Nach Freigabe terminieren wir. Vor Ort dauert es meist 1–2 Tage, inkl. Einweisung.' }},
-            { '@type': 'Question', name: 'Welche Förderungen sind möglich?', acceptedAnswer: { '@type': 'Answer', text: 'Wir prüfen passende Programme, übernehmen die Beantragung und rechnen sie im Angebot ein.' }}
+            { '@type': 'Question', name: 'Wie realistisch sind die Ertragsprognosen?', acceptedAnswer: { '@type': 'Answer', text: 'Wir rechnen konservativ mit Standortdaten und Verbrauchsprofil. Abweichungen besprechen wir transparent – keine Luftschlösser.' }},
+            { '@type': 'Question', name: 'Wie schnell geht die Montage?', acceptedAnswer: { '@type': 'Answer', text: 'Nach Freigabe terminieren wir. Vor Ort dauert es meist 1–2 Tage, inkl. Einweisung. Sauber & pünktlich.' }},
+            { '@type': 'Question', name: 'Welche Förderungen sind möglich?', acceptedAnswer: { '@type': 'Answer', text: 'Wir prüfen passende Programme, übernehmen die Beantragung und rechnen sie im Angebot ein – ohne Mehraufwand für Sie.' }},
+            { '@type': 'Question', name: 'Muss ich vorab zahlen?', acceptedAnswer: { '@type': 'Answer', text: 'Nein, die Zahlungsmodalitäten sind fair gestaffelt und schriftlich geregelt. Keine versteckten Kosten.' }},
+            { '@type': 'Question', name: 'Wie läuft die Anmeldung beim Netzbetreiber?', acceptedAnswer: { '@type': 'Answer', text: 'Wir übernehmen Antrag, Kommunikation und Inbetriebnahmeprotokolle – Sie müssen nichts tun.' }},
+            { '@type': 'Question', name: 'Wie wird die Anlage gewartet?', acceptedAnswer: { '@type': 'Answer', text: 'Monitoring, Sichtprüfung, optionaler Wartungsplan – skalierbar nach Bedarf. Alles inklusive.' }},
+            { '@type': 'Question', name: 'Was kostet eine Solaranlage?', acceptedAnswer: { '@type': 'Answer', text: 'Abhängig von Größe und Ausstattung. Wir bieten Festpreise ab 15.000€ für Komplettanlagen inkl. Montage und Speicher.' }},
+            { '@type': 'Question', name: 'Wie lange dauert die Amortisation?', acceptedAnswer: { '@type': 'Answer', text: 'Bei aktuellen Strompreisen meist 6-8 Jahre. Wir berechnen das individuell mit konservativen Annahmen.' }},
+            { '@type': 'Question', name: 'Brauche ich einen Speicher?', acceptedAnswer: { '@type': 'Answer', text: 'Bei hohem Eigenverbrauch empfehlenswert. Wir prüfen das in der Beratung und bieten verschiedene Optionen.' }},
+            { '@type': 'Question', name: 'Gibt es eine Garantie?', acceptedAnswer: { '@type': 'Answer', text: '25 Jahre auf Module und Leistung, 10 Jahre auf Wechselrichter und Speicher. Meistergeführte Montage mit Gewährleistung.' }}
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'ZOE Solar - Photovoltaik-Anlagen zum Festpreis',
+          description: 'Professionelle Solaranlagen-Installation mit Festpreisgarantie, 25 Jahren Modulgarantie und kostenloser Beratung. Für Privat und Gewerbe.',
+          about: [
+            {
+              '@type': 'Thing',
+              name: 'Photovoltaik-Anlage',
+              description: 'Umwandlung von Sonnenlicht in elektrischen Strom durch Solarpanele'
+            },
+            {
+              '@type': 'Thing',
+              name: 'Stromspeicher',
+              description: 'Batteriespeicher zur Zwischenspeicherung von Solarstrom für höhere Autarkie'
+            },
+            {
+              '@type': 'Thing',
+              name: 'Solarförderung',
+              description: 'Staatliche Förderungen und Zuschüsse für Photovoltaik-Anlagen in Deutschland'
+            }
           ]
         })}</script>
   </Helmet>
@@ -445,6 +505,164 @@ export default function HomePage() {
           </div>
 
           {/* (Auf Wunsch entfernt) FAQ/Einwände-Karten */}
+        </div>
+      </section>
+
+      {/* AI Overviews Q&A Sektion – für bessere Suchmaschinenpräsenz */}
+      <section id="ai-overviews-qa" className="py-16 bg-gradient-to-b from-amber-50/30 to-white reveal">
+        <div className="pro-container text-[17px] md:text-[18px] leading-relaxed content-lg">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900">Solaranlagen: Wichtige Fragen & Antworten</h2>
+            <p className="mt-2 text-lg text-neutral-700">Direkte Antworten auf die häufigsten Fragen zu Photovoltaik, Kosten und Wirtschaftlichkeit.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Q&A Block 1 */}
+            <div className="space-y-4">
+              <div className="rounded-xl border border-neutral-200 p-5 bg-white hover-lift">
+                <div className="font-semibold text-neutral-900 text-lg mb-2">💰 Was kostet eine Solaranlage?</div>
+                <p className="text-neutral-700">Eine Komplettanlage kostet je nach Größe 15.000–50.000€. Wir bieten Festpreise inklusive Montage, Speicher und Netzanschluss. Die Amortisation erfolgt meist in 6–8 Jahren durch Stromkosteneinsparungen.</p>
+              </div>
+
+              <div className="rounded-xl border border-neutral-200 p-5 bg-white hover-lift">
+                <div className="font-semibold text-neutral-900 text-lg mb-2">⚡ Lohnt sich Solarstrom?</div>
+                <p className="text-neutral-700">Bei Strompreisen ab 0,30€/kWh amortisiert sich eine Anlage meist in 7 Jahren. Sie sparen jährlich 1.500–4.000€ an Stromkosten und sind unabhängig von Preiserhöhungen.</p>
+              </div>
+
+              <div className="rounded-xl border border-neutral-200 p-5 bg-white hover-lift">
+                <div className="font-semibold text-neutral-900 text-lg mb-2">🔋 Brauche ich einen Stromspeicher?</div>
+                <p className="text-neutral-700">Bei hohem Eigenverbrauch (&gt;70%) ist ein Speicher sinnvoll. Er erhöht die Autarkie auf 80–90% und macht Sie unabhängiger vom Stromnetz. Kosten: 5.000–15.000€ extra.</p>
+              </div>
+            </div>
+
+            {/* Q&A Block 2 */}
+            <div className="space-y-4">
+              <div className="rounded-xl border border-neutral-200 p-5 bg-white hover-lift">
+                <div className="font-semibold text-neutral-900 text-lg mb-2">📊 Wie hoch ist der Solarertrag?</div>
+                <p className="text-neutral-700">In Deutschland beträgt der Ertrag 800–1.200 kWh/kWp pro Jahr. Bei 10 kWp Anlage sind das 8.000–12.000 kWh Strom pro Jahr – genug für einen 4-Personen-Haushalt.</p>
+              </div>
+
+              <div className="rounded-xl border border-neutral-200 p-5 bg-white hover-lift">
+                <div className="font-semibold text-neutral-900 text-lg mb-2">🏠 Solar für Einfamilienhaus?</div>
+                <p className="text-neutral-700">Ideal für Einfamilienhäuser mit Süddach. 5–10 kWp reichen meist aus. Kosten: 20.000–35.000€. Sie sparen monatlich 150–300€ an Stromkosten.</p>
+              </div>
+
+              <div className="rounded-xl border border-neutral-200 p-5 bg-white hover-lift">
+                <div className="font-semibold text-neutral-900 text-lg mb-2">🏭 Solar für Gewerbe?</div>
+                <p className="text-neutral-700">Für Unternehmen besonders attraktiv durch höhere Strompreise und Steuervorteile. Ab 30 kWp lohnend. ROI oft schon nach 5–6 Jahren. Zusätzlich: Eigenverbrauch statt Netzeinspeisung.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Zusätzliche strukturierte Daten für AI Overviews */}
+          <script type="application/ld+json">{JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'Solaranlagen Kosten und Wirtschaftlichkeit',
+            description: 'Umfassende Informationen zu Photovoltaik-Anlagen: Kosten, Ertrag, Amortisation und Förderungen für Privat und Gewerbe.',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Was kostet eine Solaranlage?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Eine Komplettanlage kostet je nach Größe 15.000–50.000€. Wir bieten Festpreise inklusive Montage, Speicher und Netzanschluss.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Lohnt sich Solarstrom?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Bei Strompreisen ab 0,30€/kWh amortisiert sich eine Anlage meist in 7 Jahren. Sie sparen jährlich 1.500–4.000€.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Brauche ich einen Stromspeicher?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Bei hohem Eigenverbrauch (>70%) ist ein Speicher sinnvoll. Er erhöht die Autarkie auf 80–90%.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Wie hoch ist der Solarertrag?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'In Deutschland beträgt der Ertrag 800–1.200 kWh/kWp pro Jahr. Bei 10 kWp Anlage sind das 8.000–12.000 kWh Strom pro Jahr.'
+                }
+              }
+            ]
+          })}</script>
+        </div>
+      </section>
+
+      {/* Zusätzliche Q&A für AI Overviews – Förderungen & Technik */}
+      <section id="ai-overviews-advanced" className="py-12 bg-white reveal">
+        <div className="pro-container text-[17px] md:text-[18px] leading-relaxed content-lg">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-xl border border-neutral-200 p-5 bg-gradient-to-br from-amber-50/50 to-white hover-lift">
+              <div className="font-semibold text-neutral-900 text-lg mb-3">🎯 Förderungen 2025</div>
+              <div className="space-y-2 text-sm text-neutral-700">
+                <p><strong>KfW-Förderung:</strong> Bis zu 10.000€ Zuschuss für Speicher</p>
+                <p><strong>Einspeisevergütung:</strong> 8,2–13,0 Cent/kWh (abhängig von Größe)</p>
+                <p><strong>Steuervorteile:</strong> Für Gewerbe: Abschreibung in 7 Jahren</p>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-neutral-200 p-5 bg-gradient-to-br from-emerald-50/50 to-white hover-lift">
+              <div className="font-semibold text-neutral-900 text-lg mb-3">⚡ Technische Daten</div>
+              <div className="space-y-2 text-sm text-neutral-700">
+                <p><strong>Modulwirkungsgrad:</strong> 20–22% (aktuelle Generation)</p>
+                <p><strong>Lebensdauer:</strong> 25–30 Jahre mit 80% Restleistung</p>
+                <p><strong>Wartung:</strong> Minimal, jährliche Sichtprüfung empfohlen</p>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-neutral-200 p-5 bg-gradient-to-br from-blue-50/50 to-white hover-lift">
+              <div className="font-semibold text-neutral-900 text-lg mb-3">📈 Wirtschaftlichkeit</div>
+              <div className="space-y-2 text-sm text-neutral-700">
+                <p><strong>ROI Privat:</strong> 6–8 Jahre Amortisation</p>
+                <p><strong>ROI Gewerbe:</strong> 5–7 Jahre bei höheren Strompreisen</p>
+                <p><strong>Inflationsschutz:</strong> Unabhängig von Strompreissteigerungen</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Strukturierte Daten für erweiterte Q&A */}
+          <script type="application/ld+json">{JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'Solaranlagen Förderungen und Technik 2025',
+            description: 'Aktuelle Förderungen, technische Daten und Wirtschaftlichkeitsberechnungen für Photovoltaik-Anlagen in Deutschland.',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Welche Förderungen gibt es für Solaranlagen 2025?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'KfW-Förderung bis zu 10.000€ für Speicher, Einspeisevergütung 8,2–13,0 Cent/kWh, Steuervorteile für Gewerbe.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Wie hoch ist der Wirkungsgrad von Solarpaneelen?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Moderne Module erreichen 20–22% Wirkungsgrad. Die Lebensdauer beträgt 25–30 Jahre mit 80% Restleistung.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Wie lange dauert die Amortisation einer Solaranlage?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Bei Privatkunden 6–8 Jahre, bei Gewerbekunden 5–7 Jahre durch höhere Strompreise und Steuervorteile.'
+                }
+              }
+            ]
+          })}</script>
         </div>
       </section>
 

@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { CalcIcon as Calculator, Car, Sun, ArrowRight, Battery, HomeIcon as Home } from '@/components/icons';
 
 // Klickbasierter 3‑Schritte‑Planer (kein Tippen bis zum Abschluss)
-export default function SmartPlanner({ onResult, persona = 'privat' }) {
+export default function SmartPlanner({ onResult, persona = 'privat', className = '', onClose, onToggle }) {
   const [step, setStep] = useState(1);
   const [roof, setRoof] = useState('sued');
   const [consumption, setConsumption] = useState(4000); // kWh/Jahr (aus Wahlfeldern)
@@ -27,6 +27,18 @@ export default function SmartPlanner({ onResult, persona = 'privat' }) {
       }
     } catch {}
   };
+
+  // ESC schließen
+  React.useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape' && onClose) onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
+  // Motion Reduction
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const roofOptions = [
     { id: 'sued', label: 'Süd' },
@@ -94,7 +106,7 @@ export default function SmartPlanner({ onResult, persona = 'privat' }) {
   );
 
   return (
-    <div className="pro-card p-6 shadow-elevate">
+    <div className="pro-card p-6 shadow-elevate" data-testid="smart-planner">
       <div className="flex items-center gap-2 text-neutral-900 font-semibold mb-2">
         <Calculator className="w-5 h-5 text-blue-600"/>
         {persona==='privat' ? 'Ihre persönliche Ersparnis-Berechnung' : 'Ihre Projekt-ROI in 30 Sekunden'}

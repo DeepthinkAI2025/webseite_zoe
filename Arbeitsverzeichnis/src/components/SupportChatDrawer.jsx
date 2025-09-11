@@ -82,7 +82,7 @@ export default function SupportChatDrawer({ isOpen: propIsOpen, onToggle, onClos
   if (!open) return null;
 
   return (
-    <div className={`fixed inset-0 z-50 ${className}`} aria-modal="true" role="dialog" aria-labelledby="support-chat-heading">
+    <div className={`fixed inset-0 z-50 ${className}`} aria-modal="true" role="dialog" aria-labelledby="support-chat-heading" data-testid="support-chat-drawer">
       <div className="absolute inset-0 bg-black/30" onClick={handleToggle} />
       <FocusLock>
         <div ref={panelRef} className="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl border-l border-neutral-200 flex flex-col outline-none focus-visible:focus-ring" tabIndex="-1" style={{ transition: prefersReducedMotion ? 'none' : 'transform 300ms ease-out' }}>

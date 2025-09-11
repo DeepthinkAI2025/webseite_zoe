@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import FocusLock from 'react-focus-lock';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { X, Mail, CalcIcon as Calc, FileCheck } from '@/components/icons';
@@ -12,18 +13,24 @@ function useTrack() {
   };
 }
 
-function Backdrop({ onClose, children, ariaTitle, labelledById }) {
+function Backdrop({ onClose, children, ariaTitle, labelledById, className = '' }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose?.(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
+
+  // Motion Reduction
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   return (
-    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-3" role="presentation">
+    <div className={`fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-3 ${className}`} role="presentation" style={{ transition: prefersReducedMotion ? 'none' : 'opacity 300ms ease-out' }} data-testid="popup-banner">
       <div className="absolute inset-0 bg-black/30" onClick={onClose} />
-      <div role="dialog" aria-modal="true" {...(labelledById ? { 'aria-labelledby': labelledById } : { 'aria-label': ariaTitle })} className="relative w-full sm:max-w-lg outline-none focus-visible:focus-ring" tabIndex="-1">
-        {children}
-      </div>
+      <FocusLock>
+        <div role="dialog" aria-modal="true" {...(labelledById ? { 'aria-labelledby': labelledById } : { 'aria-label': ariaTitle })} className="relative w-full sm:max-w-lg outline-none focus-visible:focus-ring" tabIndex="-1">
+          {children}
+        </div>
+      </FocusLock>
     </div>
   );
 }

@@ -9,10 +9,12 @@ Diese Webseite ist eine moderne, responsive Single-Page-Application (SPA) für Z
 ### Hauptfunktionen
 - **Responsive Design**: Optimiert für Desktop, Tablet und Mobile.
 - **Mehrsprachig**: Unterstützt Deutsch, Englisch, Französisch und Italienisch via i18next.
-- **Barrierefreiheit**: Axe-Core Audits, Lighthouse A11y Gates, Skip-Links, Fokus-Management.
+- **Barrierefreiheit**: Axe-Core Audits, Lighthouse A11y Gates, Skip-Links, Fokus-Management, ARIA Modal Patterns.
 - **Performance**: Lighthouse Performance Gates, Preact für kleinere Bundles, Lazy Loading, Critical CSS.
 - **SEO**: Strukturierte Daten (JSON-LD), Canonical URLs, Sitemap, Meta-Tags.
-- **CI/CD**: Automatisierte Gates für A11y, SEO und Performance via GitHub Actions.
+- **Testing**: Playwright für Smoketests und Visual Regression, Axe-Core für A11y-Audits.
+- **Moderne Komponenten**: Standardisierte Drawers/Popups mit Props, FocusLock, ESC Handlers, Motion Reduction.
+- **CI/CD**: Automatisierte Gates für A11y, SEO, Performance und Visual Regression via GitHub Actions.
 
 ## Technologien
 
@@ -20,10 +22,11 @@ Diese Webseite ist eine moderne, responsive Single-Page-Application (SPA) für Z
 - **Build-Tool**: Vite für schnelle Entwicklung und Produktions-Builds.
 - **Styling**: Tailwind CSS für Utility-First CSS.
 - **Internationalisierung**: i18next mit on-demand Lokalisierung.
-- **Icons**: Lucide React Icons.
-- **SEO**: react-helmet-async für Meta-Tags.
-- **Testing**: Playwright für Smoketests, Axe-Core für A11y-Audits.
-- **Performance**: Lighthouse CLI und Node API für Messungen.
+- **Icons**: Lucide React Icons mit optimiertem Barrel-Export.
+- **SEO**: react-helmet-async für Meta-Tags, strukturierte Daten (JSON-LD).
+- **Testing**: Playwright für Smoketests und Visual Regression, Axe-Core für A11y-Audits.
+- **Accessibility**: react-focus-lock für Fokus-Trap, prefers-reduced-motion Support.
+- **Performance**: Lighthouse CLI und Node API für Messungen, Critical CSS, Code-Splitting.
 
 ## Projektstruktur
 
@@ -95,6 +98,8 @@ webseite_zoe/
 - `npm run build`: Produktions-Build erstellen.
 - `npm run preview`: Build lokal previewen.
 - `npm run test`: Smoketests mit Playwright ausführen.
+- `npm run test:visual`: Visual Regression Tests ausführen.
+- `npm run test:visual:update`: Visual Regression Snapshots aktualisieren.
 - `npm run audit:a11y`: A11y-Audit mit Axe-Core.
 - `npm run audit:seo`: SEO-Audit.
 - `npm run audit:perf`: Performance-Audit mit Lighthouse.
@@ -108,8 +113,12 @@ webseite_zoe/
 
 Das Projekt verwendet GitHub Actions für automatisierte Qualitätskontrollen:
 - **A11y & SEO Gate**: Axe-Core und Lighthouse A11y Audits (stabil, 3× Zero-Verstöße).
-- **Performance Gate**: Lighthouse Performance mit mobilen Throttling (LCP ≤ 3000ms, INP ≤ 200ms, CLS ≤ 0.1). Hinweis: In der aktuellen Umgebung (Codespace) kann Lighthouse nicht ausgeführt werden, da Chromium nicht installiert ist. In Produktionsumgebungen (z.B. GitHub Actions) läuft das Gate korrekt.
+- **Performance Gate**: Lighthouse Performance mit mobilen Throttling (LCP ≤ 3000ms, INP ≤ 200ms, CLS ≤ 0.1).
+- **Visual Regression**: Playwright-basierte Snapshot-Tests für UI-Konsistenz.
 - **Smoketests**: Playwright für grundlegende Funktionalität.
+- **Icon Gate**: Automatische Prüfung auf ungenutzte Icons im Barrel-Export.
+
+Hinweis: In der aktuellen Umgebung (Codespace) kann Lighthouse nicht ausgeführt werden, da Chromium nicht installiert ist. In Produktionsumgebungen (z.B. GitHub Actions) laufen alle Gates korrekt.
 
 ### Lokale Gates ausführen
 ```bash
@@ -119,9 +128,29 @@ npm run audit:a11y && npm run audit:seo
 # Performance (hartes Gate)
 LH_MODE=mobile ./scripts/lighthouse-gate.sh
 
+# Visual Regression
+npm run test:visual
+
 # Smoketests
 npm run test
 ```
+
+## Neue Features (September 2025)
+
+### Standardisierte Komponenten
+- **Drawers & Popups**: Vereinheitlichte Props-API, FocusLock für Fokus-Trap, ESC Handler, ARIA Modal Patterns
+- **Motion Reduction**: Automatische prefers-reduced-motion Unterstützung für alle animierten Komponenten
+- **Accessibility**: Verbesserte Fokus-Management und Screenreader-Unterstützung
+
+### Visual Regression Testing
+- **Playwright Setup**: Automatisierte UI-Snapshot-Tests für Homepage und Hero-Bereich
+- **Motion Styles**: Separate Tests für reduced-motion Präferenzen
+- **CI Integration**: Snapshot-Vergleiche in der Pipeline zur Verhinderung visueller Regressionen
+
+### Performance Optimierungen
+- **Preact als Standard**: Kleinere Bundles durch VITE_USE_PREACT=1
+- **Critical CSS**: Inline-Hero und Header für schnellere First Paint
+- **Code-Splitting**: Lazy Loading für Navigation und MegaMenu
 
 ## Beitragen
 

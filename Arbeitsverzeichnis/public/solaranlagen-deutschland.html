@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solaranlagen in Deutschland | ZOE Solar Standorte</title>
+    <meta name="description" content="Solaranlagen in ganz Deutschland - finden Sie Ihren lokalen ZOE Solar Partner. Über 39 Standorte für professionelle Photovoltaik-Installation und Beratung.">
+    <meta name="keywords" content="Solaranlagen Deutschland, Photovoltaik Standorte, Solarteur Deutschland, PV-Anlagen Bundesweit, Lokale Solarberatung">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="geo.region" content="DE">
+    <meta name="geo.placename" content="Deutschland">
+    <meta name="geo.position" content="51.1657;10.4515">
+    <meta name="ICBM" content="51.1657, 10.4515">
+
+    <!-- Schema Markup für Deutschland-Übersicht -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ZOE Solar Deutschland",
+      "description": "Bundesweiter Solaranlagen-Spezialist mit über 39 Standorten",
+      "url": "https://zoe-solar.de/solaranlagen-deutschland.html",
+      "logo": "/Logo-ZOE.png",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Deutschland"
+      },
+      "serviceType": [
+        "Solaranlagen-Installation",
+        "Photovoltaik-Beratung",
+        "Energieberatung"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Solaranlagen Deutschlandweit",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solaranlagen Berlin",
+              "url": "/solaranlagen-berlin.html"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solaranlagen Hamburg",
+              "url": "/solaranlagen-hamburg.html"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solaranlagen München",
+              "url": "/solaranlagen-münchen.html"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8fafc;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hero {
+            background: linear-gradient(135deg, #12b3c7 0%, #18b364 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #12b3c7;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .card li:last-child {
+            border-bottom: none;
+        }
+        .card a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card a:hover {
+            color: #12b3c7;
+        }
+        .cta {
+            background: white;
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        .cta p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #12b3c7 0%, #18b364 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .stat {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #12b3c7;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 1.125rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>🌞 Solaranlagen in ganz Deutschland</h1>
+            <p>Ihr bundesweiter Partner für professionelle Photovoltaik-Installation und Beratung</p>
+        </section>
+
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-number">39</div>
+                <div class="stat-label">Standorte</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">16</div>
+                <div class="stat-label">Bundesländer</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Jahre Erfahrung</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Kundenbewertung</div>
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="card">
+                <h3>🏙️ Großstädte</h3>
+                <ul>
+                    <li><a href="/solaranlagen-berlin.html">Berlin</a></li>
+                    <li><a href="/solaranlagen-hamburg.html">Hamburg</a></li>
+                    <li><a href="/solaranlagen-münchen.html">München</a></li>
+                    <li><a href="/solaranlagen-köln.html">Köln</a></li>
+                    <li><a href="/solaranlagen-frankfurt-am-main.html">Frankfurt am Main</a></li>
+                    <li><a href="/solaranlagen-stuttgart.html">Stuttgart</a></li>
+                    <li><a href="/solaranlagen-düsseldorf.html">Düsseldorf</a></li>
+                    <li><a href="/solaranlagen-dortmund.html">Dortmund</a></li>
+                    <li><a href="/solaranlagen-essen.html">Essen</a></li>
+                    <li><a href="/solaranlagen-leipzig.html">Leipzig</a></li>
+                    <li><a href="/solaranlagen-bremen.html">Bremen</a></li>
+                    <li><a href="/solaranlagen-dresden.html">Dresden</a></li>
+                    <li><a href="/solaranlagen-hannover.html">Hannover</a></li>
+                    <li><a href="/solaranlagen-nürnberg.html">Nürnberg</a></li>
+                    <li><a href="/solaranlagen-duisburg.html">Duisburg</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🇩🇪 Bundesländer</h3>
+                <ul>
+                    <li><a href="/solaranlagen-baden-württemberg.html">Baden-Württemberg</a></li>
+                    <li><a href="/solaranlagen-bayern.html">Bayern</a></li>
+                    <li><a href="/solaranlagen-berlin.html">Berlin</a></li>
+                    <li><a href="/solaranlagen-brandenburg.html">Brandenburg</a></li>
+                    <li><a href="/solaranlagen-bremen.html">Bremen</a></li>
+                    <li><a href="/solaranlagen-hamburg.html">Hamburg</a></li>
+                    <li><a href="/solaranlagen-hessen.html">Hessen</a></li>
+                    <li><a href="/solaranlagen-mecklenburg-vorpommern.html">Mecklenburg-Vorpommern</a></li>
+                    <li><a href="/solaranlagen-niedersachsen.html">Niedersachsen</a></li>
+                    <li><a href="/solaranlagen-nordrhein-westfalen.html">Nordrhein-Westfalen</a></li>
+                    <li><a href="/solaranlagen-rheinland-pfalz.html">Rheinland-Pfalz</a></li>
+                    <li><a href="/solaranlagen-saarland.html">Saarland</a></li>
+                    <li><a href="/solaranlagen-sachsen.html">Sachsen</a></li>
+                    <li><a href="/solaranlagen-sachsen-anhalt.html">Sachsen-Anhalt</a></li>
+                    <li><a href="/solaranlagen-schleswig-holstein.html">Schleswig-Holstein</a></li>
+                    <li><a href="/solaranlagen-thüringen.html">Thüringen</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🏞️ Regionen</h3>
+                <ul>
+                    <li><a href="/solaranlagen-ruhrgebiet.html">Ruhrgebiet</a></li>
+                    <li><a href="/solaranlagen-rhein-main-gebiet.html">Rhein-Main-Gebiet</a></li>
+                    <li><a href="/solaranlagen-rhein-neckar.html">Rhein-Neckar</a></li>
+                    <li><a href="/solaranlagen-stuttgart-region.html">Stuttgart-Region</a></li>
+                    <li><a href="/solaranlagen-münchen-region.html">München-Region</a></li>
+                    <li><a href="/solaranlagen-hamburg-region.html">Hamburg-Region</a></li>
+                    <li><a href="/solaranlagen-berlin-region.html">Berlin-Region</a></li>
+                    <li><a href="/solaranlagen-köln-region.html">Köln-Region</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>🚀 Kostenlose Beratung vereinbaren</h2>
+            <p>Lassen Sie sich von unseren Solar-Experten beraten – bundesweit vor Ort</p>
+            <a href="/kontakt" class="btn">Beratungstermin vereinbaren</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -31,7 +31,9 @@ const OUT = 'docs/inp-lab-metrics.json';
   }).listen(0, ()=> { port = server.address().port; console.log('[inp-lab] Embedded static server auf Port', port); });
   }
   const headlessMode = process.env.HEADLESS === '0' ? false : 'new';
-  const browser = await puppeteer.launch({headless: headlessMode, args:[
+  // Für INP-Messungen ist headed-Modus besser (EventTiming funktioniert besser)
+  const useHeadless = process.env.INP_HEADLESS === '1' ? headlessMode : false;
+  const browser = await puppeteer.launch({headless: useHeadless, args:[
     '--no-sandbox','--disable-setuid-sandbox',
     '--enable-blink-features=EventTiming'
   ]});

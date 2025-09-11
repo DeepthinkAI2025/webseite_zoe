@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { ensurePsychology } from '@/i18n_new';
 import { createPageUrl } from "@/utils";
-import { Award, Shield, Zap, Users, CheckCircle, BarChart, Clock, TrendingUp, Star, Quote, Phone, Mail } from "lucide-react";
+import { Award, Shield, Zap, Users, CheckCircle, BarChart, Clock, TrendingUp, Star, Quote, Phone, Mail } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

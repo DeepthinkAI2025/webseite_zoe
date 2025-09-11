@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Section } from '../components/ui/section';
 import { Helmet } from 'react-helmet-async';
-import { Award, Users, TrendingUp, Shield, CheckCircle, Clock, Star, MapPin, Euro, Heart, Zap, Home, Phone } from "lucide-react";
+import { Award, Users, TrendingUp, Shield, CheckCircle, Clock, Star, MapPin, Euro, Heart, Zap, Home, Phone } from "@/components/icons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TestimonialCard } from '@/components/ui/TestimonialCard';
 import { Pill } from "@/components/ui/pill";
@@ -140,8 +140,20 @@ export default function About() {
               Ihr vertrauensvoller Partner für <span className="text-emerald-600">Solarenergie</span>
             </h1>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto mb-8">
-              Seit über 15 Jahren helfen wir Familien und Unternehmen dabei,
-              energieautark zu werden und langfristig Kosten zu sparen.
+              Seit 2018 helfen wir Familien und Unternehmen dabei, energieautark zu werden und langfristig Kosten zu sparen. Unser Hauptsitz ist in Berlin, Kurfürstenstraße 124, 10785 Berlin. Kontakt: <a href="mailto:info@zoe-solar.de" className="text-blue-700 underline">info@zoe-solar.de</a> · Tel: <a href="tel:+4915678876200" className="text-blue-700 underline">+49-156-78876200</a>.
+              <br />
+              <span className="block mt-2">Social: 
+                <a href="https://www.linkedin.com/company/91625256/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="mx-1 underline">LinkedIn</a>
+                <a href="https://www.tiktok.com/@zoe_solar" target="_blank" rel="noopener noreferrer" className="mx-1 underline">TikTok</a>
+                <a href="https://x.com/_zoe_solar" target="_blank" rel="noopener noreferrer" className="mx-1 underline">X</a>
+                <a href="https://www.youtube.com/channel/UC8jo_fyVGSPKvRuS2ZWAvyA" target="_blank" rel="noopener noreferrer" className="mx-1 underline">YouTube</a>
+                <a href="https://www.facebook.com/p/ZOE-Solar-100088899755919/" target="_blank" rel="noopener noreferrer" className="mx-1 underline">Facebook</a>
+                <a href="https://www.instagram.com/_zoe_solar/" target="_blank" rel="noopener noreferrer" className="mx-1 underline">Instagram</a>
+                <a href="https://de.pinterest.com/ZOEsolarDE/?actingBusinessId=1137159112069607884" target="_blank" rel="noopener noreferrer" className="mx-1 underline">Pinterest</a>
+                <a href="https://wa.me/4915678876200" target="_blank" rel="noopener noreferrer" className="mx-1 underline">WhatsApp</a>
+              </span>
+              <span className="block mt-2">Online-Geschäftszeiten: 24/7</span>
+              <span className="block mt-2">Gründungsdatum: 06.06.2018</span>
             </p>
             <div className="flex items-center justify-center space-x-6 text-sm text-neutral-500">
               <div className="flex items-center">

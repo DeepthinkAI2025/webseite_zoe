@@ -17,7 +17,7 @@ import {
   Users,
   Euro,
   Home
-} from "lucide-react";
+} from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Pill } from "@/components/ui/pill";

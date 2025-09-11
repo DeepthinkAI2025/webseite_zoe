@@ -1,72 +1,7 @@
 {
-  "generated": "2025-09-04T14:04:38.367Z",
-  "totalFiles": 22,
+  "generated": "2025-09-11T16:23:23.272Z",
+  "totalFiles": 7,
   "entries": [
-    {
-      "file": "components/PopupBanners.jsx",
-      "imported": [
-        "X",
-        "Mail",
-        "Calculator as Calc",
-        "FileCheck"
-      ],
-      "count": 4,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "components/ServiceDrawer.jsx",
-      "imported": [
-        "ChevronLeft",
-        "ChevronRight",
-        "ArrowRight",
-        "Phone",
-        "ShieldCheck",
-        "Clock",
-        "MessageCircle",
-        "HelpCircle"
-      ],
-      "count": 8,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "components/Sidebar.jsx",
-      "imported": [
-        "Home",
-        "Calculator",
-        "Award",
-        "Shield",
-        "Users",
-        "Wrench",
-        "Zap",
-        "BookOpen",
-        "BadgeCheck"
-      ],
-      "count": 9,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "components/SmartPlanner.jsx",
-      "imported": [
-        "Calculator",
-        "Car",
-        "Sun",
-        "ArrowRight",
-        "Battery",
-        "Home"
-      ],
-      "count": 6,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "components/SupportChatDrawer.jsx",
-      "imported": [
-        "X",
-        "Send",
-        "PhoneCall"
-      ],
-      "count": 3,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
     {
       "file": "components/icons/index.js",
       "imported": [
@@ -96,39 +31,6 @@
       "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
     },
     {
-      "file": "pages/Blog.jsx",
-      "imported": [
-        "Calendar",
-        "ArrowRight"
-      ],
-      "count": 2,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/BlogPost.jsx",
-      "imported": [
-        "ArrowLeft"
-      ],
-      "count": 1,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/Calculator.jsx",
-      "imported": [
-        "Calculator as CalculatorIcon",
-        "TrendingUp",
-        "Clock",
-        "Award",
-        "Users",
-        "Zap",
-        "Euro",
-        "Home",
-        "Shield"
-      ],
-      "count": 9,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
       "file": "pages/Contact.jsx",
       "imported": [
         "Phone",
@@ -145,97 +47,6 @@
         "Zap"
       ],
       "count": 12,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/Contact_new.jsx",
-      "imported": [
-        "Clock",
-        "Star",
-        "TrendingUp",
-        "Award",
-        "Shield",
-        "Zap",
-        "CheckCircle",
-        "HelpCircle",
-        "AlertTriangle",
-        "Phone",
-        "Calculator as CalculatorIcon",
-        "Sun",
-        "Battery",
-        "BarChart",
-        "Leaf",
-        "Users",
-        "Wrench",
-        "Lock",
-        "ArrowRight",
-        "MapPin",
-        "Check",
-        "X",
-        "Mail",
-        "Globe",
-        "Building",
-        "Factory",
-        "Home",
-        "Calendar",
-        "Info",
-        "PhoneCall",
-        "DollarSign",
-        "FileText",
-        "PieChart",
-        "HardDrive",
-        "Server",
-        "Cpu",
-        "Settings",
-        "Smartphone",
-        "Thermometer",
-        "Activity",
-        "Cloud",
-        "Truck",
-        "AlertCircle"
-      ],
-      "count": 43,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/Faq.jsx",
-      "imported": [
-        "ChevronDown",
-        "ChevronUp",
-        "Clock",
-        "HelpCircle",
-        "Shield",
-        "Euro",
-        "Zap",
-        "Home",
-        "Phone",
-        "Award",
-        "CheckCircle",
-        "Star"
-      ],
-      "count": 12,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/Financing.jsx",
-      "imported": [
-        "Sun",
-        "Euro",
-        "Shield",
-        "Clock",
-        "CheckCircle",
-        "AlertTriangle",
-        "Calculator",
-        "Phone",
-        "Award",
-        "Users",
-        "Star",
-        "Gift",
-        "Zap",
-        "Battery",
-        "Leaf"
-      ],
-      "count": 15,
       "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
     },
     {
@@ -259,14 +70,6 @@
         "Quote"
       ],
       "count": 16,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/HomeTestimonials.lazy.jsx",
-      "imported": [
-        "Quote"
-      ],
-      "count": 1,
       "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
     },
     {
@@ -307,63 +110,6 @@
         "Shield"
       ],
       "count": 13,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/Service.jsx",
-      "imported": [
-        "Wrench",
-        "Shield",
-        "Clock",
-        "CheckCircle",
-        "Phone",
-        "Award",
-        "Users",
-        "Star",
-        "Zap",
-        "Home",
-        "AlertTriangle",
-        "Calendar"
-      ],
-      "count": 12,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/SuccessStories.jsx",
-      "imported": [
-        "Star",
-        "MapPin",
-        "Calendar",
-        "TrendingUp",
-        "Euro",
-        "Home",
-        "Users",
-        "Award",
-        "Clock",
-        "CheckCircle",
-        "Phone",
-        "Zap",
-        "Heart"
-      ],
-      "count": 13,
-      "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
-    },
-    {
-      "file": "pages/Technology.jsx",
-      "imported": [
-        "Cpu",
-        "BatteryCharging",
-        "PanelTop",
-        "CheckCircle",
-        "TrendingUp",
-        "Award",
-        "Zap",
-        "Shield",
-        "BarChart",
-        "Clock",
-        "Calculator"
-      ],
-      "count": 11,
       "suggestion": "Importiere aus '@/components/icons' für Tree-Shaking Kontrolle."
     },
     {
