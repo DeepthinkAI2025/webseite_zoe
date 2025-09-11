@@ -1,0 +1,53 @@
+{
+  "generated": "2025-09-11T15:33:12.002Z",
+  "base": "http://localhost:4173",
+  "thresholds": {
+    "lcp": 2500,
+    "cls": 0.1,
+    "inp": 200
+  },
+  "results": [
+    {
+      "page": "/",
+      "error": "Command failed: npx --yes lighthouse http://localhost:4173/ --only-categories=performance --output=json --quiet  --form-factor=mobile --throttling-method=provided --chrome-path='/home/codespace/.cache/puppeteer/chrome/linux-139.0.7258.154/chrome-linux64/chrome' --chrome-flags='--headless=new --no-sandbox --disable-gpu'",
+      "attempts": 2,
+      "lcp": null,
+      "fcp": null,
+      "inp": null,
+      "ttfb": null,
+      "cls": null
+    },
+    {
+      "page": "/whyus",
+      "error": "Command failed: npx --yes lighthouse http://localhost:4173/whyus --only-categories=performance --output=json --quiet  --form-factor=mobile --throttling-method=provided --chrome-path='/home/codespace/.cache/puppeteer/chrome/linux-139.0.7258.154/chrome-linux64/chrome' --chrome-flags='--headless=new --no-sandbox --disable-gpu'",
+      "attempts": 2,
+      "lcp": null,
+      "fcp": null,
+      "inp": null,
+      "ttfb": null,
+      "cls": null
+    },
+    {
+      "page": "/technology",
+      "error": "Command failed: npx --yes lighthouse http://localhost:4173/technology --only-categories=performance --output=json --quiet  --form-factor=mobile --throttling-method=provided --chrome-path='/home/codespace/.cache/puppeteer/chrome/linux-139.0.7258.154/chrome-linux64/chrome' --chrome-flags='--headless=new --no-sandbox --disable-gpu'",
+      "attempts": 2,
+      "lcp": null,
+      "fcp": null,
+      "inp": null,
+      "ttfb": null,
+      "cls": null
+    },
+    {
+      "page": "/contact",
+      "error": "Command failed: npx --yes lighthouse http://localhost:4173/contact --only-categories=performance --output=json --quiet  --form-factor=mobile --throttling-method=provided --chrome-path='/home/codespace/.cache/puppeteer/chrome/linux-139.0.7258.154/chrome-linux64/chrome' --chrome-flags='--headless=new --no-sandbox --disable-gpu'",
+      "attempts": 2,
+      "lcp": null,
+      "fcp": null,
+      "inp": null,
+      "ttfb": null,
+      "cls": null
+    }
+  ],
+  "compliance": [],
+  "allPassed": 0
+}

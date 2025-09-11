@@ -1,6 +1,6 @@
 {
-  "generated": "2025-09-11T12:13:19.371Z",
-  "base": "http://localhost:4173",
+  "generated": "2025-09-11T14:50:33.230Z",
+  "base": "http://localhost:5173",
   "mode": "mobile",
   "thresholds": {
     "lcp": 2500,
@@ -12,67 +12,67 @@
       "page": "/",
       "mode": "mobile",
       "attempts": 1,
-      "lcp": 3066,
+      "lcp": 6316,
       "cls": 0,
-      "inp": 3066,
-      "fcp": 3066,
-      "ttfb": 2,
-      "performanceScore": 88
+      "inp": 6316,
+      "fcp": 3137,
+      "ttfb": 4,
+      "performanceScore": 71
     },
     {
       "page": "/whyus",
       "mode": "mobile",
       "attempts": 1,
-      "lcp": 3086,
+      "lcp": 6171,
       "cls": 0,
-      "inp": 3086,
-      "fcp": 3086,
-      "ttfb": 2,
-      "performanceScore": 88
+      "inp": 6171,
+      "fcp": 3109,
+      "ttfb": 1,
+      "performanceScore": 72
     },
     {
       "page": "/technology",
       "mode": "mobile",
       "attempts": 1,
-      "lcp": 3071,
+      "lcp": 6172,
       "cls": 0,
-      "inp": 3071,
+      "inp": 6172,
       "fcp": 3071,
-      "ttfb": 1,
-      "performanceScore": 88
+      "ttfb": 2,
+      "performanceScore": 72
     },
     {
       "page": "/contact",
       "mode": "mobile",
       "attempts": 1,
-      "lcp": 3100,
+      "lcp": 6161,
       "cls": 0,
-      "inp": 3100,
-      "fcp": 3100,
-      "ttfb": 1,
-      "performanceScore": 88
+      "inp": 6161,
+      "fcp": 3053,
+      "ttfb": 3,
+      "performanceScore": 72
     },
     {
       "page": "/pricing",
       "mode": "mobile",
       "attempts": 1,
-      "lcp": 3079,
+      "lcp": 6164,
       "cls": 0,
-      "inp": 3079,
-      "fcp": 3079,
-      "ttfb": 2,
-      "performanceScore": 88
+      "inp": 6164,
+      "fcp": 3067,
+      "ttfb": 1,
+      "performanceScore": 72
     },
     {
       "page": "/projects",
       "mode": "mobile",
       "attempts": 1,
-      "lcp": 3065,
+      "lcp": 6178,
       "cls": 0,
-      "inp": 3065,
-      "fcp": 3065,
+      "inp": 6178,
+      "fcp": 3118,
       "ttfb": 1,
-      "performanceScore": 88
+      "performanceScore": 72
     }
   ],
   "compliance": [

@@ -293,9 +293,9 @@ export default function HomePage() {
   >
         <div aria-hidden className="absolute inset-0 -z-10">
           <picture>
-            <source type="image/avif" srcSet="/homepage/herosection/energy-1322810_1920%20(1).avif 1920w" sizes="(max-width: 1024px) 100vw, 1920px" />
-            <source type="image/webp" srcSet="/homepage/herosection/energy-1322810_1920%20(1).webp 1920w" sizes="(max-width: 1024px) 100vw, 1920px" />
-            <img src="/homepage/herosection/energy-1322810_1920%20(1).jpg" alt="Photovoltaik auf Dach" className="w-full h-full object-cover" loading="eager" decoding="async" fetchpriority="high" width="1920" height="1279" />
+            <source type="image/avif" srcSet="/homepage/herosection/energy-1322810_1920(1).avif 1920w" sizes="(max-width: 1024px) 100vw, 1920px" />
+            <source type="image/webp" srcSet="/homepage/herosection/energy-1322810_1920(1).webp 1920w" sizes="(max-width: 1024px) 100vw, 1920px" />
+            <img src="/homepage/herosection/energy-1322810_1920(1).jpg" alt="Photovoltaik auf Dach" className="w-full h-full object-cover" loading="eager" decoding="async" fetchpriority="high" width="1920" height="1279" srcSet="/homepage/herosection/energy-1322810_1920(1).avif 1920w, /homepage/herosection/energy-1322810_1920(1).webp 1920w, /homepage/herosection/energy-1322810_1920(1).jpg 1920w" sizes="(max-width: 1024px) 100vw, 1920px" />
           </picture>
           <div className="absolute inset-0 bg-black/60" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/50 to-transparent" />

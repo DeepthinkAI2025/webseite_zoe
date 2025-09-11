@@ -42,9 +42,10 @@ const results = [];
 const chromePath = puppeteer.executablePath();
 const MODE = process.env.LH_MODE || 'desktop'; // 'desktop' oder 'mobile'
 const baseFlags = `--chrome-path='${chromePath}' --chrome-flags='--headless=new --no-sandbox --disable-gpu'`;
-const preset = MODE === 'mobile' ? 'mobile' : 'desktop';
+const preset = MODE === 'mobile' ? '' : '--preset=desktop';
+const mobileFlags = MODE === 'mobile' ? '--form-factor=mobile --throttling-method=provided' : '';
 function runLighthouse(url){
-  return execSync(`npx --yes lighthouse ${url} --only-categories=performance --output=json --quiet --preset=${preset} ${baseFlags}`, { stdio: 'pipe', maxBuffer: 20*1024*1024 });
+  return execSync(`npx --yes lighthouse ${url} --only-categories=performance --output=json --quiet ${preset} ${mobileFlags} ${baseFlags}`, { stdio: 'pipe', maxBuffer: 20*1024*1024 });
 }
 for(const p of PAGES){
   const url = BASE + p;
