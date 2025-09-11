@@ -5,7 +5,7 @@ export function Checkbox({ id, checked, onCheckedChange }) {
     <input
       id={id}
       type="checkbox"
-      className="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+      className="h-4 w-4 rounded border-neutral-300 text-emerald-600 focus:ring-emerald-500"
       checked={!!checked}
       onChange={(e) => onCheckedChange && onCheckedChange(e.target.checked)}
     />

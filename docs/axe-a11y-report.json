@@ -1,0 +1,46 @@
+{
+  "generated": "2025-09-03T14:33:39.782Z",
+  "base": "http://localhost:4173",
+  "totals": {
+    "pages": 4,
+    "violations": 1
+  },
+  "results": [
+    {
+      "page": "/",
+      "url": "http://localhost:4173/",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".focus-visible\\:ring-white\\/50 > .inline-flex"
+              ],
+              "html": "<span class=\"inline-flex items-center gap-2\">15‑Min‑Mini‑Beratung</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "/whyus",
+      "url": "http://localhost:4173/whyus",
+      "violations": []
+    },
+    {
+      "page": "/technology",
+      "url": "http://localhost:4173/technology",
+      "violations": []
+    },
+    {
+      "page": "/contact",
+      "url": "http://localhost:4173/contact",
+      "violations": []
+    }
+  ]
+}

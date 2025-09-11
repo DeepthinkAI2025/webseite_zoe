@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { ChevronDown, ChevronUp, Clock, HelpCircle, Shield, Euro, Zap, Home, Phone, Award, CheckCircle, Star } from 'lucide-react';
+import { ChevronDown, ChevronUp, Clock, HelpCircle, Shield, Euro, Zap, HomeIcon as Home, Phone, Award, CheckCircle, Star } from '@/components/icons';
+import { Heading } from '@/components/ui/heading';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { TestimonialCard } from '@/components/ui/TestimonialCard';
 import { Pill } from '@/components/ui/pill';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import { Section } from '@/components/ui/section';
 
 export default function Faq() {
   const { t } = useTranslation();
@@ -187,7 +190,7 @@ export default function Faq() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Helmet>
-        <title>Solar FAQ: Alle Fragen zu Kosten, Technik & Garantie | ZOE Solar</title>
+  <title>Solar FAQ 2025 – Kosten Technik Garantie Autarkie DE</title>
         <meta name="description" content="Solar-FAQ: Kosten, Amortisation, Garantie, Installation beantwortet. €35.000 Ersparnis, 6-8 Jahre Amortisation, 25 Jahre Garantie. Kostenlose Beratung." />
         <meta property="og:title" content="Solar-FAQ: Ihre Fragen zu Photovoltaik beantwortet" />
         <meta property="og:description" content="Alles über Solaranlagen: Von €8.000 Kosten bis 85% Autarkie. Transparente Antworten auf Ihre Fragen." />
@@ -198,42 +201,39 @@ export default function Faq() {
 
       {/* Urgency Banner */}
       <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center space-x-6">
+        <div className="pro-container flex items-center justify-center space-x-6">
           <Clock className="w-5 h-5" />
           <span className="font-semibold">🔥 €1.500 Bonus endet in:</span>
           <div className="flex space-x-2">
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.days}</div>
               <div className="text-xs sm:text-sm">Tage</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.hours}</div>
               <div className="text-xs sm:text-sm">Std</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.minutes}</div>
               <div className="text-xs sm:text-sm">Min</div>
             </div>
           </div>
-          <Button className="bg-white text-red-600 hover:bg-gray-100 font-semibold px-4 py-2">
+          <Button className="bg-white text-red-600 hover:bg-neutral-100 font-semibold px-4 py-2">
             Jetzt sichern!
           </Button>
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Hero Section */}
+  <Section padding="normal" variant="gradient" className="bg-gradient-to-br from-blue-50 to-indigo-50" size="wide">
           <div className="text-center mb-16">
-            <Pill variant="light" className="mb-4">Häufige Fragen</Pill>
-            <h1 className="heading-1 text-gray-900 mb-6">
-              Ihre Fragen, <span className="text-blue-600">unsere Antworten</span>
-            </h1>
-            <p className="lead text-gray-600 max-w-3xl mx-auto mb-8">
+            <Pill variant="soft" color="neutral" className="mb-4">Häufige Fragen</Pill>
+            <Heading as="h1" size="4xl" className="text-neutral-900 mb-6">Ihre Fragen, <span className="text-blue-600">unsere Antworten</span></Heading>
+            <p className="lead text-neutral-600 max-w-3xl mx-auto mb-8">
               Transparente Antworten auf alle wichtigen Fragen zu Solaranlagen.
               Keine Überraschungen, nur klare Fakten.
             </p>
-            <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+            <div className="flex items-center justify-center space-x-6 text-sm text-neutral-500">
               <div className="flex items-center">
                 <HelpCircle className="w-4 h-4 mr-1 text-blue-600" />
                 16+ wichtige Fragen
@@ -248,13 +248,11 @@ export default function Faq() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+  </Section>
 
-      {/* FAQ Categories */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
+    {/* FAQ Categories */}
+    <Section padding="normal" variant="plain" size="narrow">
+      <div className="flow">
             {faqCategories.map((category, categoryIndex) => (
               <Card key={categoryIndex} className="pro-card">
                 <CardHeader>
@@ -265,21 +263,22 @@ export default function Faq() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {category.questions.map((item) => (
-                    <div key={item.id} className="border border-gray-200 rounded-lg">
-                      <button
+                    <div key={item.id} className="border border-neutral-200 rounded-lg">
+                      <Button
+                        variant="ghost"
                         onClick={() => toggleItem(item.id)}
-                        className="w-full text-left p-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
-                      >
-                        <span className="font-semibold text-gray-900">{item.question}</span>
-                        {openItems.has(item.id) ? (
-                          <ChevronUp className="w-5 h-5 text-gray-500" />
+                        className="w-full text-left p-4 flex items-center justify-between hover:bg-neutral-50 transition-colors"
+                        iconEnd={openItems.has(item.id) ? (
+                          <ChevronUp className="w-5 h-5 text-neutral-500" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                          <ChevronDown className="w-5 h-5 text-neutral-500" />
                         )}
-                      </button>
+                      >
+                        <span className="font-semibold text-neutral-900">{item.question}</span>
+                      </Button>
                       {openItems.has(item.id) && (
                         <div className="px-4 pb-4">
-                          <p className="text-gray-700 leading-relaxed">{item.answer}</p>
+                          <p className="text-neutral-700 leading-relaxed">{item.answer}</p>
                         </div>
                       )}
                     </div>
@@ -287,13 +286,11 @@ export default function Faq() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
+      </div>
+    </Section>
 
-      {/* Authority Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Authority Section */}
+  <Section padding="tight" variant="plain" size="wide">
           <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
             <CardContent className="p-8">
               <div className="flex items-start space-x-6">
@@ -301,11 +298,11 @@ export default function Faq() {
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <p className="text-gray-700 italic text-lg leading-relaxed mb-4">
+                  <p className="text-neutral-700 italic text-lg leading-relaxed mb-4">
                     "Die FAQ von ZOE Solar ist ungewöhnlich umfassend und transparent.
                     Sie beantwortet wirklich alle wichtigen Fragen, die Kunden haben."
                   </p>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-neutral-600">
                     <strong>Dr. Michael Krause</strong> • Qualitätsmanagement • TÜV Rheinland •
                     <span className="text-blue-600 font-semibold"> Solar-Inspektionsbehörde</span>
                   </div>
@@ -313,37 +310,30 @@ export default function Faq() {
               </div>
             </CardContent>
           </Card>
-        </div>
-      </section>
+  </Section>
 
-      {/* Social Proof */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Social Proof */}
+  <Section padding="tight" variant="neutral" size="wide">
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Was unsere Kunden sagen</h2>
-            <p className="text-gray-600">Transparente Beratung, klare Antworten</p>
+            <h2 className="text-2xl font-bold text-neutral-900 mb-4">Was unsere Kunden sagen</h2>
+            <p className="text-neutral-600">Transparente Beratung, klare Antworten</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white">
-                <CardContent className="p-6 text-center">
-                  <div className="flex justify-center mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 italic mb-3">"{testimonial.text}"</p>
-                  <p className="text-sm font-semibold text-gray-900">{testimonial.name}</p>
-                </CardContent>
-              </Card>
+          <div className="cols-3-responsive gap-6 flow">
+            {testimonials.map((t,i)=>(
+              <TestimonialCard
+                key={i}
+                name={t.name}
+                text={t.text}
+                rating={t.rating}
+                variant="glass"
+              />
             ))}
           </div>
-        </div>
-      </section>
+  </Section>
 
       {/* Loss Aversion Reminder */}
-      <section className="py-16 bg-gradient-to-r from-red-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Section padding="tight" variant="gradient" className="bg-gradient-to-r from-red-50 to-orange-50" size="wide">
+        <div className="text-center">
           <div className="flex items-center justify-center mb-4">
             <Euro className="w-6 h-6 text-red-600 mr-2" />
             <h3 className="text-2xl font-bold text-red-700">Noch Fragen offen?</h3>
@@ -353,12 +343,12 @@ export default function Faq() {
             in 20 Jahren €48.000 mehr für Strom. Jetzt handeln lohnt sich!
           </p>
         </div>
-      </section>
+      </Section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12">
+      <Section padding="normal" variant="gradient" className="bg-gradient-to-r from-blue-600 to-green-600" size="wide">
+        <div className="text-center">
+          <div className="bg-white rounded-2xl p-12 flow border border-neutral-200 shadow-sm">
             <h2 className="text-3xl font-bold text-white mb-6">
               Alle Fragen beantwortet? Dann los geht's!
             </h2>
@@ -367,10 +357,10 @@ export default function Faq() {
               Solar-Konzept mit genauer Kalkulation.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
+                className="bg-white text-blue-600 hover:bg-neutral-100 font-semibold px-8 py-4 text-lg"
                 onClick={() => window.location.href = '/kontakt'}
               >
                 <Phone className="w-5 h-5 mr-2" />
@@ -379,7 +369,7 @@ export default function Faq() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg"
+                className="border-white text-white hover:bg-white/20 hover:text-neutral-900 font-semibold px-8 py-4 text-lg transition-colors"
                 onClick={() => window.location.href = '/calculator'}
               >
                 <Zap className="w-5 h-5 mr-2" />
@@ -388,7 +378,7 @@ export default function Faq() {
             </div>
 
             {/* Reciprocity */}
-            <Card className="bg-white/20 border-white/30 max-w-2xl mx-auto">
+            <Card className="bg-white border border-neutral-200 shadow-sm max-w-2xl mx-auto">
               <CardContent className="p-6 text-center">
                 <div className="flex items-center justify-center mb-3">
                   <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
@@ -402,7 +392,7 @@ export default function Faq() {
             </Card>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

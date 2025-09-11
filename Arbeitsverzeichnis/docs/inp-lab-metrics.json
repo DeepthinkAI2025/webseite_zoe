@@ -1,0 +1,18 @@
+{
+  "totalEvents": 0,
+  "interactionEvents": 3,
+  "worst": {
+    "name": "pointerdown",
+    "startTime": 763.7000000011176,
+    "duration": 24
+  },
+  "p98": {
+    "name": "keydown",
+    "startTime": 7077.800000000745,
+    "duration": 9.5
+  },
+  "maxDuration": 24,
+  "generated": "2025-09-04T20:48:31.283Z",
+  "source": "manual-fallback",
+  "webVitalsINP": null
+}

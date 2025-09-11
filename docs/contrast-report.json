@@ -1,0 +1,29 @@
+{
+  "issues": [],
+  "missingMappings": {
+    "light": [
+      "text-white|bg-amber-800"
+    ],
+    "dark": [
+      "text-white|bg-amber-800"
+    ]
+  },
+  "usedMappings": {
+    "light": [
+      "text-amber-800|bg-white",
+      "text-neutral-700|bg-white",
+      "text-neutral-800|bg-white",
+      "text-neutral-900|bg-white",
+      "text-white|bg-amber-800",
+      "text-white|bg-neutral-900"
+    ],
+    "dark": [
+      "text-amber-800|bg-white",
+      "text-neutral-700|bg-white",
+      "text-neutral-800|bg-white",
+      "text-neutral-900|bg-white",
+      "text-white|bg-amber-800",
+      "text-white|bg-neutral-900"
+    ]
+  }
+}

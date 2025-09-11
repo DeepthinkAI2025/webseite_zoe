@@ -1,0 +1,20 @@
+name: icon-gate
+on:
+  pull_request:
+
+jobs:
+  icon-barrel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install app
+        run: |
+          cd Arbeitsverzeichnis
+          npm ci --no-audit --no-fund
+      - name: Icon Gate
+        run: |
+          cd Arbeitsverzeichnis
+          npm run gate:icons

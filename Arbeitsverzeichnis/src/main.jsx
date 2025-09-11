@@ -4,8 +4,10 @@ import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App'
 import './styles/index.css'
-import './i18n'
+import './i18n_new'
+import { preloadLocale } from './i18n_new'
 import { setReduceMotion, setContrast, getUIPreferences } from './utils'
+import { trackDesignMigrationComplete } from './utils/tracking'
 
 function applyUIPreferences() {
   const root = document.documentElement
@@ -31,6 +33,9 @@ function applyUIPreferences() {
 
 applyUIPreferences()
 
+// Fire design migration completion event (idempotent guarded)
+trackDesignMigrationComplete('v3.3')
+
 // Optionally re-apply on storage changes across tabs
 window.addEventListener('storage', (e) => {
   if (e.key === 'ui:reduce-motion' || e.key === 'ui:contrast') applyUIPreferences()
@@ -48,9 +53,20 @@ if (typeof window !== 'undefined') {
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
-      <BrowserRouter>
+  {/* React Router v7 Future Flags aktiviert (vorwärtskompatibles Verhalten) */}
+  <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <App />
       </BrowserRouter>
     </HelmetProvider>
   </React.StrictMode>
 )
+
+// Predictively preload other common locales after idle
+if (window.requestIdleCallback) {
+  requestIdleCallback(() => {
+    ['en','fr','it'].forEach(l => preloadLocale(l));
+    import('./utils/rum.js').catch(()=>{});
+  }, { timeout: 2000 });
+} else {
+  setTimeout(() => { ['en','fr','it'].forEach(l => preloadLocale(l)); import('./utils/rum.js').catch(()=>{}); }, 1500);
+}

@@ -1,0 +1,237 @@
+{
+  "generated": "2025-09-04T20:24:43.506Z",
+  "base": "http://localhost:4174",
+  "results": [
+    {
+      "page": "/",
+      "score": 100,
+      "failingCount": 10,
+      "failing": [
+        {
+          "id": "custom-controls-labels",
+          "title": "Custom controls have associated labels",
+          "score": null
+        },
+        {
+          "id": "custom-controls-roles",
+          "title": "Custom controls have ARIA roles",
+          "score": null
+        },
+        {
+          "id": "focus-traps",
+          "title": "User focus is not accidentally trapped in a region",
+          "score": null
+        },
+        {
+          "id": "focusable-controls",
+          "title": "Interactive controls are keyboard focusable",
+          "score": null
+        },
+        {
+          "id": "interactive-element-affordance",
+          "title": "Interactive elements indicate their purpose and state",
+          "score": null
+        },
+        {
+          "id": "logical-tab-order",
+          "title": "The page has a logical tab order",
+          "score": null
+        },
+        {
+          "id": "managed-focus",
+          "title": "The user's focus is directed to new content added to the page",
+          "score": null
+        },
+        {
+          "id": "offscreen-content-hidden",
+          "title": "Offscreen content is hidden from assistive technology",
+          "score": null
+        },
+        {
+          "id": "use-landmarks",
+          "title": "HTML5 landmark elements are used to improve navigation",
+          "score": null
+        },
+        {
+          "id": "visual-order-follows-dom",
+          "title": "Visual order on the page follows DOM order",
+          "score": null
+        }
+      ]
+    },
+    {
+      "page": "/whyus",
+      "score": 100,
+      "failingCount": 10,
+      "failing": [
+        {
+          "id": "custom-controls-labels",
+          "title": "Custom controls have associated labels",
+          "score": null
+        },
+        {
+          "id": "custom-controls-roles",
+          "title": "Custom controls have ARIA roles",
+          "score": null
+        },
+        {
+          "id": "focus-traps",
+          "title": "User focus is not accidentally trapped in a region",
+          "score": null
+        },
+        {
+          "id": "focusable-controls",
+          "title": "Interactive controls are keyboard focusable",
+          "score": null
+        },
+        {
+          "id": "interactive-element-affordance",
+          "title": "Interactive elements indicate their purpose and state",
+          "score": null
+        },
+        {
+          "id": "logical-tab-order",
+          "title": "The page has a logical tab order",
+          "score": null
+        },
+        {
+          "id": "managed-focus",
+          "title": "The user's focus is directed to new content added to the page",
+          "score": null
+        },
+        {
+          "id": "offscreen-content-hidden",
+          "title": "Offscreen content is hidden from assistive technology",
+          "score": null
+        },
+        {
+          "id": "use-landmarks",
+          "title": "HTML5 landmark elements are used to improve navigation",
+          "score": null
+        },
+        {
+          "id": "visual-order-follows-dom",
+          "title": "Visual order on the page follows DOM order",
+          "score": null
+        }
+      ]
+    },
+    {
+      "page": "/technology",
+      "score": 100,
+      "failingCount": 10,
+      "failing": [
+        {
+          "id": "custom-controls-labels",
+          "title": "Custom controls have associated labels",
+          "score": null
+        },
+        {
+          "id": "custom-controls-roles",
+          "title": "Custom controls have ARIA roles",
+          "score": null
+        },
+        {
+          "id": "focus-traps",
+          "title": "User focus is not accidentally trapped in a region",
+          "score": null
+        },
+        {
+          "id": "focusable-controls",
+          "title": "Interactive controls are keyboard focusable",
+          "score": null
+        },
+        {
+          "id": "interactive-element-affordance",
+          "title": "Interactive elements indicate their purpose and state",
+          "score": null
+        },
+        {
+          "id": "logical-tab-order",
+          "title": "The page has a logical tab order",
+          "score": null
+        },
+        {
+          "id": "managed-focus",
+          "title": "The user's focus is directed to new content added to the page",
+          "score": null
+        },
+        {
+          "id": "offscreen-content-hidden",
+          "title": "Offscreen content is hidden from assistive technology",
+          "score": null
+        },
+        {
+          "id": "use-landmarks",
+          "title": "HTML5 landmark elements are used to improve navigation",
+          "score": null
+        },
+        {
+          "id": "visual-order-follows-dom",
+          "title": "Visual order on the page follows DOM order",
+          "score": null
+        }
+      ]
+    },
+    {
+      "page": "/contact",
+      "score": 100,
+      "failingCount": 10,
+      "failing": [
+        {
+          "id": "custom-controls-labels",
+          "title": "Custom controls have associated labels",
+          "score": null
+        },
+        {
+          "id": "custom-controls-roles",
+          "title": "Custom controls have ARIA roles",
+          "score": null
+        },
+        {
+          "id": "focus-traps",
+          "title": "User focus is not accidentally trapped in a region",
+          "score": null
+        },
+        {
+          "id": "focusable-controls",
+          "title": "Interactive controls are keyboard focusable",
+          "score": null
+        },
+        {
+          "id": "interactive-element-affordance",
+          "title": "Interactive elements indicate their purpose and state",
+          "score": null
+        },
+        {
+          "id": "logical-tab-order",
+          "title": "The page has a logical tab order",
+          "score": null
+        },
+        {
+          "id": "managed-focus",
+          "title": "The user's focus is directed to new content added to the page",
+          "score": null
+        },
+        {
+          "id": "offscreen-content-hidden",
+          "title": "Offscreen content is hidden from assistive technology",
+          "score": null
+        },
+        {
+          "id": "use-landmarks",
+          "title": "HTML5 landmark elements are used to improve navigation",
+          "score": null
+        },
+        {
+          "id": "visual-order-follows-dom",
+          "title": "Visual order on the page follows DOM order",
+          "score": null
+        }
+      ]
+    }
+  ],
+  "minScore": 100,
+  "avgScore": 100,
+  "target": 95
+}

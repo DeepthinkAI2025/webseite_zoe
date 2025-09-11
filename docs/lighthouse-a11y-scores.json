@@ -1,0 +1,23 @@
+{
+  "generated": "2025-09-03T13:35:18.262Z",
+  "base": "http://localhost:4173",
+  "results": [
+    {
+      "page": "/",
+      "error": "Browser start failed"
+    },
+    {
+      "page": "/whyus",
+      "error": "Browser start failed"
+    },
+    {
+      "page": "/technology",
+      "error": "Browser start failed"
+    },
+    {
+      "page": "/contact",
+      "error": "Browser start failed"
+    }
+  ],
+  "minScore": null
+}

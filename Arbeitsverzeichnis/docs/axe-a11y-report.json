@@ -1,0 +1,472 @@
+{
+  "generated": "2025-09-08T12:20:16.942Z",
+  "base": "http://localhost:4173",
+  "totals": {
+    "pagesLight": 4,
+    "pagesDark": 4,
+    "violationsLight": 6,
+    "violationsDark": 54
+  },
+  "light": [
+    {
+      "page": "/",
+      "url": "http://localhost:4173/",
+      "theme": "light",
+      "violations": []
+    },
+    {
+      "page": "/warum-zoe",
+      "url": "http://localhost:4173/warum-zoe",
+      "theme": "light",
+      "violations": []
+    },
+    {
+      "page": "/technologie",
+      "url": "http://localhost:4173/technologie",
+      "theme": "light",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".transition-shadow.bg-\\[hsl\\(var\\(--card\\)\\)\\].text-\\[hsl\\(var\\(--card-foreground\\)\\)\\]:nth-child(1) > .pb-6.px-6 > .md\\:grid-cols-2.gap-8.grid > .bg-red-50.border-red-200.p-6 > ul > .justify-between:nth-child(3) > .text-red-600.font-medium"
+              ],
+              "html": "<span class=\"font-medium text-red-600\">Hohe Ausfallrate</span>"
+            },
+            {
+              "target": [
+                ".transition-shadow.bg-\\[hsl\\(var\\(--card\\)\\)\\].text-\\[hsl\\(var\\(--card-foreground\\)\\)\\]:nth-child(1) > .pb-6.px-6 > .md\\:grid-cols-2.gap-8.grid > .bg-green-50.border-green-200.p-6 > ul > .justify-between:nth-child(3) > .text-green-600.font-medium"
+              ],
+              "html": "<span class=\"font-medium text-green-600\">Minimale Ausfälle</span>"
+            },
+            {
+              "target": [
+                ".transition-shadow.bg-\\[hsl\\(var\\(--card\\)\\)\\].text-\\[hsl\\(var\\(--card-foreground\\)\\)\\]:nth-child(2) > .pb-6.px-6 > .md\\:grid-cols-2.gap-8.grid > .bg-red-50.border-red-200.p-6 > ul > .justify-between:nth-child(3) > .text-red-600.font-medium"
+              ],
+              "html": "<span class=\"font-medium text-red-600\">Keine Notstromfunktion</span>"
+            },
+            {
+              "target": [
+                ".transition-shadow.bg-\\[hsl\\(var\\(--card\\)\\)\\].text-\\[hsl\\(var\\(--card-foreground\\)\\)\\]:nth-child(2) > .pb-6.px-6 > .md\\:grid-cols-2.gap-8.grid > .bg-green-50.border-green-200.p-6 > ul > .justify-between:nth-child(3) > .text-green-600.font-medium"
+              ],
+              "html": "<span class=\"font-medium text-green-600\">Notstrom + Monitoring</span>"
+            },
+            {
+              "target": [
+                ".transition-shadow.bg-\\[hsl\\(var\\(--card\\)\\)\\].text-\\[hsl\\(var\\(--card-foreground\\)\\)\\]:nth-child(3) > .pb-6.px-6 > .md\\:grid-cols-2.gap-8.grid > .bg-red-50.border-red-200.p-6 > ul > .justify-between:nth-child(3) > .text-red-600.font-medium"
+              ],
+              "html": "<span class=\"font-medium text-red-600\">Brandgefahr höher</span>"
+            },
+            {
+              "target": [
+                ".transition-shadow.bg-\\[hsl\\(var\\(--card\\)\\)\\].text-\\[hsl\\(var\\(--card-foreground\\)\\)\\]:nth-child(3) > .pb-6.px-6 > .md\\:grid-cols-2.gap-8.grid > .bg-green-50.border-green-200.p-6 > ul > .justify-between:nth-child(3) > .text-green-600.font-medium"
+              ],
+              "html": "<span class=\"font-medium text-green-600\">Maximale Sicherheit</span>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "/kontakt",
+      "url": "http://localhost:4173/kontakt",
+      "theme": "light",
+      "violations": []
+    }
+  ],
+  "dark": [
+    {
+      "page": "/",
+      "url": "http://localhost:4173/",
+      "theme": "dark",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".group.border-transparent[href$=\"rechner\"] > .text-neutral-800.flex.gap-2 > .font-medium"
+              ],
+              "html": "<span class=\"font-medium\">Solarrechner</span>"
+            },
+            {
+              "target": [
+                ".hover\\:underline"
+              ],
+              "html": "<a href=\"tel:+49123456789\" class=\"flex items-center gap-2 font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 rounded\">"
+            },
+            {
+              "target": [
+                ".logo-text"
+              ],
+              "html": "<span class=\"hidden sm:block font-semibold text-neutral-800 logo-text\">ZOE Solar</span>"
+            },
+            {
+              "target": [
+                ".transition > span:nth-child(2)"
+              ],
+              "html": "<span>Light</span>"
+            },
+            {
+              "target": [
+                ".w-\\[260px\\]"
+              ],
+              "html": "<input type=\"text\" placeholder=\"Frag uns: Speichergröße? Förderung? kWp?\" class=\"w-[260px] px-3 py-1.5 text-sm rounded-full border border-neutral-300 bg-white placeholder:text-neutral-400 focus:outline-none focus:border-neutral-400 focus-visible:focus-ring\">"
+            },
+            {
+              "target": [
+                ".dark\\:border-neutral-600"
+              ],
+              "html": "<a href=\"/rechner\" class=\"hidden sm:inline-flex items-center nav-item border border-neutral-300 dark:border-neutral-600 dark:text-neutral-200 \">Solarrechner</a>"
+            },
+            {
+              "target": [
+                ".bg-amber-50.border-amber-200.sm\\:text-sm"
+              ],
+              "html": "<div class=\"inline-flex items-center gap-2 bg-amber-50 text-amber-800 border border-amber-200 rounded-full px-3 py-1 text-xs sm:text-sm font-semibold\">Beweise</div>"
+            },
+            {
+              "target": [
+                ".gap-10 > .lg\\:col-span-5 > .bg-\\[hsl\\(var\\(--card\\)\\)\\].text-\\[hsl\\(var\\(--card-foreground\\)\\)\\].border-\\[hsl\\(var\\(--border\\)\\)\\] > .pb-6.p-6.px-6 > .p-4.mt-6.bg-amber-50"
+              ],
+              "html": "<div class=\"mt-6 p-4 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-sm\">Fair &amp; risikofrei: Keine Verpflichtung. Festpreis vorbehaltlich Vor‑Ort‑Check. Keine versteckten Kosten.</div>"
+            },
+            {
+              "target": [
+                ".bg-amber-100"
+              ],
+              "html": "<span class=\"absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-amber-800 bg-amber-100 border border-amber-200 rounded-full px-2 py-0.5\">Empfohlen</span>"
+            },
+            {
+              "target": [
+                ".sm\\:w-auto"
+              ],
+              "html": "<div class=\"flex items-center gap-2 text-base text-amber-800 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5 w-full sm:w-auto mx-auto mt-6\">"
+            },
+            {
+              "target": [
+                "a[href$=\"impressum\"]"
+              ],
+              "html": "<a href=\"/impressum\" class=\"hover:text-blue-600\">Impressum</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"datenschutz\"]"
+              ],
+              "html": "<a href=\"/datenschutz\" class=\"hover:text-blue-600\">Datenschutz</a>"
+            },
+            {
+              "target": [
+                "nav[aria-label=\"Footer Navigation\"] > .hover\\:text-blue-600[href$=\"projekte\"]"
+              ],
+              "html": "<a href=\"/projekte\" class=\"hover:text-blue-600\">Projekte</a>"
+            },
+            {
+              "target": [
+                "nav[aria-label=\"Footer Navigation\"] > .hover\\:text-blue-600[href$=\"kontakt\"]"
+              ],
+              "html": "<a href=\"/kontakt\" class=\"hover:text-blue-600\">Kontakt</a>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "/warum-zoe",
+      "url": "http://localhost:4173/warum-zoe",
+      "theme": "dark",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".group.border-transparent[href$=\"rechner\"] > .gap-2.text-neutral-800.flex > .font-medium"
+              ],
+              "html": "<span class=\"font-medium\">Solarrechner</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"faq\"] > .gap-2.text-neutral-800.flex > .font-medium"
+              ],
+              "html": "<span class=\"font-medium\">Häufige Fragen (FAQ)</span>"
+            },
+            {
+              "target": [
+                ".text-blue-700"
+              ],
+              "html": "<a href=\"tel:+49123456789\" class=\"flex items-center gap-2 font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 rounded\">"
+            },
+            {
+              "target": [
+                ".hover\\:bg-neutral-50 > span:nth-child(2)"
+              ],
+              "html": "<span>Light</span>"
+            },
+            {
+              "target": [
+                "input"
+              ],
+              "html": "<input type=\"text\" placeholder=\"Frag uns: Speichergröße? Förderung? kWp?\" class=\"w-[260px] px-3 py-1.5 text-sm rounded-full border border-neutral-300 bg-white placeholder:text-neutral-400 focus:outline-none focus:border-neutral-400 focus-visible:focus-ring\">"
+            },
+            {
+              "target": [
+                ".dark\\:border-neutral-600"
+              ],
+              "html": "<a href=\"/rechner\" class=\"hidden sm:inline-flex items-center nav-item border border-neutral-300 dark:border-neutral-600 dark:text-neutral-200 \">Solarrechner</a>"
+            },
+            {
+              "target": [
+                ".text-red-700"
+              ],
+              "html": "<p class=\"text-lg text-red-700 mb-6\">rising_costs_desc</p>"
+            },
+            {
+              "target": [
+                ".text-emerald-700.mb-4"
+              ],
+              "html": "<p class=\"text-emerald-700 mb-4\">Wir analysieren Ihr Dach kostenlos und zeigen Ihnen das genaue Einsparpotenzial – ohne Verpflichtung.</p>"
+            },
+            {
+              "target": [
+                ".btn-outline-primary > .inline-flex.gap-2"
+              ],
+              "html": "<span class=\"inline-flex items-center gap-2\">"
+            },
+            {
+              "target": [
+                "a[href$=\"impressum\"]"
+              ],
+              "html": "<a href=\"/impressum\" class=\"hover:text-blue-600\">Impressum</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"datenschutz\"]"
+              ],
+              "html": "<a href=\"/datenschutz\" class=\"hover:text-blue-600\">Datenschutz</a>"
+            },
+            {
+              "target": [
+                "nav[aria-label=\"Footer Navigation\"] > .hover\\:text-blue-600[href$=\"projekte\"]"
+              ],
+              "html": "<a href=\"/projekte\" class=\"hover:text-blue-600\">Projekte</a>"
+            },
+            {
+              "target": [
+                "nav[aria-label=\"Footer Navigation\"] > .hover\\:text-blue-600[href$=\"kontakt\"]"
+              ],
+              "html": "<a href=\"/kontakt\" class=\"hover:text-blue-600\">Kontakt</a>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "/technologie",
+      "url": "http://localhost:4173/technologie",
+      "theme": "dark",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".group.border-transparent[href$=\"rechner\"] > .gap-2.text-neutral-800.flex > .font-medium"
+              ],
+              "html": "<span class=\"font-medium\">Solarrechner</span>"
+            },
+            {
+              "target": [
+                ".group.border-transparent[href$=\"kontakt\"] > .gap-2.text-neutral-800.flex > .font-medium"
+              ],
+              "html": "<span class=\"font-medium\">Online Kontaktanfrage</span>"
+            },
+            {
+              "target": [
+                ".hover\\:underline"
+              ],
+              "html": "<a href=\"tel:+49123456789\" class=\"flex items-center gap-2 font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 rounded\">"
+            },
+            {
+              "target": [
+                ".hover\\:bg-neutral-50 > span:nth-child(2)"
+              ],
+              "html": "<span>Light</span>"
+            },
+            {
+              "target": [
+                "input"
+              ],
+              "html": "<input type=\"text\" placeholder=\"Frag uns: Speichergröße? Förderung? kWp?\" class=\"w-[260px] px-3 py-1.5 text-sm rounded-full border border-neutral-300 bg-white placeholder:text-neutral-400 focus:outline-none focus:border-neutral-400 focus-visible:focus-ring\">"
+            },
+            {
+              "target": [
+                ".dark\\:border-neutral-600"
+              ],
+              "html": "<a href=\"/rechner\" class=\"hidden sm:inline-flex items-center nav-item border border-neutral-300 dark:border-neutral-600 dark:text-neutral-200 \">Solarrechner</a>"
+            },
+            {
+              "target": [
+                ".btn-outline-primary > .inline-flex.gap-2.items-center"
+              ],
+              "html": "<span class=\"inline-flex items-center gap-2\">Technische Beratung</span>"
+            },
+            {
+              "target": [
+                "a[href$=\"impressum\"]"
+              ],
+              "html": "<a href=\"/impressum\" class=\"hover:text-blue-600\">Impressum</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"datenschutz\"]"
+              ],
+              "html": "<a href=\"/datenschutz\" class=\"hover:text-blue-600\">Datenschutz</a>"
+            },
+            {
+              "target": [
+                "nav[aria-label=\"Footer Navigation\"] > .hover\\:text-blue-600[href$=\"projekte\"]"
+              ],
+              "html": "<a href=\"/projekte\" class=\"hover:text-blue-600\">Projekte</a>"
+            },
+            {
+              "target": [
+                "nav[aria-label=\"Footer Navigation\"] > .hover\\:text-blue-600[href$=\"kontakt\"]"
+              ],
+              "html": "<a href=\"/kontakt\" class=\"hover:text-blue-600\">Kontakt</a>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "/kontakt",
+      "url": "http://localhost:4173/kontakt",
+      "theme": "dark",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.9/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".group.border-transparent[href$=\"rechner\"] > .text-neutral-800.gap-2.items-center > .font-medium"
+              ],
+              "html": "<span class=\"font-medium\">Solarrechner</span>"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .group.border-transparent.hover\\:border-neutral-200 > .text-neutral-800.gap-2.items-center > .font-medium"
+              ],
+              "html": "<span class=\"font-medium\">Online Kontaktanfrage</span>"
+            },
+            {
+              "target": [
+                ".hover\\:underline"
+              ],
+              "html": "<a href=\"tel:+49123456789\" class=\"flex items-center gap-2 font-semibold text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand/50 rounded\">"
+            },
+            {
+              "target": [
+                ".hover\\:bg-neutral-50 > span:nth-child(2)"
+              ],
+              "html": "<span>Light</span>"
+            },
+            {
+              "target": [
+                ".w-\\[260px\\]"
+              ],
+              "html": "<input type=\"text\" placeholder=\"Frag uns: Speichergröße? Förderung? kWp?\" class=\"w-[260px] px-3 py-1.5 text-sm rounded-full border border-neutral-300 bg-white placeholder:text-neutral-400 focus:outline-none focus:border-neutral-400 focus-visible:focus-ring\">"
+            },
+            {
+              "target": [
+                ".dark\\:border-neutral-600"
+              ],
+              "html": "<a href=\"/rechner\" class=\"hidden sm:inline-flex items-center nav-item border border-neutral-300 dark:border-neutral-600 dark:text-neutral-200 \">Solarrechner</a>"
+            },
+            {
+              "target": [
+                ".sm\\:grid-cols-2.grid.gap-4:nth-child(3) > .field.flex-col.flex:nth-child(2) > .relative > .hover\\:border-neutral-400.text-left[aria-haspopup=\"listbox\"] > .text-neutral-600"
+              ],
+              "html": "<span class=\"text-neutral-600\">Wählen Sie...</span>"
+            },
+            {
+              "target": [
+                ".field.flex-col.flex:nth-child(1) > .relative > .hover\\:border-neutral-400.text-left[aria-haspopup=\"listbox\"] > .text-neutral-600"
+              ],
+              "html": "<span class=\"text-neutral-600\">Wählen Sie...</span>"
+            },
+            {
+              "target": [
+                ".space-y-4:nth-child(2) > .sm\\:grid-cols-2.grid.gap-4 > .field.flex-col.flex:nth-child(2) > .relative > .hover\\:border-neutral-400.text-left[aria-haspopup=\"listbox\"] > .text-neutral-600"
+              ],
+              "html": "<span class=\"text-neutral-600\">Wählen Sie...</span>"
+            },
+            {
+              "target": [
+                ".space-y-4:nth-child(2) > .field.flex-col.flex > .relative > .hover\\:border-neutral-400.text-left[aria-haspopup=\"listbox\"] > .text-neutral-600"
+              ],
+              "html": "<span class=\"text-neutral-600\">Wählen Sie Ihren Bereich...</span>"
+            },
+            {
+              "target": [
+                ".block[href$=\"rechner\"] > .btn-outline-primary.justify-start[type=\"button\"] > .inline-flex.gap-2.items-center"
+              ],
+              "html": "<span class=\"inline-flex items-center gap-2\">"
+            },
+            {
+              "target": [
+                ".block[href$=\"preise-kosten\"] > .btn-outline-primary.justify-start[type=\"button\"] > .inline-flex.gap-2.items-center"
+              ],
+              "html": "<span class=\"inline-flex items-center gap-2\">"
+            },
+            {
+              "target": [
+                "a[href$=\"impressum\"]"
+              ],
+              "html": "<a href=\"/impressum\" class=\"hover:text-blue-600\">Impressum</a>"
+            },
+            {
+              "target": [
+                "a[href$=\"datenschutz\"]"
+              ],
+              "html": "<a href=\"/datenschutz\" class=\"hover:text-blue-600\">Datenschutz</a>"
+            },
+            {
+              "target": [
+                "nav[aria-label=\"Footer Navigation\"] > .hover\\:text-blue-600[href$=\"projekte\"]"
+              ],
+              "html": "<a href=\"/projekte\" class=\"hover:text-blue-600\">Projekte</a>"
+            },
+            {
+              "target": [
+                ".hover\\:text-blue-600[href$=\"kontakt\"]"
+              ],
+              "html": "<a href=\"/kontakt\" class=\"hover:text-blue-600\">Kontakt</a>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

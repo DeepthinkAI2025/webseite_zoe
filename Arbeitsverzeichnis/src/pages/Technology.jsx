@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { createPageUrl } from "@/utils";
-import { Cpu, BatteryCharging, PanelTop, CheckCircle, TrendingUp, Award, Zap, Shield, BarChart, Clock, Calculator } from "lucide-react";
+import { Cpu, BatteryCharging, PanelTop, CheckCircle, TrendingUp, Award, Zap, Shield, BarChart, Clock, CalcIcon as Calculator } from "@/components/icons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Pill } from "@/components/ui/pill";
 import { Button } from "@/components/ui/button";
@@ -66,8 +66,8 @@ export default function Technology() {
   return (
     <div className="bg-white">
       <Helmet>
-        <title>Solaranlagen-Technologie – Premium-Komponenten | ZOE Solar</title>
-        <meta name="description" content="Bifaziale Glas-Glas-Module, Hybrid-Wechselrichter, sichere LiFePO4-Speicher – für maximale Erträge & Autarkie." />
+  <title>Solar Technologie 2025 – Komponenten Leistung Autarkie</title>
+  <meta name="description" content="Solar Technologie 2025: Bifaziale Module, Hybrid Wechselrichter, LiFePO4 Speicher – Performance, Langlebigkeit & intelligente Autarkie Strategien für Planung." />
         <meta property="og:title" content="Solaranlagen-Technologie – Premium-Komponenten | ZOE Solar" />
         <meta property="og:description" content="Bifaziale Glas-Glas-Module, Hybrid-Wechselrichter, sichere LiFePO4-Speicher – für maximale Erträge & Autarkie." />
         <meta property="og:type" content="website" />
@@ -76,12 +76,12 @@ export default function Technology() {
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-white py-20">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div className="pro-container text-center">
           <Pill variant="light" className="mb-4">Premium-Komponenten</Pill>
-          <h1 className="heading-1 text-gray-800">
+          <h1 className="heading-1 text-neutral-800">
             Technologie, die für Sie arbeitet.
           </h1>
-          <p className="lead text-gray-600 max-w-3xl mx-auto mt-6">
+          <p className="lead text-neutral-600 max-w-3xl mx-auto mt-6">
             Eine Solaranlage ist nur so gut wie ihre schwächste Komponente. Deshalb setzen wir kompromisslos auf die besten Produkte am Markt.
           </p>
 
@@ -90,8 +90,8 @@ export default function Technology() {
             {techStats.map((stat, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-lg pro-card">
                 <stat.icon className="w-8 h-8 text-blue-600 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-gray-800">{stat.value}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-3xl font-bold text-neutral-800">{stat.value}</div>
+                <div className="text-sm text-neutral-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -100,10 +100,10 @@ export default function Technology() {
 
       {/* Components Section */}
       <section className="py-24">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="pro-container">
           <div className="text-center mb-16">
-            <h2 className="heading-2 text-gray-800">Premium-Komponenten für maximale Leistung</h2>
-            <p className="lead text-gray-600 mt-4">Jede Komponente wurde sorgfältig ausgewählt für optimale Performance und Langlebigkeit</p>
+            <h2 className="heading-2 text-neutral-800">Premium-Komponenten für maximale Leistung</h2>
+            <p className="lead text-neutral-600 mt-4">Jede Komponente wurde sorgfältig ausgewählt für optimale Performance und Langlebigkeit</p>
           </div>
 
           <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
@@ -115,30 +115,30 @@ export default function Technology() {
                       <c.icon className="w-8 h-8"/>
                     </div>
                     <div>
-                      <CardTitle className="text-xl text-gray-800">{c.name}</CardTitle>
+                      <CardTitle className="text-xl text-neutral-800">{c.name}</CardTitle>
                       <Pill variant="light" className="mt-2">{c.feature}</Pill>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-6">{c.description}</p>
+                  <p className="text-neutral-600 mb-6">{c.description}</p>
 
                   {/* Technical Specs */}
                   <div className="mb-6">
-        <h4 className="font-semibold text-gray-800 mb-3">Technische Vorteile:</h4>
+  <h4 className="font-semibold text-neutral-800 mb-3">Technische Vorteile:</h4>
         <ul className="space-y-2 text-base sm:text-lg">
                       {c.specs.map((spec, i) => (
                         <li key={i} className="flex items-center space-x-2">
                           <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-          <span className="text-gray-600">{spec}</span>
+          <span className="text-neutral-600">{spec}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <p className="text-sm font-semibold text-gray-500 mb-2">Wir verbauen u.a.:</p>
+                  <p className="text-sm font-semibold text-neutral-600 mb-2">Wir verbauen u.a.:</p>
                   <div className="flex flex-wrap gap-2">
-                    {c.brands.map(b => <Pill key={b} variant="light" className="bg-gray-100 border-gray-200">{b}</Pill>)}
+                    {c.brands.map(b => <Pill key={b} variant="light" className="bg-neutral-100 border-neutral-200">{b}</Pill>)}
                   </div>
                 </CardContent>
               </Card>
@@ -148,11 +148,11 @@ export default function Technology() {
       </section>
 
       {/* Comparison Section */}
-      <section className="bg-gray-50 py-24">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section className="bg-neutral-50 py-24">
+        <div className="pro-container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold text-gray-800 tracking-tight">Warum Premium-Komponenten sich lohnen</h2>
-            <p className="mt-4 text-xl text-gray-600">Der Vergleich zeigt: Günstig kann teuer werden</p>
+            <h2 className="text-3xl font-extrabold text-neutral-800 tracking-tight">Warum Premium-Komponenten sich lohnen</h2>
+            <p className="mt-4 text-xl text-neutral-600">Der Vergleich zeigt: Günstig kann teuer werden</p>
           </div>
 
           <div className="space-y-8">
@@ -168,7 +168,7 @@ export default function Technology() {
                       <ul className="space-y-2 text-base sm:text-lg">
                         <li className="flex justify-between"><span>Wirkungsgrad:</span><span className="font-medium">{comp.cheap.efficiency}</span></li>
                         <li className="flex justify-between"><span>Garantie:</span><span className="font-medium">{comp.cheap.warranty}</span></li>
-                        <li className="flex justify-between"><span>Risiko:</span><span className="font-medium text-red-600">{comp.cheap.risk}</span></li>
+                        <li className="flex justify-between"><span>Risiko:</span><span className="font-medium text-red-700">{comp.cheap.risk}</span></li>
                       </ul>
                     </div>
 
@@ -177,7 +177,7 @@ export default function Technology() {
                       <ul className="space-y-2 text-base sm:text-lg">
                         <li className="flex justify-between"><span>Wirkungsgrad:</span><span className="font-medium">{comp.premium.efficiency}</span></li>
                         <li className="flex justify-between"><span>Garantie:</span><span className="font-medium">{comp.premium.warranty}</span></li>
-                        <li className="flex justify-between"><span>Vorteil:</span><span className="font-medium text-green-600">{comp.premium.risk}</span></li>
+                        <li className="flex justify-between"><span>Vorteil:</span><span className="font-medium text-green-700">{comp.premium.risk}</span></li>
                       </ul>
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export default function Technology() {
 
       {/* Authority Section */}
       <section className="py-20">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="pro-container">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-12 text-white text-center">
             <Award className="w-16 h-16 mx-auto mb-6 text-blue-200" />
             <h2 className="text-3xl font-extrabold mb-4">TÜV-zertifizierte Qualität</h2>
@@ -199,20 +199,20 @@ export default function Technology() {
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white/10 rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 border border-neutral-200 shadow-sm">
                 <Shield className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">Sicherheit</h3>
-                <p className="text-sm text-blue-100">Alle Komponenten TÜV-geprüft und VDE-zertifiziert</p>
+                <p className="text-sm text-blue-700">Alle Komponenten TÜV-geprüft und VDE-zertifiziert</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 border border-neutral-200 shadow-sm">
                 <BarChart className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">Performance</h3>
-                <p className="text-sm text-blue-100">Über 23% Wirkungsgrad für maximale Erträge</p>
+                <p className="text-sm text-blue-700">Über 23% Wirkungsgrad für maximale Erträge</p>
               </div>
-              <div className="bg-white/10 rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 border border-neutral-200 shadow-sm">
                 <Clock className="w-8 h-8 mx-auto mb-3" />
                 <h3 className="font-semibold mb-2">Langlebigkeit</h3>
-                <p className="text-sm text-blue-100">30+ Jahre Garantie auf Leistung und Qualität</p>
+                <p className="text-sm text-blue-700">30+ Jahre Garantie auf Leistung und Qualität</p>
               </div>
             </div>
           </div>
@@ -220,14 +220,14 @@ export default function Technology() {
       </section>
 
       {/* ROI Calculator CTA */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section className="py-20 bg-neutral-50">
+        <div className="pro-container">
           <div className="max-w-4xl mx-auto text-center">
             <Calculator className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-            <h2 className="text-3xl font-extrabold text-gray-800 mb-4">
+            <h2 className="text-3xl font-extrabold text-neutral-800 mb-4">
               Berechnen Sie Ihre Ersparnis
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-neutral-600 mb-8">
               Erfahren Sie genau, wie viel Sie mit unserer Premium-Technologie sparen können.
             </p>
 

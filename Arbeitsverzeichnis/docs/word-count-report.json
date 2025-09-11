@@ -1,0 +1,17 @@
+{
+  "generated": "2025-09-05T17:04:12.300Z",
+  "pages": [
+    {
+      "file": "src/pages/PhotovoltaikKosten.jsx",
+      "wordCount": 808
+    },
+    {
+      "file": "src/pages/Stromspeicher.jsx",
+      "wordCount": 445
+    },
+    {
+      "file": "src/pages/SuccessStory.jsx",
+      "wordCount": 221
+    }
+  ]
+}

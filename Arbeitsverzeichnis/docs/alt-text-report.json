@@ -1,0 +1,14 @@
+{
+  "generated": "2025-09-08T14:07:46.699Z",
+  "filesScanned": 101,
+  "totalImages": 12,
+  "counts": {
+    "okLiteral": 5,
+    "okExpression": 7,
+    "okDecorativeEmpty": 0,
+    "issues": 0,
+    "missingAlt": 0,
+    "emptyAlt": 0
+  },
+  "issues": []
+}

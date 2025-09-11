@@ -1,0 +1,42 @@
+name: perf-nightly
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # nightly at 02:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  perf-hard-gate:
+    name: Lighthouse Performance Gate (mobile, throttled)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: |
+          npm install --no-fund --no-audit
+          npm -w Arbeitsverzeichnis install --no-fund --no-audit
+
+      - name: Run Lighthouse Gate (mobile throttled)
+        working-directory: Arbeitsverzeichnis
+        env:
+          LH_MODE: mobile
+          THRESHOLD_LCP: '3000'  # mobile budget initial
+          THRESHOLD_CLS: '0.10'
+          THRESHOLD_INP: '200'
+        run: npm run gate:lighthouse
+
+      - name: Upload perf report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-perf-nightly
+          path: |
+            Arbeitsverzeichnis/docs/lighthouse-perf-metrics.json

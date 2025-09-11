@@ -4,9 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { TestimonialCard } from '@/components/ui/TestimonialCard';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from 'react-i18next';
-import { Calculator as CalculatorIcon, TrendingUp, Clock, Award, Users, Zap, Euro, Home, Shield } from 'lucide-react';
+import { CalcIcon as CalculatorIcon, TrendingUp, Clock, Award, Users, Zap, Euro, HomeIcon as Home, Shield } from '@/components/icons';
+import { Heading } from '@/components/ui/heading';
 
 export default function Calculator() {
   const { t } = useTranslation();
@@ -101,52 +103,55 @@ export default function Calculator() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Helmet>
-        <title>Solar-Rechner: Berechnen Sie Ihre Ersparnis | ZOE Solar</title>
-        <meta name="description" content="Kostenloser Solar-Rechner: Dachfläche eingeben und sofort Ersparnis, Amortisation und Autarkie berechnen. Experten-Tool mit TÜV-zertifizierten Berechnungen." />
-        <meta property="og:title" content="Solar-Rechner: Ihre persönliche Ersparnis-Berechnung" />
-        <meta property="og:description" content="Berechnen Sie in 2 Minuten Ihre optimale Solaranlage und jährliche Ersparnis. Kostenlos & präzise." />
+  <title>Solar Rechner 2025 – PV Kosten & Ersparnis kalkulieren DE</title>
+  <meta name="description" content="Solar Rechner 2025: PV Kosten & Ersparnis kalkulieren – Dachfläche eingeben, Ergebnis direkt, TÜV zertifiziert, Amortisation & Autarkie Simulation planen." />
+        <meta name="keywords" content="Solar-Rechner Berlin, Photovoltaik Rechner, PV-Anlage Kosten, Solaranlage Berechnung, Ersparnis Rechner, Amortisationsrechner" />
+        <meta property="og:title" content="Solar-Rechner Berlin | Photovoltaik Kosten & Ersparnis Berechnen | ZOE" />
+        <meta property="og:description" content="Solar-Rechner Berlin: Berechnen Sie Ihre PV-Anlage Kosten & Ersparnis ✓ Dachfläche eingeben ✓ Sofort Ergebnis ✓ TÜV-zertifiziert ✓ Kostenlos ✓ Jetzt berechnen!" />
         <meta property="og:image" content="/Logo-ZOE.png" />
+        <meta name="geo.region" content="DE-BE" />
+        <meta name="geo.placename" content="Berlin" />
+        <meta name="geo.position" content="52.5200;13.4050" />
+        <meta name="ICBM" content="52.5200, 13.4050" />
         <link rel="canonical" href="https://zoe-solar.de/calculator" />
       </Helmet>
 
       {/* Urgency Banner */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center space-x-6">
+      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-3">
+        <div className="pro-container flex items-center justify-center space-x-6">
           <Clock className="w-5 h-5" />
           <span className="font-semibold">🔥 €1.500 Bonus endet in:</span>
           <div className="flex space-x-2">
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.days}</div>
               <div className="text-xs sm:text-sm">Tage</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.hours}</div>
               <div className="text-xs sm:text-sm">Std</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.minutes}</div>
               <div className="text-xs sm:text-sm">Min</div>
             </div>
           </div>
-          <Button className="bg-white text-red-600 hover:bg-gray-100 font-semibold px-4 py-2">
+          <Button className="bg-white text-red-600 hover:bg-neutral-100 font-semibold px-4 py-2">
             Jetzt sichern!
           </Button>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto p-8">
+  <div className="pro-container p-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
+  <div className="text-center flow-lg mb-12">
           <div className="flex items-center justify-center mb-4">
             <CalculatorIcon className="w-8 h-8 text-blue-600 mr-3" />
-            <h1 className="heading-1 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-              Ihr Solar-Schnellrechner
-            </h1>
+            <Heading as="h1" size="4xl" className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Ihr Solar-Schnellrechner</Heading>
           </div>
-          <p className="lead text-gray-600 mb-6">
+          <p className="lead text-neutral-600 mb-6">
             Berechnen Sie Ihre persönliche Ersparnis in nur 2 Minuten
           </p>
-          <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+          <div className="flex items-center justify-center space-x-6 text-sm text-neutral-500">
             <div className="flex items-center">
               <Shield className="w-4 h-4 mr-1 text-green-600" />
               TÜV-zertifiziert
@@ -170,11 +175,11 @@ export default function Calculator() {
                 <Award className="w-6 h-6 text-white" />
               </div>
               <div>
-                <p className="text-gray-700 italic mb-2">
+                <p className="text-neutral-700 italic mb-2">
                   "Dieser Rechner verwendet die gleichen Algorithmen wie professionelle Solar-Planer.
                   Die Genauigkeit liegt bei über 95% im Vergleich zu realen Installationen."
                 </p>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-neutral-600">
                   <strong>Prof. Dr. Michael Weber</strong> • TU München • Solar-Experte seit 15 Jahren
                 </div>
               </div>
@@ -192,45 +197,21 @@ export default function Calculator() {
                 Ihre Angaben
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div>
+            <CardContent className="flow">
+              <div className="flow-sm">
                 <Label className="text-base font-semibold">Dachfläche (m²)</Label>
-                <Input
-                  type="number"
-                  value={roofArea}
-                  onChange={(e) => setRoofArea(Number(e.target.value))}
-                  className="mt-2 text-lg"
-                  min="10"
-                  max="500"
-                />
-                <p className="text-sm text-gray-500 mt-1">Messbare Fläche ohne Hindernisse</p>
+                <Input type="number" value={roofArea} onChange={(e) => setRoofArea(Number(e.target.value))} min="10" max="500" className="text-lg" />
+                <p className="text-sm text-neutral-500">Messbare Fläche ohne Hindernisse</p>
               </div>
-
-              <div>
+              <div className="flow-sm">
                 <Label className="text-base font-semibold">Jahresverbrauch (kWh)</Label>
-                <Input
-                  type="number"
-                  value={consumption}
-                  onChange={(e) => setConsumption(Number(e.target.value))}
-                  className="mt-2 text-lg"
-                  min="1000"
-                  max="20000"
-                />
-                <p className="text-sm text-gray-500 mt-1">Aus Ihrer letzten Stromrechnung</p>
+                <Input type="number" value={consumption} onChange={(e) => setConsumption(Number(e.target.value))} min="1000" max="20000" className="text-lg" />
+                <p className="text-sm text-neutral-500">Aus Ihrer letzten Stromrechnung</p>
               </div>
-
-              <div>
+              <div className="flow-sm">
                 <Label className="text-base font-semibold">Aktueller Strompreis (€/kWh)</Label>
-                <Input
-                  type="number"
-                  step="0.01"
-                  value={price}
-                  onChange={(e) => setPrice(Number(e.target.value))}
-                  className="mt-2 text-lg"
-                  min="0.20"
-                  max="0.80"
-                />
-                <p className="text-sm text-gray-500 mt-1">Arbeitspreis ohne Grundgebühr</p>
+                <Input type="number" step="0.01" value={price} onChange={(e) => setPrice(Number(e.target.value))} min="0.20" max="0.80" className="text-lg" />
+                <p className="text-sm text-neutral-500">Arbeitspreis ohne Grundgebühr</p>
               </div>
             </CardContent>
           </Card>
@@ -245,31 +226,31 @@ export default function Calculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <div className="text-sm text-gray-600">Empfohlene Größe</div>
+                <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
+                  <div className="text-sm text-neutral-600">Empfohlene Größe</div>
                   <div className="text-2xl font-bold text-blue-600">{result.kwp.toFixed(1)} kWp</div>
                 </div>
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <div className="text-sm text-gray-600">Jahresertrag</div>
+                <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
+                  <div className="text-sm text-neutral-600">Jahresertrag</div>
                   <div className="text-2xl font-bold text-green-600">{Math.round(result.production)} kWh</div>
                 </div>
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <div className="text-sm text-gray-600">Jährliche Ersparnis</div>
+                <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
+                  <div className="text-sm text-neutral-600">Jährliche Ersparnis</div>
                   <div className="text-2xl font-bold text-emerald-600">{result.savings.toFixed(0)} €</div>
                 </div>
-                <div className="bg-white/70 p-4 rounded-lg">
-                  <div className="text-sm text-gray-600">Autarkiegrad</div>
+                <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
+                  <div className="text-sm text-neutral-600">Autarkiegrad</div>
                   <div className="text-2xl font-bold text-purple-600">{result.autarky.toFixed(0)}%</div>
                 </div>
               </div>
 
-              <div className="bg-white/70 p-4 rounded-lg">
-                <div className="text-sm text-gray-600">Investition nach Förderung</div>
-                <div className="text-xl font-bold text-gray-800">{result.effective.toFixed(0)} €</div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
+                <div className="text-sm text-neutral-600">Investition nach Förderung</div>
+                <div className="text-xl font-bold text-neutral-800">{result.effective.toFixed(0)} €</div>
               </div>
 
-              <div className="bg-white/70 p-4 rounded-lg">
-                <div className="text-sm text-gray-600">Amortisation</div>
+              <div className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
+                <div className="text-sm text-neutral-600">Amortisation</div>
                 <div className="text-xl font-bold text-orange-600">
                   {result.payback ? result.payback.toFixed(1) + ' Jahre' : '—'}
                 </div>
@@ -301,24 +282,18 @@ export default function Calculator() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid md:grid-cols-3 gap-6">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                  <div className="flex items-center mb-2">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-400">★</span>
-                    ))}
-                    <span className="ml-2 text-sm text-gray-600">{testimonial.name}</span>
-                  </div>
-                  <p className="text-sm text-gray-700 mb-2">"{testimonial.text}"</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs sm:text-sm text-gray-500">{testimonial.location}</span>
-                    <Badge variant="secondary" className="text-xs sm:text-sm">
-                      {testimonial.savings}/Jahr gespart
-                    </Badge>
-                  </div>
-                </div>
-              ))}
+            <div className="cols-3-responsive gap-6">
+                {testimonials.map((t,i)=>(
+                  <TestimonialCard
+                    key={i}
+                    name={t.name}
+                    location={t.location}
+                    text={t.text}
+                    savings={`${t.savings}/Jahr gespart`}
+                    rating={t.rating}
+                    variant="glass"
+                  />
+                ))}
             </div>
           </CardContent>
         </Card>
@@ -333,7 +308,7 @@ export default function Calculator() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
+                className="bg-white text-blue-600 hover:bg-neutral-100 font-semibold px-8 py-4 text-lg"
                 onClick={() => window.location.href = '/kontakt'}
               >
                 <Euro className="w-5 h-5 mr-2" />
@@ -342,7 +317,7 @@ export default function Calculator() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg"
+                className="border-white text-white hover:bg-white/20 hover:text-neutral-900 font-semibold px-8 py-4 text-lg transition-colors"
                 onClick={() => window.location.href = '/technologie'}
               >
                 Mehr über die Technologie
@@ -353,10 +328,10 @@ export default function Calculator() {
           {/* Reciprocity */}
           <Card className="bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
             <CardContent className="p-6 text-center">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
                 💝 Als Dank für Ihre Zeit: Kostenlose Solar-Check
               </h3>
-              <p className="text-gray-600">
+              <p className="text-neutral-600">
                 Wir analysieren Ihr Dach kostenlos per Satellit und geben Ihnen eine erste Einschätzung
               </p>
             </CardContent>

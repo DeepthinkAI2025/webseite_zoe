@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Wrench, Shield, Clock, CheckCircle, Phone, Award, Users, Star, Zap, Home, AlertTriangle, Calendar } from 'lucide-react';
+import { Wrench, Shield, Clock, CheckCircle, Phone, Award, Users, Star, Zap, HomeIcon as Home, AlertTriangle, Calendar } from '@/components/icons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { TestimonialCard } from '@/components/ui/TestimonialCard';
 import { Pill } from '@/components/ui/pill';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import { Section } from '../components/ui/section';
 
 export default function Service() {
   const { t } = useTranslation();
@@ -134,8 +136,8 @@ export default function Service() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Helmet>
-        <title>Solar-Service & Wartung: 24/7 Support, TÜV-zertifiziert | ZOE Solar</title>
-        <meta name="description" content="Solar-Service: 24/7 Support, <24h Reaktionszeit, 99.8% Verfügbarkeit. TÜV-zertifizierte Wartung, Notfall-Service, Leistungsoptimierung." />
+        <title>Solar Service & Wartung 2025 – 24/7 Support TÜV geprüft DE</title>
+        <meta name="description" content="Solar Service & Wartung 2025: 24/7 Support, TÜV-zertifiziert, Reaktionszeit unter 24h, Monitoring, Performance Optimierung – passendes Servicepaket wählen." />
         <meta property="og:title" content="Solar-Service: Professionelle Wartung & Support" />
         <meta property="og:description" content="24/7 Solar-Service: Von jährlicher Inspektion bis Notfall-Reparatur. Maximale Anlagen-Verfügbarkeit garantiert." />
         <meta property="og:image" content="/Logo-ZOE.png" />
@@ -144,42 +146,41 @@ export default function Service() {
 
       {/* Urgency Banner */}
       <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center space-x-6">
+        <div className="pro-container flex items-center justify-center space-x-6">
           <Clock className="w-5 h-5" />
           <span className="font-semibold">🔥 €1.500 Bonus endet in:</span>
           <div className="flex space-x-2">
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.days}</div>
               <div className="text-xs sm:text-sm">Tage</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.hours}</div>
               <div className="text-xs sm:text-sm">Std</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.minutes}</div>
               <div className="text-xs sm:text-sm">Min</div>
             </div>
           </div>
-          <Button className="bg-white text-red-600 hover:bg-gray-100 font-semibold px-4 py-2">
+          <Button className="bg-white text-red-600 hover:bg-neutral-100 font-semibold px-4 py-2">
             Jetzt sichern!
           </Button>
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Hero Section */}
+  <Section padding="normal" variant="gradient" className="bg-gradient-to-br from-blue-50 to-indigo-50" size="wide">
           <div className="text-center mb-16">
-            <Pill variant="light" className="mb-4">Service & Wartung</Pill>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <Pill variant="soft" color="neutral" className="mb-4">Service & Wartung</Pill>
+            <h1 className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
               Rundum-Service für <span className="text-blue-600">maximale Sicherheit</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto mb-8">
               Professionelle Wartung und 24/7 Support für Ihre Solaranlage.
               Maximale Leistung, minimale Sorgen.
             </p>
-            <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+            <div className="flex items-center justify-center space-x-6 text-sm text-neutral-500">
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-1 text-green-600" />
                 24h Reaktionszeit
@@ -196,49 +197,47 @@ export default function Service() {
           </div>
 
           {/* Service Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 tabular-nums">
             {serviceStats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-3xl font-bold text-neutral-900 mb-2 tabular-nums">{stat.number}</div>
+                <div className="text-neutral-600">{stat.label}</div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+  </Section>
 
-      {/* Service Packages */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-lg">
+  {/* Service Packages */}
+  <Section padding="normal" variant="plain" size="wide">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Unsere Service-Pakete</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-neutral-900 mb-6">Unsere Service-Pakete</h2>
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
               Wählen Sie das passende Service-Paket für Ihre Anlage
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="cols-3-responsive gap-8 flow">
             {servicePackages.map((pkg, index) => (
               <Card key={index} className={`pro-card relative ${pkg.popular ? 'ring-2 ring-blue-500' : ''}`}>
         {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <Pill variant="custom" className="bg-blue-500 text-white border-blue-600 px-4 py-1">Beliebt</Pill>
+          <Pill variant="invert" color="info" className="px-4 py-1">Beliebt</Pill>
                   </div>
                 )}
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl">{pkg.name}</CardTitle>
                   <div className="text-3xl font-bold text-blue-600 mt-2">{pkg.price}</div>
-                  <p className="text-gray-600 mt-2">{pkg.description}</p>
+                  <p className="text-neutral-600 mt-2">{pkg.description}</p>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 mb-6 text-base sm:text-lg">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-center">
                         <CheckCircle className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-neutral-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -253,21 +252,19 @@ export default function Service() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+  </Section>
 
-      {/* Emergency Services */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-lg">
+  {/* Emergency Services */}
+  <Section padding="normal" variant="neutral" size="wide">
           <div className="text-center mb-16">
-            <Pill variant="light" className="mb-4 bg-red-100 text-red-800 border-red-200">Notfall-Service</Pill>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Schnelle Hilfe im Notfall</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <Pill variant="soft" color="danger" className="mb-4">Notfall-Service</Pill>
+            <h2 className="text-3xl font-bold text-neutral-900 mb-6">Schnelle Hilfe im Notfall</h2>
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
               Bei Problemen sind wir sofort für Sie da
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="cols-3-responsive gap-8 flow">
             {emergencyServices.map((service, index) => (
               <Card key={index} className="pro-card text-center">
                 <CardContent className="p-8">
@@ -275,7 +272,7 @@ export default function Service() {
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <p className="text-neutral-600 mb-4">{service.description}</p>
                   <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full">
                     <Clock className="w-4 h-4 mr-2" />
                     Reaktion: {service.response}
@@ -284,12 +281,10 @@ export default function Service() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+  </Section>
 
-      {/* Authority Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Authority Section */}
+  <Section padding="tight" variant="plain" size="wide">
           <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
             <CardContent className="p-8">
               <div className="flex items-start space-x-6">
@@ -297,11 +292,11 @@ export default function Service() {
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <p className="text-gray-700 italic text-lg leading-relaxed mb-4">
+                  <p className="text-neutral-700 italic text-lg leading-relaxed mb-4">
                     "Der Service von ZOE Solar ist vorbildlich. Die Reaktionszeiten sind
                     außergewöhnlich schnell und die Qualität der Wartung erstklassig."
                   </p>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-neutral-600">
                     <strong>Dr. Thomas Weber</strong> • Service-Management • TÜV Rheinland •
                     <span className="text-blue-600 font-semibold"> Qualitätskontrolleure</span>
                   </div>
@@ -309,13 +304,11 @@ export default function Service() {
               </div>
             </CardContent>
           </Card>
-        </div>
-      </section>
+  </Section>
 
-      {/* Loss Aversion */}
-      <section className="py-16 bg-gradient-to-r from-red-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-white/50 border-red-200">
+  {/* Loss Aversion */}
+  <Section padding="tight" variant="gradient" className="bg-gradient-to-r from-red-50 to-orange-50" size="wide">
+          <Card className="bg-white border border-red-200 shadow-sm">
             <CardContent className="p-8 text-center">
               <div className="flex items-center justify-center mb-4">
                 <AlertTriangle className="w-6 h-6 text-red-600 mr-2" />
@@ -326,59 +319,50 @@ export default function Service() {
                 Schmutz, Defekte, Verschleiß kosten Sie €500-1.000/Jahr extra.
                 Mit unserem Service sparen Sie €800+ jährlich!
               </p>
-              <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div className="cols-3-responsive gap-6 text-center tabular-nums">
                 <div>
-                  <div className="text-2xl font-bold text-red-600">-20%</div>
+                  <div className="text-2xl font-bold text-red-600 tabular-nums">-20%</div>
                   <div className="text-sm text-red-600">Ertragsverlust ohne Wartung</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-red-600">€1.000+</div>
+                  <div className="text-2xl font-bold text-red-600 tabular-nums">€1.000+</div>
                   <div className="text-sm text-red-600">Jährliche Mehrkosten</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-green-600">€800+</div>
+                  <div className="text-2xl font-bold text-green-600 tabular-nums">€800+</div>
                   <div className="text-sm text-green-600">Ersparnis mit Service</div>
                 </div>
               </div>
             </CardContent>
           </Card>
-        </div>
-      </section>
+  </Section>
 
-      {/* Testimonials */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Testimonials */}
+  <Section padding="tight" variant="neutral" size="wide">
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Service-Kundenstimmen</h2>
-            <p className="text-gray-600">Zuverlässigkeit, die überzeugt</p>
+            <h2 className="text-2xl font-bold text-neutral-900 mb-4">Service-Kundenstimmen</h2>
+            <p className="text-neutral-600">Zuverlässigkeit, die überzeugt</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="pro-card">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-3">
-                    <div className="flex">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <span className="ml-2 text-sm font-semibold text-gray-700">
-                      {testimonial.name}, {testimonial.location}
-                    </span>
-                  </div>
-                  <Pill variant="light" className="mb-3">{testimonial.service}</Pill>
-                  <p className="text-gray-700 italic">"{testimonial.text}"</p>
-                </CardContent>
-              </Card>
+          <div className="cols-3-responsive gap-6 flow">
+            {testimonials.map((t,i)=>(
+              <TestimonialCard
+                key={i}
+                name={t.name}
+                location={t.location}
+                text={t.text}
+                rating={t.rating}
+                tag={t.service}
+                tagColor="neutral"
+                variant="glass"
+              />
             ))}
           </div>
-        </div>
-      </section>
+  </Section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12">
+  {/* CTA Section */}
+  <Section padding="normal" variant="gradient" className="bg-gradient-to-r from-blue-600 to-green-600" size="wide">
+        <div className="text-center">
+          <div className="bg-white rounded-2xl p-12 flow border border-neutral-200 shadow-sm">
             <h2 className="text-3xl font-bold text-white mb-6">
               Sorgenfrei in die Zukunft
             </h2>
@@ -387,10 +371,10 @@ export default function Service() {
               Jetzt kostenlose Erstberatung anfordern.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
+                className="bg-white text-blue-600 hover:bg-neutral-100 font-semibold px-8 py-4 text-lg"
                 onClick={() => window.location.href = '/kontakt'}
               >
                 <Phone className="w-5 h-5 mr-2" />
@@ -399,7 +383,7 @@ export default function Service() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg"
+                className="border-white text-white hover:bg-white/20 hover:text-neutral-900 font-semibold px-8 py-4 text-lg transition-colors"
                 onClick={() => window.location.href = '/calculator'}
               >
                 <Zap className="w-5 h-5 mr-2" />
@@ -408,7 +392,7 @@ export default function Service() {
             </div>
 
             {/* Reciprocity */}
-            <Card className="bg-white/20 border-white/30 max-w-2xl mx-auto">
+            <Card className="bg-white border border-neutral-200 shadow-sm max-w-2xl mx-auto">
               <CardContent className="p-6 text-center">
                 <div className="flex items-center justify-center mb-3">
                   <Shield className="w-5 h-5 text-green-400 mr-2" />
@@ -422,7 +406,7 @@ export default function Service() {
             </Card>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

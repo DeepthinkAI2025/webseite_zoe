@@ -1,0 +1,31 @@
+name: perf-audit
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  lighthouse-perf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install root
+        run: npm ci --no-audit --no-fund
+      - name: Install app
+        run: |
+          cd Arbeitsverzeichnis
+          npm ci --no-audit --no-fund
+      - name: Performance Gate
+        run: |
+          cd Arbeitsverzeichnis
+          npm run gate:lighthouse
+      - name: Upload perf metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-perf-metrics
+          path: Arbeitsverzeichnis/docs/lighthouse-perf-metrics.json

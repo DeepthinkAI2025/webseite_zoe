@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from 'react-helmet-async';
 import { MapPin, Zap, TrendingUp, Calendar, Clock, Star, Award, Users, CheckCircle, Phone, Euro, Home, Shield } from "lucide-react";
+import { Heading } from '@/components/ui/heading';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Pill } from "@/components/ui/pill";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from 'react-i18next';
+import { Section } from '../components/ui/section';
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -105,52 +107,54 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Helmet>
-        <title>Solar-Projekte: 2.500+ Installationen | ZOE Solar Erfolgsgeschichten</title>
-        <meta name="description" content="Sehen Sie unsere Solar-Projekte: 2.500+ Installationen, €52M+ gesparte Energiekosten, 4.9/5 Sterne. TÜV-zertifizierte Anlagen mit Garantie." />
-        <meta property="og:title" content="Solar-Projekte: Über 2.500 erfolgreiche Installationen" />
-        <meta property="og:description" content="Entdecken Sie unsere Solar-Erfolgsgeschichten: Von der Planung bis zur Installation - sehen Sie, wie wir Häuser unabhängig machen." />
+        <title>Solaranlagen Projekte Berlin – 2.500+ Installationen ZOE</title>
+        <meta name="description" content="Solaranlagen Projekte Berlin: 2.500+ Installationen, €52M+ Einsparungen, 4.9/5 Sterne, TÜV-zertifiziert – Referenzen & Autarkie Kennzahlen jetzt entdecken." />
+        <meta name="keywords" content="Solaranlagen Berlin, PV-Anlagen Projekte, Solarinstallationen Berlin, Photovoltaik Referenzen, Solarstrom Projekte" />
+        <meta property="og:title" content="Solaranlagen Berlin | 2.500+ Installationen | ZOE Projekte & Referenzen" />
+        <meta property="og:description" content="Solaranlagen Berlin: 2.500+ Installationen ✓ €52M+ gesparte Energiekosten ✓ 4.9/5 Sterne ✓ TÜV-zertifiziert ✓ Sehen Sie unsere Projekte in Berlin & Brandenburg!" />
         <meta property="og:image" content="/Logo-ZOE.png" />
+        <meta name="geo.region" content="DE-BE" />
+        <meta name="geo.placename" content="Berlin" />
+        <meta name="geo.position" content="52.5200;13.4050" />
+        <meta name="ICBM" content="52.5200, 13.4050" />
         <link rel="canonical" href="https://zoe-solar.de/projekte" />
       </Helmet>
 
       {/* Urgency Banner */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-3 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center space-x-6">
+      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-3">
+        <div className="pro-container flex items-center justify-center space-x-6">
           <Clock className="w-5 h-5" />
           <span className="font-semibold">🔥 €1.500 Bonus endet in:</span>
           <div className="flex space-x-2">
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.days}</div>
               <div className="text-xs sm:text-sm">Tage</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.hours}</div>
               <div className="text-xs sm:text-sm">Std</div>
             </div>
-            <div className="bg-white/20 px-3 py-1 rounded-lg">
+            <div className="bg-neutral-50/90 border border-neutral-200 px-3 py-1 rounded-lg">
               <div className="text-xl font-bold">{timeLeft.minutes}</div>
               <div className="text-xs sm:text-sm">Min</div>
             </div>
           </div>
-          <Button className="bg-white text-red-600 hover:bg-gray-100 font-semibold px-4 py-2">
+          <Button className="bg-white text-red-600 hover:bg-neutral-100 font-semibold px-4 py-2">
             Jetzt sichern!
           </Button>
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Hero Section */}
+  <Section padding="normal" variant="gradient" className="bg-gradient-to-br from-blue-50 to-indigo-50" size="wide">
           <div className="text-center mb-16">
-            <Pill variant="light" className="mb-4">Unsere Arbeit</Pill>
-            <h1 className="heading-1 text-gray-900 mb-6">
-              Projekte, die für sich <span className="text-blue-600">sprechen</span>
-            </h1>
-            <p className="lead text-gray-600 max-w-3xl mx-auto mb-8">
+            <Pill variant="soft" color="neutral" className="mb-4">Unsere Arbeit</Pill>
+            <Heading as="h1" size="4xl" className="text-neutral-900 mb-6">Projekte, die für sich <span className="text-blue-600">sprechen</span></Heading>
+            <p className="lead text-neutral-600 max-w-3xl mx-auto mb-8">
               Sehen Sie eine Auswahl unserer jüngsten Installationen und die beeindruckenden Ergebnisse,
               die unsere Kunden mit ZOE Solar erzielen.
             </p>
-            <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+            <div className="flex items-center justify-center space-x-6 text-sm text-neutral-500">
               <div className="flex items-center">
                 <Shield className="w-4 h-4 mr-1 text-green-600" />
                 TÜV-zertifiziert
@@ -169,22 +173,20 @@ export default function Projects() {
           {/* Stats Section */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center tabular-nums">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-3xl font-bold text-neutral-900 mb-2 tabular-nums">{stat.number}</div>
+                <div className="text-neutral-600">{stat.label}</div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+  </Section>
 
-      {/* Projects Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
+    {/* Projects Grid Section */}
+    <Section padding="normal" variant="plain" size="wide">
+      <div className="grid lg:grid-cols-2 gap-12 mb-16 flow">
             {projects.map((project, index) => (
               <Card key={index} className="pro-card overflow-hidden group hover:scale-105 transition-transform">
                 <div className="relative overflow-hidden h-64">
@@ -194,7 +196,7 @@ export default function Projects() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 right-4">
-                    <Pill variant="light" className="bg-green-100 text-green-800 border-green-200">
+                    <Pill variant="soft" color="emerald">
                       {project.autarky} Autarkie
                     </Pill>
                   </div>
@@ -203,36 +205,36 @@ export default function Projects() {
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <MapPin className="w-5 h-5 mr-2 text-blue-600" />
-                    <h3 className="text-xl font-bold text-gray-900">{project.location}</h3>
+                    <h3 className="text-xl font-bold text-neutral-900">{project.location}</h3>
                   </div>
 
                   {/* Key Metrics */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-gray-50 p-3 rounded-lg">
+                    <div className="bg-neutral-50 p-3 rounded-lg">
                       <div className="flex items-center mb-1">
                         <Zap className="w-4 h-4 text-blue-600 mr-1" />
-                        <span className="text-sm text-gray-600">Größe</span>
+                        <span className="text-sm text-neutral-600">Größe</span>
                       </div>
-                      <div className="font-bold text-gray-900">{project.size}</div>
+                      <div className="font-bold text-neutral-900">{project.size}</div>
                     </div>
-                    <div className="bg-gray-50 p-3 rounded-lg">
+                    <div className="bg-neutral-50 p-3 rounded-lg">
                       <div className="flex items-center mb-1">
                         <TrendingUp className="w-4 h-4 text-green-600 mr-1" />
-                        <span className="text-sm text-gray-600">Ersparnis</span>
+                        <span className="text-sm text-neutral-600">Ersparnis</span>
                       </div>
                       <div className="font-bold text-green-600">{project.saving}</div>
                     </div>
-                    <div className="bg-gray-50 p-3 rounded-lg">
+                    <div className="bg-neutral-50 p-3 rounded-lg">
                       <div className="flex items-center mb-1">
                         <Calendar className="w-4 h-4 text-purple-600 mr-1" />
-                        <span className="text-sm text-gray-600">Amortisation</span>
+                        <span className="text-sm text-neutral-600">Amortisation</span>
                       </div>
                       <div className="font-bold text-purple-600">{project.payback}</div>
                     </div>
-                    <div className="bg-gray-50 p-3 rounded-lg">
+                    <div className="bg-neutral-50 p-3 rounded-lg">
                       <div className="flex items-center mb-1">
                         <CheckCircle className="w-4 h-4 text-emerald-600 mr-1" />
-                        <span className="text-sm text-gray-600">Status</span>
+                        <span className="text-sm text-neutral-600">Status</span>
                       </div>
                       <div className="font-bold text-emerald-600">Aktiv</div>
                     </div>
@@ -240,10 +242,10 @@ export default function Projects() {
 
                   {/* Features */}
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">Ausstattung:</h4>
+                    <h4 className="font-semibold text-neutral-900 mb-3">Ausstattung:</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.features.map((feature, i) => (
-                        <Pill key={i} variant="light" className="text-xs sm:text-sm">
+                        <Pill key={i} variant="soft" color="neutral" className="text-xs sm:text-sm">
                           {feature}
                         </Pill>
                       ))}
@@ -259,14 +261,14 @@ export default function Projects() {
                             <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                           ))}
                         </div>
-                        <span className="ml-2 text-sm font-semibold text-gray-700">
+                        <span className="ml-2 text-sm font-semibold text-neutral-700">
                           {project.testimonial.name}
                         </span>
                       </div>
-                      <p className="text-sm text-gray-700 italic mb-2">
+                      <p className="text-sm text-neutral-700 italic mb-2">
                         "{project.testimonial.text}"
                       </p>
-                      <div className="text-xs sm:text-sm text-gray-500">
+                      <div className="text-xs sm:text-sm text-neutral-500">
                         Installiert: {project.testimonial.installationDate}
                       </div>
                     </CardContent>
@@ -274,13 +276,11 @@ export default function Projects() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
+      </div>
+    </Section>
 
-      {/* Authority Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Authority Section */}
+  <Section padding="tight" variant="plain" size="wide">
           <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
             <CardContent className="p-8">
               <div className="flex items-start space-x-6">
@@ -288,11 +288,11 @@ export default function Projects() {
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <p className="text-gray-700 italic text-lg leading-relaxed mb-4">
+                  <p className="text-neutral-700 italic text-lg leading-relaxed mb-4">
                     "Die Qualität der ZOE Solar Installationen ist außergewöhnlich. Ihre Systeme zeigen
                     konstant überdurchschnittliche Performance und eine bemerkenswert geringe Ausfallrate."
                   </p>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-neutral-600">
                     <strong>Dr. Michael Krause</strong> • Leiter Qualitätssicherung • TÜV Rheinland •
                     <span className="text-blue-600 font-semibold"> Solar-Inspektionsbehörde</span>
                   </div>
@@ -300,45 +300,42 @@ export default function Projects() {
               </div>
             </CardContent>
           </Card>
-        </div>
-      </section>
+  </Section>
 
-      {/* Loss Aversion Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  {/* Loss Aversion Section */}
+  <Section padding="tight" variant="neutral" size="wide">
           <Card className="bg-gradient-to-r from-red-50 to-orange-50 border-red-200">
             <CardContent className="p-8 text-center">
               <div className="flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-red-600 mr-2" />
                 <h3 className="text-2xl font-bold text-red-700">Warum jetzt investieren?</h3>
               </div>
-              <p className="text-lg text-red-600 mb-6">
-                Strompreise steigen jährlich um 5%. Ohne Solar zahlen Sie in 20 Jahren €48.000 mehr.
-                Mit unserer Anlage sparen Sie €35.000+ und werden unabhängig.
+              <p className="text-lg text-red-600 mb-6 tabular-nums">
+                Strompreise steigen jährlich um 5%. Ohne Solar zahlen Sie in 20 Jahren <span className="font-semibold">€48.000</span> mehr.
+                Mit unserer Anlage sparen Sie <span className="font-semibold">€35.000+</span> und werden unabhängig.
               </p>
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div>
+              <div className="cols-3-responsive gap-6 text-center">
+                <div className="tabular-nums">
                   <div className="text-2xl font-bold text-red-600">€48.000</div>
                   <div className="text-sm text-red-600">Mehrkosten ohne Solar</div>
                 </div>
-                <div>
+                <div className="tabular-nums">
                   <div className="text-2xl font-bold text-green-600">€35.000+</div>
                   <div className="text-sm text-green-600">Ersparnis mit ZOE Solar</div>
                 </div>
-                <div>
+                <div className="tabular-nums">
                   <div className="text-2xl font-bold text-blue-600">€13.000</div>
                   <div className="text-sm text-blue-600">Netto-Vorteil für Sie</div>
                 </div>
               </div>
             </CardContent>
           </Card>
-        </div>
-      </section>
+  </Section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12">
+      <Section padding="normal" variant="gradient" className="bg-gradient-to-r from-blue-600 to-green-600" size="wide">
+        <div className="text-center">
+          <div className="bg-white rounded-2xl p-12 flow border border-neutral-200 shadow-sm">
             <h2 className="text-3xl font-bold text-white mb-6">
               Bereit für Ihr Solar-Projekt?
             </h2>
@@ -347,10 +344,10 @@ export default function Projects() {
               Solar-Konzept - kostenlos und unverbindlich.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
+                className="bg-white text-blue-600 hover:bg-neutral-100 font-semibold px-8 py-4 text-lg"
                 onClick={() => window.location.href = '/kontakt'}
               >
                 <Phone className="w-5 h-5 mr-2" />
@@ -359,7 +356,7 @@ export default function Projects() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg"
+                className="border-white text-white hover:bg-white/20 hover:text-neutral-900 font-semibold px-8 py-4 text-lg transition-colors"
                 onClick={() => window.location.href = '/calculator'}
               >
                 <Zap className="w-5 h-5 mr-2" />
@@ -368,7 +365,7 @@ export default function Projects() {
             </div>
 
             {/* Reciprocity */}
-            <Card className="bg-white/20 border-white/30 max-w-2xl mx-auto">
+            <Card className="bg-white border border-neutral-200 shadow-sm max-w-2xl mx-auto">
               <CardContent className="p-6 text-center">
                 <div className="flex items-center justify-center mb-3">
                   <Users className="w-5 h-5 text-yellow-400 mr-2" />
@@ -382,7 +379,7 @@ export default function Projects() {
             </Card>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

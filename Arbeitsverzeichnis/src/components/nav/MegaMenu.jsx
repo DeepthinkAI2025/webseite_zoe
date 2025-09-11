@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Pill } from '@/components/ui/pill';
 
 // leftRail: { title: string, items: [{ label, desc, to, until?: string|number|Date, badge?: string }] }
-export default function MegaMenu({ label, items, image, highlight, leftRail, onLinkClick }) {
+export default function MegaMenu({ label, items, image, highlight, leftRail, onLinkClick, active=false }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const menuRef = useRef(null);
@@ -88,21 +89,23 @@ export default function MegaMenu({ label, items, image, highlight, leftRail, onL
 
   return (
     <div className="relative" ref={ref} onMouseLeave={() => setOpen(false)}>
-      <button
-        className={`flex items-center text-[15px] sm:text-base lg:text-[17px] font-medium px-2 py-2 rounded-md transition-all duration-200 ${
-          open ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-        }`}
+      <Button
+        variant="plain"
+        className={`flex items-center text-[15px] sm:text-base lg:text-[17px] font-medium px-2 py-2 rounded-md transition-all duration-200 relative ${
+          active || open ? 'text-blue-700 bg-blue-50' : 'text-neutral-700 hover:text-blue-600 hover:bg-neutral-50'
+        } ${active ? 'after:absolute after:left-2 after:right-2 after:bottom-1 after:h-0.5 after:rounded-full after:bg-gradient-to-r after:from-[#12b3c7] after:to-[#18b364]' : ''}`}
         onMouseEnter={() => setOpen(true)}
         onFocus={() => setOpen(true)}
         aria-haspopup="true"
         aria-expanded={open}
+        aria-current={active? 'page': undefined}
         onKeyDown={onButtonKeyDown}
       >
         {label}
         <svg className="w-4 h-4 ml-1 opacity-70" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd"/>
         </svg>
-      </button>
+      </Button>
       {open && (
         <div className="absolute left-1/2 -translate-x-1/2 top-12 w-[1100px] max-w-[96vw]">
           <div
@@ -112,17 +115,17 @@ export default function MegaMenu({ label, items, image, highlight, leftRail, onL
             onKeyDown={onMenuKeyDown}
           >
             {/* Kopfzeile */}
-            <div className="px-6 pt-5 pb-4 border-b border-gray-100">
-              <div className="text-sm font-semibold text-gray-900">{label}</div>
+            <div className="px-6 pt-5 pb-4 border-b border-neutral-100">
+              <div className="text-sm font-semibold text-neutral-900">{label}</div>
             </div>
             <div className="grid grid-cols-12 gap-0">
             {leftRail ? (
               <div className="hidden md:block col-span-4">
-                <div className="h-full p-6 bg-gray-50 border-r border-gray-100">
+                <div className="h-full p-6 bg-neutral-50 border-r border-neutral-100">
                   <div className="flex items-center justify-between mb-3">
-                    <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-700">{leftRail.title || 'Aktuell'}</div>
+                    <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-neutral-700">{leftRail.title || 'Aktuell'}</div>
                     {soonestUntil && (
-                      <Pill size="xs" variant="custom" className="bg-blue-100 text-blue-800 border-blue-200">endet in {formatRemaining(soonestUntil)}</Pill>
+                      <Pill size="xs" variant="soft" color="info">endet in {formatRemaining(soonestUntil)}</Pill>
                     )}
                   </div>
                   <ul className="space-y-1 text-[15px] sm:text-base">
@@ -130,12 +133,12 @@ export default function MegaMenu({ label, items, image, highlight, leftRail, onL
                       <li key={li.label}>
                         <Link to={li.to} onClick={onLinkClick} className="flex items-center gap-3 px-2 py-2 rounded-md hover:bg-white group">
                           <div className="flex-1">
-                            <div className="text-[15px] sm:text-base font-semibold text-gray-900 group-hover:text-blue-700">{li.label}</div>
-                            <div className="text-[12px] sm:text-[13px] text-gray-500">{li.desc}</div>
+                            <div className="text-[15px] sm:text-base font-semibold text-neutral-900 group-hover:text-blue-700">{li.label}</div>
+                            <div className="text-[12px] sm:text-[13px] text-neutral-500">{li.desc}</div>
                           </div>
                           <div className="flex items-center gap-2">
                             {li.badge && (
-                              <Pill size="xs" variant="custom" className="font-medium uppercase tracking-wide bg-blue-100 text-blue-800 rounded border-blue-200">{li.badge}</Pill>
+                              <Pill size="xs" variant="soft" color="info" className="font-medium uppercase tracking-wide">{li.badge}</Pill>
                             )}
                             {li.until && (
                               <span className="text-[10px] text-blue-600">{formatRemaining(new Date(li.until).getTime())}</span>
@@ -151,10 +154,12 @@ export default function MegaMenu({ label, items, image, highlight, leftRail, onL
             <div className={`col-span-12 ${leftRail ? 'md:col-span-5' : 'md:col-span-7'} grid sm:grid-cols-2 gap-0`}
                  >
               {items.map((it) => (
-                <Link key={it.title} to={it.to} onClick={onLinkClick} className="group px-6 py-5 border-b border-gray-100 hover:bg-gray-50">
-                  <div className="text-[11px] uppercase tracking-wide text-blue-600 font-semibold">{it.kicker}</div>
-                  <div className="mt-1 text-[16px] sm:text-[17px] font-semibold text-gray-900">{it.title}</div>
-                  <div className="mt-1 text-[13px] sm:text-[14px] text-gray-600 leading-relaxed">{it.desc}</div>
+                <Link key={it.title} to={it.to} onClick={onLinkClick} className="group px-6 py-5 border-b border-neutral-100 hover:bg-neutral-50">
+                  <div className="space-y-1">{/* space-y ersetzt mehrere einzelne mt-1 Elemente */}
+                    <div className="text-[11px] uppercase tracking-wide text-blue-600 font-semibold">{it.kicker}</div>
+                    <div className="text-[16px] sm:text-[17px] font-semibold text-neutral-900">{it.title}</div>
+                    <div className="text-[13px] sm:text-[14px] text-neutral-600 leading-relaxed">{it.desc}</div>
+                  </div>
                   <div className="mt-3 inline-flex items-center text-blue-700 font-medium text-[13px] sm:text-[14px]">
                     {it.cta}
                     <svg className="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
@@ -165,7 +170,7 @@ export default function MegaMenu({ label, items, image, highlight, leftRail, onL
               ))}
             </div>
             <div className={`col-span-12 ${leftRail ? 'md:col-span-3' : 'md:col-span-5'}`}>
-              <div className="relative h-full bg-gray-100">
+              <div className="relative h-full bg-neutral-100">
                 {image && (
                   <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 )}
@@ -183,8 +188,8 @@ export default function MegaMenu({ label, items, image, highlight, leftRail, onL
             </div>
             </div>
             {/* Footerleiste innerhalb des Menüs (optional) */}
-            <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
-              <div className="text-[13px] text-gray-600">TÜV-zertifiziert • 25 Jahre Garantie • 2.500+ Projekte</div>
+            <div className="px-6 py-4 bg-neutral-50 border-t border-neutral-100 flex items-center justify-between">
+              <div className="text-[13px] text-neutral-600">TÜV-zertifiziert • 25 Jahre Garantie • 2.500+ Projekte</div>
               <Link to="/" className="text-[13px] text-blue-700 font-semibold" onClick={onLinkClick}>Preisrechner öffnen →</Link>
             </div>
           </div>

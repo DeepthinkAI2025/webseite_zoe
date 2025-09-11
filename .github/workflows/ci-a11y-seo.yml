@@ -1,0 +1,100 @@
+name: CI – A11y & SEO Gates
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gates:
+    name: Run Accessibility & SEO Gates
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install root deps
+        run: npm install --no-fund --no-audit
+
+      - name: Install workspace deps
+        run: npm -w Arbeitsverzeichnis install --no-fund --no-audit
+
+      - name: Build site
+        run: npm -w Arbeitsverzeichnis run build
+
+      - name: Smoke tests
+        run: npm -w Arbeitsverzeichnis run test:smoke
+
+      - name: Setup Playwright (Chromium)
+        uses: microsoft/playwright-github-action@v1
+
+      - name: Axe – 3 runs
+        run: npm -w Arbeitsverzeichnis run audit:a11y:axe:runs
+
+      - name: Axe – Stability Gate
+        run: npm -w Arbeitsverzeichnis run gate:a11y:axe:stability
+
+      - name: ALT Gate
+        run: npm -w Arbeitsverzeichnis run gate:images:alt
+
+      - name: Accessible Names Gate
+        run: npm -w Arbeitsverzeichnis run gate:a11y:names
+
+      - name: Tabindex Gate
+        run: npm -w Arbeitsverzeichnis run gate:a11y:tabindex
+
+      - name: Canonical Gate
+        run: npm -w Arbeitsverzeichnis run gate:canonical
+
+      - name: Quality Check (ESLint + audits)
+        run: npm -w Arbeitsverzeichnis run quality:check
+
+      - name: Upload Axe reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: axe-reports
+          path: |
+            Arbeitsverzeichnis/docs/axe-a11y-report-run1.json
+            Arbeitsverzeichnis/docs/axe-a11y-report-run2.json
+            Arbeitsverzeichnis/docs/axe-a11y-report-run3.json
+            Arbeitsverzeichnis/docs/axe-a11y-stability.json
+
+  perf:
+    name: Lighthouse Performance (non-blocking)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: |
+          npm install --no-fund --no-audit
+          npm -w Arbeitsverzeichnis install --no-fund --no-audit
+
+      - name: Run Lighthouse perf (Node)
+        run: npm -w Arbeitsverzeichnis run audit:lighthouse:perf:node
+        continue-on-error: true
+
+      - name: Upload perf metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-perf-metrics
+          path: Arbeitsverzeichnis/docs/lighthouse-perf-metrics.json

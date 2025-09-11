@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { X, Mail, Calculator as Calc, FileCheck } from 'lucide-react';
+import { X, Mail, CalcIcon as Calc, FileCheck } from '@/components/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import { useTranslation } from 'react-i18next';
 
 function useTrack() {
   return (event, payload = {}) => {
@@ -11,16 +12,16 @@ function useTrack() {
   };
 }
 
-function Backdrop({ onClose, children, ariaTitle }) {
+function Backdrop({ onClose, children, ariaTitle, labelledById }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose?.(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
   return (
-    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-3">
+    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-3" role="presentation">
       <div className="absolute inset-0 bg-black/30" onClick={onClose} />
-      <div role="dialog" aria-modal="true" aria-label={ariaTitle} className="relative w-full sm:max-w-lg">
+      <div role="dialog" aria-modal="true" {...(labelledById ? { 'aria-labelledby': labelledById } : { 'aria-label': ariaTitle })} className="relative w-full sm:max-w-lg outline-none focus-visible:focus-ring" tabIndex="-1">
         {children}
       </div>
     </div>
@@ -28,6 +29,7 @@ function Backdrop({ onClose, children, ariaTitle }) {
 }
 
 function EmailCapture({ topic, onDone }) {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [busy, setBusy] = useState(false);
   const [ok, setOk] = useState(false);
@@ -36,7 +38,7 @@ function EmailCapture({ topic, onDone }) {
   const submit = async (e) => {
     e?.preventDefault?.();
     setErr('');
-    if (!email || !email.includes('@')) { setErr('Bitte gültige E‑Mail eingeben.'); return; }
+    if (!email || !email.includes('@')) { setErr(t('popup.common.email_invalid')); return; }
     try {
       setBusy(true);
       track('lead_submit', { placement: topic });
@@ -48,23 +50,28 @@ function EmailCapture({ topic, onDone }) {
       setOk(true);
       onDone?.();
     } catch (e) {
-      setErr('Senden fehlgeschlagen. Bitte später erneut versuchen.');
+      setErr(t('popup.common.submit_error'));
     } finally {
       setBusy(false);
     }
   };
-  if (ok) return <div className="mt-3 text-sm rounded-md bg-emerald-50 border border-emerald-200 text-emerald-900 px-3 py-2">Danke! Wir senden Ihnen die Infos per E‑Mail.</div>;
+  if (ok) return <div className="mt-3 text-sm rounded-md bg-emerald-50 border border-emerald-200 text-emerald-900 px-3 py-2">{t('popup.common.email_ok')}</div>;
   return (
-    <form onSubmit={submit} className="mt-3 flex gap-2">
-      <Input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="E‑Mail" className="bg-white" />
-      <Button type="submit" disabled={busy} className="bg-amber-600 hover:bg-amber-700 text-white flex items-center gap-1">
-        <Mail className="w-4 h-4"/>{busy ? 'Senden…' : 'Erhalten'}
+    <form onSubmit={submit} className="mt-3 flex gap-2" noValidate aria-describedby={err ? 'popup-email-error' : undefined}>
+      <div className="flex-1">
+        <label htmlFor={`popup-email-${topic}`} className="sr-only">E-Mail</label>
+        <Input id={`popup-email-${topic}`} type="email" aria-invalid={!!err} value={email} onChange={(e)=>setEmail(e.target.value)} placeholder={t('popup.timed.email_placeholder')} className="bg-white w-full" />
+        {err && <p id="popup-email-error" className="mt-1 text-xs text-red-600" role="alert">{err}</p>}
+      </div>
+      <Button type="submit" disabled={busy} className="bg-amber-600 hover:bg-amber-700 text-white flex items-center gap-1 self-start h-11">
+        <Mail className="w-4 h-4"/>{busy ? t('popup.common.sending') : t('popup.common.receive')}
       </Button>
     </form>
   );
 }
 
 function TimedPopup({ delayMs = 8000, hiddenRoutes = [] }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const track = useTrack();
@@ -80,23 +87,23 @@ function TimedPopup({ delayMs = 8000, hiddenRoutes = [] }) {
   }, [delayMs, location.pathname]);
   if (!open) return null;
   return (
-    <Backdrop onClose={() => setOpen(false)} ariaTitle="Solar‑Kurzguide">
-      <div className="relative rounded-2xl border border-gray-200 bg-white shadow-2xl p-5 sm:p-6">
-        <button aria-label="Schließen" onClick={()=>setOpen(false)} className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-100"><X className="w-5 h-5"/></button>
+    <Backdrop onClose={() => setOpen(false)} ariaTitle={t('popup.timed.title')} labelledById="popup-timed-heading">
+      <div className="relative rounded-2xl border border-neutral-200 bg-white shadow-2xl p-5 sm:p-6 outline-none focus-visible:focus-ring" tabIndex="-1">
+  <Button variant="plain" aria-label="Schließen" onClick={()=>setOpen(false)} className="absolute top-2 right-2 p-2 rounded-full hover:bg-neutral-100 focus-visible:focus-ring"><X className="w-5 h-5"/></Button>
         <div className="flex items-start gap-4">
           <div className="hidden sm:block text-3xl" aria-hidden>📘</div>
-          <div>
-            <div className="text-lg font-extrabold text-gray-900">Der 10‑Minuten Solar‑Kurzguide</div>
-            <ul className="mt-2 text-base sm:text-lg text-gray-700 list-disc pl-5 space-y-1">
-              <li>Ersparnis/ROI – konservativ, als Spanne</li>
-              <li>Speicher: ja/nein mit Daumenregel</li>
-              <li>Förder‑Check: was wirklich zählt</li>
+          <div className="space-y-3">{/* space-y ersetzt mehrere mt-* */}
+            <div id="popup-timed-heading" className="text-lg font-extrabold text-neutral-900">{t('popup.timed.title')}</div>
+            <ul className="text-base sm:text-lg text-neutral-700 list-disc pl-5 space-y-1">
+              <li>{t('popup.timed.l1')}</li>
+              <li>{t('popup.timed.l2')}</li>
+              <li>{t('popup.timed.l3')}</li>
             </ul>
             <EmailCapture topic="popup_timed" onDone={() => track('popup_timed_submit')} />
-            <div className="mt-3 text-[11px] text-gray-500">1–2 E‑Mails/Woche, jederzeit abbestellbar.</div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <Link to={createPageUrl('Calculator')} className="inline-flex"><Button className="bg-gray-900 hover:bg-black text-white"><Calc className="w-4 h-4 mr-1"/>Jetzt rechnen</Button></Link>
-              <Button variant="outline" onClick={()=>setOpen(false)} className="border-gray-300">Später</Button>
+            <div className="text-[11px] text-neutral-500">{t('popup.timed.email_help')}</div>
+            <div className="flex flex-wrap gap-2">
+              <Link to={createPageUrl('Calculator')} className="inline-flex"><Button className="bg-neutral-900 hover:bg-black text-white focus-visible:focus-ring"><Calc className="w-4 h-4 mr-1"/>{t('popup.timed.cta_calc')}</Button></Link>
+              <Button variant="outline" onClick={()=>setOpen(false)} className="border-neutral-300 focus-visible:focus-ring">{t('popup.timed.btn_later')}</Button>
             </div>
           </div>
         </div>
@@ -106,7 +113,9 @@ function TimedPopup({ delayMs = 8000, hiddenRoutes = [] }) {
 }
 
 function ExitIntentPopup({ hiddenRoutes = [] }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const [variant] = useState(()=> Math.random() < 0.5 ? 'base' : 'incentive');
   const track = useTrack();
   const location = useLocation();
   const triggered = useRef(false);
@@ -120,7 +129,7 @@ function ExitIntentPopup({ hiddenRoutes = [] }) {
         if (sessionStorage.getItem('zoe_popup_exit_shown') === '1') return;
         setOpen(true);
         try { sessionStorage.setItem('zoe_popup_exit_shown', '1'); } catch {}
-        track('popup_exit_shown');
+  track('popup_exit_shown',{ variant });
       }
     };
     document.addEventListener('mouseout', onMouseOut);
@@ -128,19 +137,20 @@ function ExitIntentPopup({ hiddenRoutes = [] }) {
   }, [location.pathname]);
   if (!open) return null;
   return (
-    <Backdrop onClose={() => setOpen(false)} ariaTitle="Bevor Sie gehen">
-      <div className="relative rounded-2xl border border-gray-200 bg-white shadow-2xl p-5 sm:p-6">
-        <button aria-label="Schließen" onClick={()=>setOpen(false)} className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-100"><X className="w-5 h-5"/></button>
+    <Backdrop onClose={() => setOpen(false)} ariaTitle={t('popup.exit.aria_title')} labelledById="popup-exit-heading">
+      <div className="relative rounded-2xl border border-neutral-200 bg-white shadow-2xl p-5 sm:p-6 outline-none focus-visible:focus-ring" tabIndex="-1">
+  <Button variant="plain" aria-label="Schließen" onClick={()=>setOpen(false)} className="absolute top-2 right-2 p-2 rounded-full hover:bg-neutral-100 focus-visible:focus-ring"><X className="w-5 h-5"/></Button>
         <div className="flex items-start gap-4">
           <div className="hidden sm:block text-3xl" aria-hidden>🧮</div>
-          <div>
-            <div className="text-lg font-extrabold text-gray-900">Kurzer Reality‑Check?</div>
-            <div className="mt-1 text-sm text-gray-700">Ihre realistische {`{`}Ersparnis/ROI{`}`}-Spanne in 30 Sekunden – ohne Pflichtfelder. Oder erhalten Sie unser Kurzkonzept‑Muster per E‑Mail.</div>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Link to={createPageUrl('Calculator')} className="inline-flex" onClick={()=>track('popup_exit_click', { action: 'calculator' })}><Button className="bg-gray-900 hover:bg-black text-white"><Calc className="w-4 h-4 mr-1"/>Jetzt prüfen</Button></Link>
+          <div className="space-y-3">{/* space-y ersetzt mehrere mt-* */}
+            {variant==='base' && <div className="space-y-2"><div id="popup-exit-heading" className="text-lg font-extrabold text-neutral-900">{t('popup.exit.title_base')}</div><div className="text-sm text-neutral-700">{t('popup.exit.desc_base')}</div></div>}
+            {variant==='incentive' && <div className="space-y-2"><div id="popup-exit-heading" className="text-lg font-extrabold text-neutral-900">{t('popup.exit.title_incentive')}</div><div className="text-sm text-neutral-700" dangerouslySetInnerHTML={{ __html: t('popup.exit.desc_incentive') }} /></div>}
+            <div className="flex flex-wrap gap-2">
+              <Link to={createPageUrl('Calculator')} className="inline-flex" onClick={()=>track('popup_exit_click', { action: 'calculator', variant })}><Button className="bg-neutral-900 hover:bg-black text-white focus-visible:focus-ring"><Calc className="w-4 h-4 mr-1"/>{t('popup.exit.btn_calc')}</Button></Link>
+              {variant==='incentive' && <Button onClick={()=>{ track('popup_exit_incentive_click'); setOpen(false); }} className="bg-amber-600 hover:bg-amber-700 text-white flex items-center gap-1 focus-visible:focus-ring"><FileCheck className="w-4 h-4"/>{t('popup.exit.btn_incentive')}</Button>}
             </div>
-            <div className="mt-4">
-              <div className="text-sm font-medium text-gray-900">Oder: Kurzkonzept‑Muster per E‑Mail</div>
+            <div className="space-y-3">
+              <div className="text-sm font-medium text-neutral-900">{t('popup.exit.email_intro')}</div>
               <EmailCapture topic="popup_exit" onDone={() => track('popup_exit_submit')} />
             </div>
           </div>

@@ -15,6 +15,8 @@ export function createPageUrl(name) {
     Calculator: '/rechner',
     Deals: '/angebote',
     Contact: '/kontakt',
+  PhotovoltaikKosten: '/photovoltaik-kosten',
+  Stromspeicher: '/stromspeicher',
   Imprint: '/impressum',
   Privacy: '/datenschutz',
   };
@@ -29,7 +31,7 @@ export function setReduceMotion(value) {
     const root = document.documentElement
     if (v) root.setAttribute('data-reduce-motion', 'true')
     else root.removeAttribute('data-reduce-motion')
-  } catch {}
+  } catch { /* noop */ }
 }
 
 export function setContrast(mode) {
@@ -39,7 +41,7 @@ export function setContrast(mode) {
     const root = document.documentElement
     if (m === 'plus') root.setAttribute('data-contrast', 'plus')
     else root.removeAttribute('data-contrast')
-  } catch {}
+  } catch { /* noop */ }
 }
 
 export function getUIPreferences() {

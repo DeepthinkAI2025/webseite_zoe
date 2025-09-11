@@ -7,11 +7,49 @@
   <title>ZOE Solar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+  <!-- Hero Image Preload entfernt (Warnung: nicht innerhalb Ladefenster genutzt) – Inline Manifest übernimmt bedarfsgerechtes Laden -->
+  <!-- INLINE_IMAGE_MANIFEST -->
+  <!-- Critical CSS: Header Frame, Container, Minimal Hero Typography, Primary Button -->
+  <style>
+    :root { --font-sans: 'Inter', system-ui, sans-serif; --ease: cubic-bezier(.4,0,.2,1); }
+    * { box-sizing: border-box; }
+    body { font-family: var(--font-sans); margin:0; -webkit-font-smoothing:antialiased; }
+    .pro-container { width:100%; margin:0 auto; padding-left:1rem; padding-right:1rem; max-width:80rem; }
+    .site-header { backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); will-change:transform; }
+    .site-header .nav-skeleton{display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+    .logo-text{font-weight:600;letter-spacing:-.01em;font-size:15px;}
+    h1, .hero-h1 { font-weight:800; line-height:1.05; letter-spacing:-.02em; font-size:clamp(2.2rem,5vw,3.4rem); margin:0; }
+    .hero-sub { margin-top:1rem; font-size:clamp(1.05rem,1.4vw+0.9rem,1.35rem); line-height:1.4; max-width:46ch; color:#374151; }
+    .btn-primary { display:inline-flex;align-items:center;justify-content:center;font-weight:600;border-radius:42px;background:#0d4d72;color:#fff;padding:.85rem 1.75rem;font-size:15px;text-decoration:none;transition:background .2s var(--ease); }
+    .btn-primary:hover { background:#0b405f; }
+    .focus-ring:focus-visible { outline:2px solid #fff; outline-offset:2px; }
+    /* Reduce layout shift for header wrapper presentational pill */
+    .header-shell { border:1px solid #d1d9de; background:#fff; border-radius:9999px; box-shadow:0 1px 2px rgba(0,0,0,.06); padding:.5rem 1.25rem; display:flex;align-items:center;gap:1rem; }
+    @media (min-width:640px){ .logo-text{display:inline-block;} }
+  </style>
+  <link rel="preload" href="/src/main.jsx" as="script" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Lightweight shell to avoid blank first paint -->
+      <header class="site-header fixed left-0 right-0 top-0 z-40">
+        <div class="pro-container nav-skeleton">
+          <div class="header-shell">
+            <span class="logo-text">ZOE Solar</span>
+          </div>
+        </div>
+      </header>
+      <main style="padding-top:5.5rem">
+        <section class="pro-container" style="padding:3.5rem 0 2rem">
+          <h1 class="hero-h1">Halbieren Sie Ihre Stromrechnung – garantiert planbar.</h1>
+          <p class="hero-sub">In 2 Minuten wissen Sie, wie viel Sie sparen. Premium‑Technik, Festpreis‑Angebot, 25 Jahre Garantie und Förderung inklusive.</p>
+          <a class="btn-primary" href="#schnellrechner" data-preload="planner">Jetzt Ersparnis berechnen</a>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
   </html>

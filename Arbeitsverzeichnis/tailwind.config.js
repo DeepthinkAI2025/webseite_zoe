@@ -2,7 +2,6 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
@@ -53,11 +52,37 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // gray Skala entfernt, nur neutral bleibt
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        xl: "var(--radius-xl)",
+        lg: "var(--radius-lg)",
+        md: "var(--radius-md)",
+        sm: "var(--radius-sm)",
+        pill: "9999px",
+      },
+      spacing: {
+        '0': '0',
+        '0.5': 'var(--space-1)',
+        '1': 'var(--space-2)',
+        '1.5': 'var(--space-3)',
+        '2': 'var(--space-4)',
+        '2.5': 'var(--space-5)',
+        '3': 'var(--space-6)',
+        '3.5': 'var(--space-7)',
+        '4': 'var(--space-8)',
+        '5': 'var(--space-9)',
+        '6': 'var(--space-10)',
+        '7': 'var(--space-12)',
+        '8': 'var(--space-14)',
+        '9': 'var(--space-16)',
+        '10': 'var(--space-20)',
+        '11': 'var(--space-24)'
+      },
+      boxShadow: {
+        'soft-sm': '0 1px 2px rgba(0,0,0,0.06)',
+        'soft-md': '0 4px 12px rgba(0,0,0,0.08)',
+        'soft-lg': '0 8px 24px rgba(0,0,0,0.10)',
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

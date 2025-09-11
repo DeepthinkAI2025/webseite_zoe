@@ -1,0 +1,17 @@
+{
+  "name": "root-meta",
+  "private": true,
+  "workspaces": [
+    "Arbeitsverzeichnis"
+  ],
+  "scripts": {
+    "dev": "npm --workspace Arbeitsverzeichnis run dev",
+    "build": "npm --workspace Arbeitsverzeichnis run build"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.28.3",
+    "@babel/traverse": "^7.28.3",
+    "playwright": "^1.55.0",
+    "puppeteer": "^24.18.0"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "generated": "2025-09-08T14:04:38.608Z",
+  "base": "http://localhost:4173",
+  "totals": {
+    "pages": 4,
+    "violations": 0
+  },
+  "results": [
+    {
+      "page": "/",
+      "url": "http://localhost:4173/",
+      "violations": []
+    },
+    {
+      "page": "/warum-zoe",
+      "url": "http://localhost:4173/warum-zoe",
+      "violations": []
+    },
+    {
+      "page": "/technologie",
+      "url": "http://localhost:4173/technologie",
+      "violations": []
+    },
+    {
+      "page": "/kontakt",
+      "url": "http://localhost:4173/kontakt",
+      "violations": []
+    }
+  ],
+  "violationsCount": 0
+}

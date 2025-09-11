@@ -1,0 +1,66 @@
+{
+  "generated": "2025-09-03T13:10:51.666Z",
+  "totalFindings": 10,
+  "findings": [
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/layout.jsx",
+      "line": 413,
+      "tag": "input",
+      "snippet": "<input\n                    type=\"text\"                    placeholder=\"Frag uns: Speichergröße? Förderung? kWp?\"                    value={command}                    onChange={(e)"
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/layout.jsx",
+      "line": 640,
+      "tag": "input",
+      "snippet": "<input value={input} onChange={e=> setInput(e.target.value)} placeholder=\"Ihre Notiz / Wunsch…\" className=\"flex-1 rounded-full border border-neutral-300 px-4 py-2 text-sm focus:out"
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 880,
+      "tag": "button",
+      "snippet": "<button\n                  onClick={() => setOfferTier(t.key)}"
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 1213,
+      "tag": "input",
+      "snippet": "<input\n          value={value}          onChange={(e)=> setValue(e.target.value)}"
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 1227,
+      "tag": "button",
+      "snippet": "<button key={s} onClick={()=>go(s)} className=\"text-xs sm:text-sm rounded-full border border-neutral-200 bg-white px-3 py-1 text-neutral-700 hover:bg-neutral-50 focus:outline-none "
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 1281,
+      "tag": "input",
+      "snippet": "<input type=\"range\" min={persona==='privat'?2000:10000} max={persona==='privat'?12000:150000} step={persona==='privat'?100:1000} value={consumption} onChange={(e)=> setConsumption("
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 1289,
+      "tag": "input",
+      "snippet": "<input type=\"range\" min={0.20} max={0.60} step={0.01} value={price} onChange={(e)=> setPrice(parseFloat(e.target.value))} className=\"flex-1 focus:outline-none focus:ring-2 focus:ri"
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 1420,
+      "tag": "button",
+      "snippet": "<button\n                key={idx}                aria-label={`Testimonial ${idx+1} anzeigen`}                onClick={() => setI(idx)}"
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 1429,
+      "tag": "button",
+      "snippet": "<button aria-label=\"Vorheriges Testimonial\" onClick={() => go('prev')} className=\"hidden sm:inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 border border-a"
+    },
+    {
+      "file": "/workspaces/webseite_zoe/Arbeitsverzeichnis/src/pages/Home.jsx",
+      "line": 1430,
+      "tag": "button",
+      "snippet": "<button aria-label=\"Nächstes Testimonial\" onClick={() => go('next')} className=\"hidden sm:inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/90 border border-amb"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+name: a11y-audit
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+jobs:
+  axe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install
+        run: |
+          cd Arbeitsverzeichnis
+          npm ci --no-audit --no-fund
+      - name: Build
+        run: |
+          cd Arbeitsverzeichnis
+          npm run build --silent
+      - name: Axe Audit (preview)
+        run: |
+          cd Arbeitsverzeichnis
+          npm run audit:a11y:axe:preview
+      - name: Guard (0 violations)
+        run: |
+          cd Arbeitsverzeichnis
+          npm run audit:a11y:axe:guard
+      - name: Image ALT Gate
+        run: |
+          cd Arbeitsverzeichnis
+          npm run gate:images:alt
+      - name: Accessible Names Gate
+        run: |
+          cd Arbeitsverzeichnis
+          npm run gate:a11y:names
+      - name: Tabindex Gate
+        run: |
+          cd Arbeitsverzeichnis
+          npm run gate:a11y:tabindex
+      - name: Diff (optional)
+        run: |
+          cd Arbeitsverzeichnis
+          npm run audit:a11y:axe:diff || true
+      - name: Lighthouse A11y Reports
+        run: |
+          cd Arbeitsverzeichnis
+          npm run audit:a11y:lh
+      - name: Lighthouse A11y Gate
+        run: |
+          cd Arbeitsverzeichnis
+          npm run gate:a11y:lh
+      - name: Axe Stability Gate (3x Zero)
+        run: |
+          cd Arbeitsverzeichnis
+          npm run audit:a11y:axe:runs
+          npm run gate:a11y:axe:stability
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: axe-report
+          path: Arbeitsverzeichnis/docs/axe-a11y-report.json
+      - name: Upload lighthouse a11y reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-a11y-reports
+          path: |
+            Arbeitsverzeichnis/docs/lighthouse-a11y-*.json
+            Arbeitsverzeichnis/docs/lighthouse-a11y-scores.json

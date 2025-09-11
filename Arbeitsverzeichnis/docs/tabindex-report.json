@@ -1,0 +1,102 @@
+{
+  "generated": "2025-09-08T14:07:47.464Z",
+  "filesScanned": 101,
+  "findings": [
+    {
+      "file": "src/pages/Contact.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex={-1}"
+    },
+    {
+      "file": "src/pages/Contact_new.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex={-1}"
+    },
+    {
+      "file": "src/pages/Home.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex={-1}"
+    },
+    {
+      "file": "src/components/PopupBanners.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex=\"-1\""
+    },
+    {
+      "file": "src/components/PopupBanners.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex=\"-1\""
+    },
+    {
+      "file": "src/components/PopupBanners.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex=\"-1\""
+    },
+    {
+      "file": "src/components/ServiceDrawer.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex={-1}"
+    },
+    {
+      "file": "src/components/SupportChatDrawer.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabindex=\"-1\""
+    },
+    {
+      "file": "src/components/SupportChatDrawer.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex=\"-1\""
+    },
+    {
+      "file": "src/components/ui/drawer.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabindex=\"-1\""
+    },
+    {
+      "file": "src/components/ui/drawer.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex={-1}"
+    },
+    {
+      "file": "src/components/ui/dropdown-menu.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex={-1}"
+    },
+    {
+      "file": "src/components/ui/select.jsx",
+      "issue": "tabindex-negative",
+      "severity": "warn",
+      "value": -1,
+      "snippet": "tabIndex={-1}"
+    }
+  ],
+  "counts": {
+    "error": 0,
+    "warn": 13,
+    "info": 0
+  }
+}

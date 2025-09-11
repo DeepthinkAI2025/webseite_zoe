@@ -1,0 +1,117 @@
+{
+  "generated": "2025-09-11T12:13:19.371Z",
+  "base": "http://localhost:4173",
+  "mode": "mobile",
+  "thresholds": {
+    "lcp": 2500,
+    "cls": 0.1,
+    "inp": 200
+  },
+  "results": [
+    {
+      "page": "/",
+      "mode": "mobile",
+      "attempts": 1,
+      "lcp": 3066,
+      "cls": 0,
+      "inp": 3066,
+      "fcp": 3066,
+      "ttfb": 2,
+      "performanceScore": 88
+    },
+    {
+      "page": "/whyus",
+      "mode": "mobile",
+      "attempts": 1,
+      "lcp": 3086,
+      "cls": 0,
+      "inp": 3086,
+      "fcp": 3086,
+      "ttfb": 2,
+      "performanceScore": 88
+    },
+    {
+      "page": "/technology",
+      "mode": "mobile",
+      "attempts": 1,
+      "lcp": 3071,
+      "cls": 0,
+      "inp": 3071,
+      "fcp": 3071,
+      "ttfb": 1,
+      "performanceScore": 88
+    },
+    {
+      "page": "/contact",
+      "mode": "mobile",
+      "attempts": 1,
+      "lcp": 3100,
+      "cls": 0,
+      "inp": 3100,
+      "fcp": 3100,
+      "ttfb": 1,
+      "performanceScore": 88
+    },
+    {
+      "page": "/pricing",
+      "mode": "mobile",
+      "attempts": 1,
+      "lcp": 3079,
+      "cls": 0,
+      "inp": 3079,
+      "fcp": 3079,
+      "ttfb": 2,
+      "performanceScore": 88
+    },
+    {
+      "page": "/projects",
+      "mode": "mobile",
+      "attempts": 1,
+      "lcp": 3065,
+      "cls": 0,
+      "inp": 3065,
+      "fcp": 3065,
+      "ttfb": 1,
+      "performanceScore": 88
+    }
+  ],
+  "compliance": [
+    {
+      "page": "/",
+      "lcp_ok": false,
+      "cls_ok": true,
+      "inp_ok": false
+    },
+    {
+      "page": "/whyus",
+      "lcp_ok": false,
+      "cls_ok": true,
+      "inp_ok": false
+    },
+    {
+      "page": "/technology",
+      "lcp_ok": false,
+      "cls_ok": true,
+      "inp_ok": false
+    },
+    {
+      "page": "/contact",
+      "lcp_ok": false,
+      "cls_ok": true,
+      "inp_ok": false
+    },
+    {
+      "page": "/pricing",
+      "lcp_ok": false,
+      "cls_ok": true,
+      "inp_ok": false
+    },
+    {
+      "page": "/projects",
+      "lcp_ok": false,
+      "cls_ok": true,
+      "inp_ok": false
+    }
+  ],
+  "allPassed": false
+}
