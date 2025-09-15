@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2025-09-12T22:36:21.948Z",
+  "base": "http://localhost:3010",
+  "structuredData": [
+    {
+      "url": "http://localhost:3010/",
+      "count": 3,
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "WebSite"
+      ],
+      "errors": []
+    },
+    {
+      "url": "http://localhost:3010/pricing",
+      "count": 6,
+      "types": [
+        "BreadcrumbList",
+        "FAQPage",
+        "HowTo",
+        "ListItem",
+        "Offer",
+        "OfferCatalog",
+        "Organization",
+        "Question",
+        "WebSite"
+      ],
+      "errors": []
+    },
+    {
+      "url": "http://localhost:3010/contact",
+      "count": 4,
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "LocalBusiness",
+        "Organization",
+        "WebSite"
+      ],
+      "errors": []
+    },
+    {
+      "url": "http://localhost:3010/technology",
+      "count": 3,
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "WebSite"
+      ],
+      "errors": []
+    },
+    {
+      "url": "http://localhost:3010/projects",
+      "count": 3,
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "WebSite"
+      ],
+      "errors": []
+    },
+    {
+      "url": "http://localhost:3010/why-us",
+      "count": 3,
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "WebSite"
+      ],
+      "errors": []
+    }
+  ],
+  "lighthouse": {
+    "source": "lighthouse-baseline",
+    "pageCount": 6,
+    "avgLcp": 2371.2935583333333,
+    "avgCls": 0,
+    "avgInp": 2832.1643120833337,
+    "avgTbt": 61.666666666666664,
+    "avgPerf": 0.9766666666666666,
+    "avgSeo": 1,
+    "avgA11y": 0.9733333333333333
+  },
+  "lighthousePages": [
+    {
+      "path": "/",
+      "lcp": 1964.5598,
+      "cls": 0,
+      "tbt": 80,
+      "inp": 2982.4843225,
+      "performance": 0.99,
+      "accessibility": 1,
+      "seo": 1
+    },
+    {
+      "path": "/pricing",
+      "lcp": 2477.1968500000003,
+      "cls": 0,
+      "tbt": 66.5,
+      "inp": 3062.4968500000004,
+      "performance": 0.97,
+      "accessibility": 0.9,
+      "seo": 1
+    },
+    {
+      "path": "/technology",
+      "lcp": 2481.937,
+      "cls": 0,
+      "tbt": 73,
+      "inp": 2787.437,
+      "performance": 0.97,
+      "accessibility": 0.98,
+      "seo": 1
+    },
+    {
+      "path": "/contact",
+      "lcp": 2439.5075500000003,
+      "cls": 0,
+      "tbt": 50.5,
+      "inp": 2713.0075500000003,
+      "performance": 0.98,
+      "accessibility": 0.96,
+      "seo": 1
+    },
+    {
+      "path": "/projects",
+      "lcp": 2457.5676000000003,
+      "cls": 0,
+      "tbt": 65,
+      "inp": 2743.0676000000003,
+      "performance": 0.97,
+      "accessibility": 1,
+      "seo": 1
+    },
+    {
+      "path": "/why-us",
+      "lcp": 2406.99255,
+      "cls": 0,
+      "tbt": 35,
+      "inp": 2704.49255,
+      "performance": 0.98,
+      "accessibility": 1,
+      "seo": 1
+    }
+  ],
+  "coverage": {
+    "uniqueTypes": [
+      "BreadcrumbList",
+      "FAQPage",
+      "HowTo",
+      "ListItem",
+      "LocalBusiness",
+      "Offer",
+      "OfferCatalog",
+      "Organization",
+      "Question",
+      "WebSite"
+    ],
+    "pageCount": 6
+  }
+}

@@ -1,0 +1,98 @@
+name: IndexNow Auto Ping
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'next-app/src/app/**/*.tsx'
+      - 'next-app/content/**/*.md'
+      - 'next-app/docs/**/*.md'
+      - 'next-app/public/**/*'
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BASE_URL: ${{ secrets.PRODUCTION_BASE_URL }}
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node (für zukünftige Erweiterungen / optional)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            next-app/package-lock.json
+
+      - name: Collect changed URLs
+        id: collect
+        run: |
+          # Finde geänderte Dateien im letzten Commit (oder Push Range)
+          CHANGED=$(git diff --name-only ${{ github.sha }}~1 ${{ github.sha }} | grep '^next-app/src/app/' || true)
+          BASE="$BASE_URL"
+          if [ -z "$BASE" ]; then echo 'BASE_URL secret fehlt'; exit 1; fi
+          URLS=()
+          while IFS= read -r f; do
+            # Mapping: next-app/src/app/route -> URL
+            # Entferne Prefix
+            p=${f#next-app/src/app/}
+            # Entferne 'page.tsx' oder 'route.ts'
+            if echo "$p" | grep -q 'page.tsx$'; then
+              route=${p%/page.tsx}
+            elif echo "$p" | grep -q 'route.ts$'; then
+              route=${p%/route.ts}
+            else
+              continue
+            fi
+            [ "$route" = '' ] && route=''
+            # Dynamic Segmente (z.B. [slug]) aktuell überspringen
+            if echo "$route" | grep -q '\['; then continue; fi
+            url="$BASE/$route"
+            url=$(echo "$url" | sed 's#//#/#g' | sed 's#https:/#https://#')
+            URLS+=("$url")
+          done <<< "$CHANGED"
+          # Deduplicate
+          DEDUP=$(printf '%s\n' "${URLS[@]}" | sort -u)
+          echo "Gefundene URLs:" $DEDUP
+          printf '%s\n' $DEDUP > changed-urls.txt
+          COUNT=$(wc -l < changed-urls.txt || echo 0)
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
+
+      - name: Show changed URLs
+        if: steps.collect.outputs.count != '0'
+        run: |
+          cat changed-urls.txt
+
+      - name: Ping IndexNow
+        if: steps.collect.outputs.count != '0'
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const https = require('https');
+          const key = process.env.INDEXNOW_KEY;
+          const endpoint = process.env.INDEXNOW_ENDPOINT || 'https://api.indexnow.org/indexnow';
+          const urls = fs.readFileSync('changed-urls.txt','utf8').trim().split(/\n/).filter(Boolean);
+          if(!key){ console.error('INDEXNOW_KEY fehlt'); process.exit(1); }
+          const host = process.env.BASE_URL.replace(/^https?:\/\//,'').replace(/\/$/,'');
+          const body = JSON.stringify({ key, host, keyLocation: `https://${host}/${key}.txt`, urlList: urls });
+          const req = https.request(endpoint, { method:'POST', headers:{'Content-Type':'application/json','Content-Length':Buffer.byteLength(body)}}, res => { let data=''; res.on('data',c=>data+=c); res.on('end',()=>{ console.log('Status', res.statusCode); console.log(data); }); });
+          req.on('error',e=>{console.error(e); process.exit(1);});
+          req.write(body); req.end();
+          EOF
+
+      - name: Summary
+        run: |
+          if [ -f changed-urls.txt ]; then
+            echo "## IndexNow Ping" >> $GITHUB_STEP_SUMMARY
+            echo "Gepingt:\n" >> $GITHUB_STEP_SUMMARY
+            sed 's/^/- /' changed-urls.txt >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## IndexNow Ping\nKeine passenden Seitenänderungen" >> $GITHUB_STEP_SUMMARY
+          fi
+      # Wartungshinweis: SECRET PRODUCTION_BASE_URL & INDEXNOW_KEY müssen in Repo/Org Secrets definiert sein.

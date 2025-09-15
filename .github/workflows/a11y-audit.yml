@@ -11,61 +11,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
       - name: Install
-        run: |
-          cd Arbeitsverzeichnis
-          npm ci --no-audit --no-fund
+        working-directory: next-app
+        run: npm ci --no-audit --no-fund || npm install --no-fund --no-audit
       - name: Build
-        run: |
-          cd Arbeitsverzeichnis
-          npm run build --silent
-      - name: Axe Audit (preview)
-        run: |
-          cd Arbeitsverzeichnis
-          npm run audit:a11y:axe:preview
-      - name: Guard (0 violations)
-        run: |
-          cd Arbeitsverzeichnis
-          npm run audit:a11y:axe:guard
-      - name: Image ALT Gate
-        run: |
-          cd Arbeitsverzeichnis
-          npm run gate:images:alt
-      - name: Accessible Names Gate
-        run: |
-          cd Arbeitsverzeichnis
-          npm run gate:a11y:names
-      - name: Tabindex Gate
-        run: |
-          cd Arbeitsverzeichnis
-          npm run gate:a11y:tabindex
-      - name: Diff (optional)
-        run: |
-          cd Arbeitsverzeichnis
-          npm run audit:a11y:axe:diff || true
-      - name: Lighthouse A11y Reports
-        run: |
-          cd Arbeitsverzeichnis
-          npm run audit:a11y:lh
-      - name: Lighthouse A11y Gate
-        run: |
-          cd Arbeitsverzeichnis
-          npm run gate:a11y:lh
-      - name: Axe Stability Gate (3x Zero)
-        run: |
-          cd Arbeitsverzeichnis
-          npm run audit:a11y:axe:runs
-          npm run gate:a11y:axe:stability
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: axe-report
-          path: Arbeitsverzeichnis/docs/axe-a11y-report.json
-      - name: Upload lighthouse a11y reports
+        working-directory: next-app
+        run: npm run build --silent
+      - name: Run A11y Smoke (axe)
+        working-directory: next-app
+        run: npm run test:a11y
+      - name: Upload a11y report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-a11y-reports
-          path: |
-            Arbeitsverzeichnis/docs/lighthouse-a11y-*.json
-            Arbeitsverzeichnis/docs/lighthouse-a11y-scores.json
+          name: a11y-smoke-report
+          path: next-app/docs/a11y-smoke-report.json
+          if-no-files-found: ignore

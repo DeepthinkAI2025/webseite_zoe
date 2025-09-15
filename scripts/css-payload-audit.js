@@ -6,25 +6,30 @@
 import fs from 'fs';
 import path from 'path';
 
+// Migration Hinweis:
+// Entfernt Hardcoded "Arbeitsverzeichnis" Pfade. Script funktioniert jetzt für Next.js Build Output
+// (.next/static/css) und fällt ansonsten auf Tailwind Quell-CSS unter next-app/src/app/globals.css zurück.
+// Ausgabe wandert nach ./next-app/docs anstatt Arbeitsverzeichnis/docs.
+
 function findBuiltCSS(){
-	// Prüfe mehrere potenzielle Build-Pfade (Ausführung kann aus Root oder Unterordner erfolgen)
-	const candidates = [
-		path.resolve('Arbeitsverzeichnis/dist/assets'),
-		path.resolve('dist/assets'),
-		path.join(path.dirname(new URL(import.meta.url).pathname), '../Arbeitsverzeichnis/dist/assets')
-	];
-	for(const dir of candidates){
-		try {
-			if(fs.existsSync(dir)){
-				const css = fs.readdirSync(dir).find(f=>/^index-.*\.css$/.test(f));
-				if(css) return path.join(dir, css);
-			}
-		} catch {/* ignore */}
-	}
-	return null;
+  // Next.js build CSS (Turbopack / webpack) kann unterschiedlich heißen – wir suchen nach allen .css unter .next/static/css
+  const root = process.cwd();
+  const nextCssDir = path.join(root, 'next-app', '.next', 'static', 'css');
+  if(fs.existsSync(nextCssDir)){
+    const files = fs.readdirSync(nextCssDir).filter(f=>f.endsWith('.css'));
+    // Heuristik: größte Datei = aggregierte globale CSS
+    if(files.length){
+      const sorted = files.map(f=>({f, size: fs.statSync(path.join(nextCssDir,f)).size}))
+        .sort((a,b)=>b.size-a.size);
+      return path.join(nextCssDir, sorted[0].f);
+    }
+  }
+  return null;
 }
 
-const cssFile = findBuiltCSS() || path.resolve('Arbeitsverzeichnis/src/styles/index.css');
+// Fallback: globale Tailwind Datei (kann angepasst werden falls Struktur ändert)
+const fallback = path.join(process.cwd(), 'next-app','src','app','globals.css');
+const cssFile = findBuiltCSS() || fallback;
 if(!fs.existsSync(cssFile)){
 	console.error('[css-payload-audit] Keine CSS Datei gefunden. Bitte zuerst build ausführen.');
 	process.exit(1);
@@ -51,7 +56,9 @@ const report = {
 	generatedAt: new Date().toISOString()
 };
 
-if(!fs.existsSync('Arbeitsverzeichnis/docs')) fs.mkdirSync('Arbeitsverzeichnis/docs', { recursive: true });
-fs.writeFileSync('Arbeitsverzeichnis/docs/css-payload-report.json', JSON.stringify(report,null,2));
+const outDir = path.join(process.cwd(),'next-app','docs');
+if(!fs.existsSync(outDir)) fs.mkdirSync(outDir,{recursive:true});
+const outFile = path.join(outDir,'css-payload-report.json');
+fs.writeFileSync(outFile, JSON.stringify(report,null,2));
 
-console.log('[css-payload-audit] Report erstellt:', report);
+console.log('[css-payload-audit] Report erstellt:', { ...report, outFile: path.relative(process.cwd(), outFile) });

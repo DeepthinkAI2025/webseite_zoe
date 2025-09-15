@@ -1,0 +1,41 @@
+{
+  "generated": "2025-09-13T19:52:28.157Z",
+  "count": 5,
+  "results": [
+    {
+      "query": "photovoltaik installation berlin",
+      "city": "berlin",
+      "intent": "transactional",
+      "simulatedRank": 7,
+      "ts": "2025-09-13T19:52:28.157Z"
+    },
+    {
+      "query": "pv speicher kosten hamburg",
+      "city": "hamburg",
+      "intent": "commercial",
+      "simulatedRank": 2,
+      "ts": "2025-09-13T19:52:28.157Z"
+    },
+    {
+      "query": "solaranlage förderung münchen",
+      "city": "muenchen",
+      "intent": "informational",
+      "simulatedRank": 7,
+      "ts": "2025-09-13T19:52:28.157Z"
+    },
+    {
+      "query": "photovoltaik speicher amortisation köln",
+      "city": "koeln",
+      "intent": "commercial",
+      "simulatedRank": 10,
+      "ts": "2025-09-13T19:52:28.157Z"
+    },
+    {
+      "query": "pv anlage dachlast stuttgart",
+      "city": "stuttgart",
+      "intent": "informational",
+      "simulatedRank": 7,
+      "ts": "2025-09-13T19:52:28.157Z"
+    }
+  ]
+}

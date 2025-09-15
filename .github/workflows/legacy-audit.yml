@@ -1,0 +1,43 @@
+name: Legacy Audit
+
+on:
+  schedule:
+    - cron: '0 5 * * 1' # Montags 05:00 UTC
+  push:
+    paths:
+      - 'next-app/src/legacy/**'
+      - 'next-app/scripts/ci/legacy-audit.mjs'
+  workflow_dispatch:
+
+jobs:
+  legacy-audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: next-app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            next-app/package-lock.json
+            package-lock.json
+      - name: Install deps
+        run: npm ci
+      - name: Run Legacy Audit
+        run: npm run ci:legacy-audit > legacy-audit-report.json
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-audit-report
+          path: next-app/legacy-audit-report.json
+      - name: PR Comment (if in PR)
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          path: next-app/legacy-audit-report.json

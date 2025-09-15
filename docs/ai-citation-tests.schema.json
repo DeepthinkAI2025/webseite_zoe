@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Citation Test Set",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id","query","intent","targetUrl","platform","executedAt","status"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^q[0-9]+$" },
+      "query": { "type": "string", "minLength": 3 },
+      "intent": { "type": "string" },
+      "targetUrl": { "type": "string", "format": "uri" },
+      "platform": { "type": "string", "enum": ["google-ai-overview","perplexity","bing-copilot","duckduckgo-ai","other"] },
+      "executedAt": { "type": "string", "format": "date-time" },
+      "status": { "type": "string", "enum": ["FOUND","PARTIAL","NOT_FOUND","IRRELEVANT"] },
+      "evidence": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "screenshot": { "type": "string" },
+            "hash": { "type": "string" },
+            "archiveUrl": { "type": "string", "format": "uri" }
+        },
+        "additionalProperties": false
+      },
+      "notes": { "type": "string" }
+    },
+    "additionalProperties": false
+  }
+}

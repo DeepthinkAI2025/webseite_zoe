@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.zoe-solar.de
+
+# Sitemaps
+Sitemap: https://www.zoe-solar.de/sitemap.xml

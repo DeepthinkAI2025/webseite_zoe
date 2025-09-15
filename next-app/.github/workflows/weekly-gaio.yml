@@ -1,0 +1,72 @@
+name: Weekly GAIO Snapshot
+
+on:
+  schedule:
+    - cron: '0 5 * * 1' # Montags 05:00 UTC
+  workflow_dispatch:
+
+jobs:
+  gaio-snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install deps
+        run: npm ci
+        working-directory: ./next-app
+      - name: GAIO Query Snapshot
+        run: node scripts/seo/gaio-check.mjs > docs/gaio-snapshot.json
+        working-directory: ./next-app
+      - name: Brand Mention Heuristik
+        run: node scripts/seo/gaio-brand-mention.mjs > docs/gaio-brand-mention.json
+        working-directory: ./next-app
+      - name: KPI Dashboard (falls aktuell)
+        run: |
+          if [ -f scripts/seo/kpi-dashboard.mjs ]; then node scripts/seo/kpi-dashboard.mjs > /dev/null || true; fi
+        working-directory: ./next-app
+      - name: RUM Aggregation (optional)
+        run: |
+          if [ -f scripts/seo/rum-aggregate.mjs ]; then node scripts/seo/rum-aggregate.mjs || true; fi
+        working-directory: ./next-app
+      - name: Weekly Consolidated Report
+        run: |
+          mkdir -p docs/weekly-reports
+          # Sparklines generieren (optional)
+          if [ -f scripts/seo/kpi-sparkline.mjs ]; then node scripts/seo/kpi-sparkline.mjs > docs/kpi-sparklines.md || true; fi
+          if [ -f scripts/seo/rum-sparkline.mjs ]; then node scripts/seo/rum-sparkline.mjs > docs/rum-sparklines.md || true; fi
+          node scripts/seo/weekly-report.mjs REPORT_OUT=docs/weekly-reports/report-$(date +%Y-%m-%d).md > docs/weekly-report-latest.md
+          if [ -f scripts/seo/md-to-html.mjs ]; then node scripts/seo/md-to-html.mjs docs/weekly-report-latest.md > docs/weekly-report-latest.html; fi
+        working-directory: ./next-app
+      - name: Upload Artefakte
+        uses: actions/upload-artifact@v4
+        with:
+          name: gaio-weekly-${{ github.run_id }}
+          path: |
+            next-app/docs/gaio-snapshot.json
+            next-app/docs/gaio-brand-mention.json
+            next-app/docs/seo-kpi-dashboard.json
+            next-app/docs/rum-summary.json
+            next-app/docs/weekly-report-latest.md
+            next-app/docs/weekly-report-latest.html
+            next-app/docs/weekly-reports/
+            next-app/docs/kpi-sparklines.md
+            next-app/docs/rum-sparklines.md
+      - name: Kurzer Log-Auszug
+        run: |
+          echo 'GAIO Snapshot:'
+          cat docs/gaio-snapshot.json | head -c 400
+          echo '\n---' 
+          echo 'Brand Mention:'
+          cat docs/gaio-brand-mention.json | head -c 400
+          echo '\n---'
+          echo 'Weekly Report:'
+          head -n 40 docs/weekly-report-latest.md || true
+          echo '\n---'
+          if [ -f docs/kpi-sparklines.md ]; then echo 'Lab Sparklines:'; head -n 20 docs/kpi-sparklines.md; fi
+          if [ -f docs/rum-sparklines.md ]; then echo '\nRUM Sparklines:'; head -n 20 docs/rum-sparklines.md; fi
+        working-directory: ./next-app

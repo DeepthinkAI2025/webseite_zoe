@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2025-09-13T20:23:03.808Z",
+  "threshold": 0.78,
+  "weightsFile": "next-app/src/content/geo/similarity-weighted-terms.json",
+  "weightedTerms": 13,
+  "pages": [
+    "augsburg",
+    "berlin",
+    "bielefeld",
+    "bonn",
+    "brandenburg",
+    "braunschweig",
+    "bremen",
+    "darmstadt",
+    "dortmund",
+    "dresden",
+    "duesseldorf",
+    "erfurt",
+    "essen",
+    "frankfurt",
+    "freiburg",
+    "hamburg",
+    "hannover",
+    "heidelberg",
+    "ingolstadt",
+    "jena",
+    "kassel",
+    "kiel",
+    "koeln",
+    "leipzig",
+    "luebeck",
+    "magdeburg",
+    "mainz",
+    "mannheim",
+    "muenchen",
+    "muenster",
+    "nuernberg",
+    "oldenburg",
+    "potsdam",
+    "regensburg",
+    "rostock",
+    "saarbruecken",
+    "stuttgart",
+    "ulm",
+    "wiesbaden",
+    "wuerzburg"
+  ],
+  "totalPairsAboveThreshold": 1,
+  "distribution": {
+    "HIGH": 0,
+    "MED": 0,
+    "LOW": 0
+  },
+  "pairs": [
+    {
+      "a": "augsburg",
+      "b": "ingolstadt",
+      "similarity": 0.7841,
+      "overlap": 0.8372,
+      "severity": "OK"
+    }
+  ],
+  "diff": [
+    {
+      "a": "augsburg",
+      "b": "ingolstadt",
+      "similarity": 0.7841,
+      "overlap": 0.8372,
+      "severity": "OK",
+      "prevSimilarity": 0.9259,
+      "deltaSimilarity": -0.1418,
+      "prevOverlap": 1,
+      "deltaOverlap": -0.1628
+    }
+  ]
+}

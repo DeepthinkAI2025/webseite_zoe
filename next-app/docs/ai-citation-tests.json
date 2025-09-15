@@ -1,0 +1,37 @@
+[
+  {
+    "id": "q1",
+    "query": "photovoltaik wirkungsgrad definition",
+    "expectedContains": ["Verhältnis", "eingestrahlten"],
+    "page": "/technology",
+    "notes": "Glossar Eintrag Wirkungsgrad sollte zentrale Definition enthalten"
+  },
+  {
+    "id": "q2",
+    "query": "was ist lifepo4 speicher zykluszahl",
+    "expectedContains": ["Zyklen", "thermische Stabilität"],
+    "page": "/technology",
+    "notes": "FAQ + Glossar decken LiFePO4 Vorteile & Zyklenfestigkeit ab"
+  },
+  {
+    "id": "q3",
+    "query": "hybrid wechselrichter vorteil",
+    "expectedContains": ["reduziert", "Wandlungsverluste"],
+    "page": "/technology",
+    "notes": "FAQ Antwort beschreibt Vorteile der Hybrid-Geräte"
+  },
+  {
+    "id": "q4",
+    "query": "pv monitoring iv kurve analyse",
+    "expectedContains": ["I/V", "Abweichungsanalyse"],
+    "page": "/technology",
+    "notes": "FAQ 'Wie validiert ihr Ertrag?' referenziert I/V Verhalten & Abweichungsanalyse"
+  },
+  {
+    "id": "q5",
+    "query": "topcon pv zelltechnologie erklärung",
+    "expectedContains": ["Tunnel Oxide", "Passivated Contact"],
+    "page": "/technology",
+    "notes": "Glossar Eintrag TOPCon enthält Erklärung"
+  }
+]

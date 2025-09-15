@@ -7,31 +7,52 @@
 import fs from 'fs';
 import path from 'path';
 
-const root = process.cwd();
-const cwdName = path.basename(root);
-const base = cwdName === 'Arbeitsverzeichnis' ? root : path.join(root,'Arbeitsverzeichnis');
-const htmlPath = path.join(base,'dist','index.html');
-if(!fs.existsSync(htmlPath)){
-  console.error('Build first (dist/index.html missing).');
+// Next.js Variante:
+// Es gibt kein klassisches dist/index.html – wir approximieren "critical render" durch
+// Analyse der generierten .next/server/app/*/page.js (Server Komponenten) + client Chunks.
+// Fokus: Große Client Bundles & Inline <script> Patterns im dokumentierten HTML Export (falls vorhanden).
+
+const repoRoot = process.cwd();
+const nextRoot = path.join(repoRoot,'next-app');
+const buildDir = path.join(nextRoot,'.next');
+if(!fs.existsSync(buildDir)){
+  console.error('[critical-render-report] Kein Next Build gefunden (.next fehlt). Bitte erst build ausführen.');
   process.exit(1);
 }
-const html = fs.readFileSync(htmlPath,'utf8');
-const blockingScripts = [...html.matchAll(/<script(?![^>]*\b(type|module|defer)\b)[^>]*src="([^"]+)"/g)].map(m=>m[2]);
-const cssLinks = [...html.matchAll(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)].map(m=>m[1]);
 
-// Analyze dist/assets sizes
-const assetsDir = path.join(base,'dist','assets');
-const bigJs = [];
-for (const f of fs.readdirSync(assetsDir)){
-  if (f.endsWith('.js')){
-    const p = path.join(assetsDir,f);
-    const size = fs.statSync(p).size; // raw size
-    if (size > 50*1024) bigJs.push({file:f,sizeKB:+(size/1024).toFixed(1)});
+// Sammle client JS Dateien
+const clientDir = path.join(buildDir,'static', 'chunks');
+let bigJs = [];
+if(fs.existsSync(clientDir)){
+  for(const f of fs.readdirSync(clientDir)){
+    if(f.endsWith('.js')){
+      const p = path.join(clientDir,f);
+      const size = fs.statSync(p).size;
+      if(size > 50*1024) bigJs.push({ file:f, sizeKB:+(size/1024).toFixed(1) });
+    }
   }
 }
 
-const report = { generatedAt:new Date().toISOString(), blockingScripts, cssLinks, largeJsChunks: bigJs };
-const outDir = path.join(base,'docs');
+// Optional: Falls ein statisches Export HTML existiert (rare) – minimaler Check
+let blockingScripts = [];
+let cssLinks = [];
+const exportHtml = path.join(nextRoot,'out','index.html');
+if(fs.existsSync(exportHtml)){
+  const html = fs.readFileSync(exportHtml,'utf8');
+  blockingScripts = [...html.matchAll(/<script(?![^>]*\b(type|module|defer)\b)[^>]*src="([^"]+)"/g)].map(m=>m[1]);
+  cssLinks = [...html.matchAll(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)].map(m=>m[1]);
+}
+
+const report = {
+  generatedAt: new Date().toISOString(),
+  buildFound: true,
+  largeJsChunks: bigJs,
+  blockingScripts,
+  cssLinks
+};
+
+const outDir = path.join(nextRoot,'docs');
 if(!fs.existsSync(outDir)) fs.mkdirSync(outDir,{recursive:true});
-fs.writeFileSync(path.join(outDir,'critical-render-report.json'), JSON.stringify(report,null,2));
-console.log('Critical render report written to Arbeitsverzeichnis/docs/critical-render-report.json');
+const outFile = path.join(outDir,'critical-render-report.json');
+fs.writeFileSync(outFile, JSON.stringify(report,null,2));
+console.log('[critical-render-report] Report geschrieben:', path.relative(repoRoot,outFile));

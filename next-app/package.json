@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "playwright test",
+    "test:a11y": "node scripts/ci/a11y-smoke.mjs",
     "postbuild": "next-sitemap",
     "kpi:orchestrate": "node scripts/seo/kpi-orchestrator.mjs",
     "seo:indexnow": "node scripts/seo/indexnow-submit.mjs",
@@ -23,7 +24,8 @@
     "ci:legacy-audit": "node scripts/ci/legacy-audit.mjs",
     "foerderung:validate": "node scripts/ci/foerderung-validate.mjs",
     "foerderung:auto:validate": "node scripts/ci/foerderung-auto-validate.mjs",
-    "ci:verify": "npm run lint && tsc --noEmit && npm run lint:css && npm run ci:jsonld-guard && npm run ci:legacy-audit && npm run foerderung:validate && npm run foerderung:auto:validate",
+    "ci:verify": "npm run lint && tsc --noEmit && npm run lint:css && npm run ci:jsonld-guard && npm run ci:legacy-audit && npm run foerderung:validate && npm run foerderung:auto:validate && npm run test:a11y",
+    "gate:lighthouse": "node scripts/ci/lighthouse-gate.mjs",
     "lint:css": "stylelint 'src/**/*.{css,scss}' 'app/**/*.{css,scss}'"
   },
   "dependencies": {

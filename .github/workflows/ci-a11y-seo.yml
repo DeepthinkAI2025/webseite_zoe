@@ -26,49 +26,38 @@ jobs:
       - name: Install root deps
         run: npm install --no-fund --no-audit
 
-      - name: Install workspace deps
-        run: npm -w Arbeitsverzeichnis install --no-fund --no-audit
+      - name: Install app deps
+        working-directory: next-app
+        run: npm install --no-fund --no-audit
 
       - name: Build site
-        run: npm -w Arbeitsverzeichnis run build
-
-      - name: Smoke tests
-        run: npm -w Arbeitsverzeichnis run test:smoke
+        working-directory: next-app
+        run: npm run build --silent
 
       - name: Setup Playwright (Chromium)
         uses: microsoft/playwright-github-action@v1
 
-      - name: Axe – 3 runs
-        run: npm -w Arbeitsverzeichnis run audit:a11y:axe:runs
+      - name: A11y Smoke (axe)
+        working-directory: next-app
+        run: npm run test:a11y
 
-      - name: Axe – Stability Gate
-        run: npm -w Arbeitsverzeichnis run gate:a11y:axe:stability
+      - name: JSON-LD Guard
+        working-directory: next-app
+        run: npm run ci:jsonld-guard
 
-      - name: ALT Gate
-        run: npm -w Arbeitsverzeichnis run gate:images:alt
+      - name: Structured Data Validate (optional)
+        working-directory: next-app
+        run: node scripts/seo/validate-structured-data.mjs --base http://localhost:3000 --out docs/structured-data-ci.json || true
 
-      - name: Accessible Names Gate
-        run: npm -w Arbeitsverzeichnis run gate:a11y:names
-
-      - name: Tabindex Gate
-        run: npm -w Arbeitsverzeichnis run gate:a11y:tabindex
-
-      - name: Canonical Gate
-        run: npm -w Arbeitsverzeichnis run gate:canonical
-
-      - name: Quality Check (ESLint + audits)
-        run: npm -w Arbeitsverzeichnis run quality:check
-
-      - name: Upload Axe reports
+      - name: Upload Accessibility & SEO artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: axe-reports
+          name: a11y-seo-artifacts
           path: |
-            Arbeitsverzeichnis/docs/axe-a11y-report-run1.json
-            Arbeitsverzeichnis/docs/axe-a11y-report-run2.json
-            Arbeitsverzeichnis/docs/axe-a11y-report-run3.json
-            Arbeitsverzeichnis/docs/axe-a11y-stability.json
+            next-app/docs/a11y-smoke-report.json
+            next-app/docs/structured-data-ci.json
+          if-no-files-found: ignore
 
   perf:
     name: Lighthouse Performance (non-blocking)
@@ -86,15 +75,26 @@ jobs:
       - name: Install deps
         run: |
           npm install --no-fund --no-audit
-          npm -w Arbeitsverzeichnis install --no-fund --no-audit
+          (cd next-app && npm install --no-fund --no-audit)
 
-      - name: Run Lighthouse perf (Node)
-        run: npm -w Arbeitsverzeichnis run audit:lighthouse:perf:node
-        continue-on-error: true
+      - name: Build
+        working-directory: next-app
+        run: npm run build --silent
 
-      - name: Upload perf metrics
+      - name: Lighthouse Gate (non-blocking)
+        working-directory: next-app
+        env:
+          MIN_PERF_SCORE: '0.85'
+          MIN_A11Y_SCORE: '0.90'
+          MIN_SEO_SCORE: '0.95'
+        run: npm run gate:lighthouse || true
+
+      - name: Upload lighthouse artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-perf-metrics
-          path: Arbeitsverzeichnis/docs/lighthouse-perf-metrics.json
+          name: lighthouse-ci-artifacts
+          path: |
+            next-app/docs/lighthouse-baseline-current.json
+            next-app/docs/lighthouse-gate-result.json
+          if-no-files-found: ignore

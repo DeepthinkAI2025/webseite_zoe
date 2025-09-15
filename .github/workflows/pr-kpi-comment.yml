@@ -1,0 +1,66 @@
+name: PR KPI Comment
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  kpi-comment:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies (root)
+        run: npm ci --ignore-scripts
+
+      - name: Install dependencies (next-app)
+        working-directory: next-app
+        run: npm ci --ignore-scripts || npm install --no-audit --no-fund
+
+      - name: Build (optional skip if not needed)
+        working-directory: next-app
+        run: npm run build --if-present
+
+      - name: Lighthouse & KPI Dashboard
+        run: |
+          node scripts/seo/kpi-dashboard.mjs || true
+        working-directory: next-app
+        env:
+          KPI_HISTORY: '1'
+
+      - name: Aggregate RUM (if any existing metrics)
+        run: |
+          if [ -f docs/rum-metrics.jsonl ]; then node scripts/seo/rum-aggregate.mjs; fi
+        working-directory: next-app
+        env:
+          RUM_HISTORY: '1'
+
+      - name: Diff & Sparklines + Post Comment
+        run: node scripts/seo/post-kpi-comment.mjs
+        working-directory: next-app
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-kpi-comment-artifacts
+          path: |
+            next-app/docs/seo-kpi-dashboard.json
+            next-app/docs/pr-kpi-comment.md
+            next-app/docs/kpi-history.json
+            next-app/docs/rum-summary.json
+          if-no-files-found: ignore

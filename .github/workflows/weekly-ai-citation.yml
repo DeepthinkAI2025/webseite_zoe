@@ -1,0 +1,77 @@
+name: Weekly AI Citation Snapshot
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' # Jeden Montag 04:00 UTC
+  workflow_dispatch:
+
+jobs:
+  ai-citation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Hinweis: Node Cache spart ~40s bei Folge-Läufen
+    # Pflege: Script-Ausgaben landen in docs/; Historie unter docs/ai-citation-history.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            next-app/package-lock.json
+
+      - name: Install root deps
+        run: |
+          if [ -f package.json ]; then npm ci; fi
+
+      - name: Run AI Citation Harness
+        run: |
+          node scripts/seo/ai-citation-test.mjs
+      
+      - name: Add summary
+        if: always()
+        run: |
+          if [ -f docs/ai-citation-results.json ]; then
+            echo "## AI Citation Snapshot" >> $GITHUB_STEP_SUMMARY
+            echo "Run: $(date -u +%Y-%m-%dT%H:%MZ)" >> $GITHUB_STEP_SUMMARY
+            jq '{total:.total, passed:.passed, failed:.failed}' docs/ai-citation-results.json >> $GITHUB_STEP_SUMMARY || true
+          fi
+
+      - name: Upload citation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-citation-results
+          path: docs/ai-citation-results.json
+
+      - name: Append to history (JSON)
+        run: |
+          mkdir -p docs/ai-citation-history
+          ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          if [ -f docs/ai-citation-results.json ]; then \
+            cp docs/ai-citation-results.json "docs/ai-citation-history/${ts}.json"; \
+          fi
+
+      - name: Build short diff (last 2)
+        run: |
+          ls -1 docs/ai-citation-history/*.json | tail -n 2 > /tmp/last_two || true
+          count=$(wc -l </tmp/last_two || echo 0)
+          if [ "$count" -eq 2 ]; then \
+            a=$(head -n1 /tmp/last_two); \
+            b=$(tail -n1 /tmp/last_two); \
+            echo "# AI Citation Diff" > docs/ai-citation-diff.md; \
+            echo "Vergleich: $(basename $a) → $(basename $b)" >> docs/ai-citation-diff.md; \
+            echo "\n\n\`\`\`diff" >> docs/ai-citation-diff.md; \
+            diff -u $a $b >> docs/ai-citation-diff.md || true; \
+            echo "\`\`\`" >> docs/ai-citation-diff.md; \
+          fi
+
+      - name: Upload diff artifact
+        if: ${{ hashFiles('docs/ai-citation-diff.md') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-citation-diff
+          path: docs/ai-citation-diff.md

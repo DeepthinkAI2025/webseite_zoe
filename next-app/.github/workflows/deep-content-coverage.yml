@@ -1,0 +1,65 @@
+name: Deep Content Coverage Gate
+
+on:
+  pull_request:
+    paths:
+      - 'src/content/geo/city-data.json'
+      - 'src/content/geo/cities.json'
+      - 'scripts/seo/city-deep-coverage.mjs'
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 5 * * 1' # jeden Montag 05:00 UTC
+
+env:
+  COVERAGE_THRESHOLD: 90
+  # Pflegehinweis: Threshold anpassbar per env; Skript aktualisiert next-app/docs/*.json|md
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            package-lock.json
+            next-app/package-lock.json
+      - name: Install deps
+        run: |
+          if [ -f package.json ]; then npm ci --ignore-scripts; fi
+          if [ -f next-app/package.json ]; then cd next-app && npm ci --ignore-scripts && cd ..; fi
+      - name: Run Coverage Script
+        run: |
+          node next-app/scripts/seo/city-deep-coverage.mjs > /dev/null
+      - name: Parse Coverage
+        id: cov
+        run: |
+          pct=$(jq -r '.coveragePct' next-app/docs/city-deep-coverage.json)
+          echo "coveragePct=$pct" >> $GITHUB_OUTPUT
+          echo "Coverage: $pct%"
+          echo "## Deep Content Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "Aktuelle Coverage: $pct%" >> $GITHUB_STEP_SUMMARY
+      - name: Fail if below threshold
+        run: |
+          thresh=${COVERAGE_THRESHOLD:-90}
+          echo "Threshold: $thresh%"
+          awk -v p=$(jq -r '.coveragePct' next-app/docs/city-deep-coverage.json) -v t=$thresh 'BEGIN{ exit (p+0 < t) ? 1 : 0 }'
+      - name: Upload Coverage Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: deep-content-coverage
+          path: |
+            next-app/docs/city-deep-coverage.json
+            next-app/docs/city-deep-coverage.md
+      - name: PR Comment (idempotent)
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            <!-- DEEP-CONTENT-COVERAGE -->
+            Deep Content Coverage: ${{ steps.cov.outputs.coveragePct }}%
+            Threshold: ${{ env.COVERAGE_THRESHOLD }}%

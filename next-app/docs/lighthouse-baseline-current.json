@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2025-09-12T21:21:28.482Z",
+  "base": "http://localhost:3012",
+  "pages": [
+    {
+      "path": "/",
+      "url": "http://localhost:3012/",
+      "summary": {
+        "performance": 0.99,
+        "seo": 1,
+        "accessibility": 1,
+        "bestPractices": null,
+        "pwa": null,
+        "metrics": {
+          "lcp": 1964.5598,
+          "fcp": 1094.7799,
+          "tbt": 80,
+          "cls": 0,
+          "speedIndex": 1094.7799,
+          "interactive": 2982.4843225
+        }
+      }
+    },
+    {
+      "path": "/pricing",
+      "url": "http://localhost:3012/pricing",
+      "summary": {
+        "performance": 0.97,
+        "seo": 1,
+        "accessibility": 0.9,
+        "bestPractices": null,
+        "pwa": null,
+        "metrics": {
+          "lcp": 2477.1968500000003,
+          "fcp": 1080.7979,
+          "tbt": 66.5,
+          "cls": 0,
+          "speedIndex": 1080.7979,
+          "interactive": 3062.4968500000004
+        }
+      }
+    },
+    {
+      "path": "/technology",
+      "url": "http://localhost:3012/technology",
+      "summary": {
+        "performance": 0.97,
+        "seo": 1,
+        "accessibility": 0.98,
+        "bestPractices": null,
+        "pwa": null,
+        "metrics": {
+          "lcp": 2481.937,
+          "fcp": 1073.958,
+          "tbt": 73,
+          "cls": 0,
+          "speedIndex": 1073.958,
+          "interactive": 2787.437
+        }
+      }
+    },
+    {
+      "path": "/contact",
+      "url": "http://localhost:3012/contact",
+      "summary": {
+        "performance": 0.98,
+        "seo": 1,
+        "accessibility": 0.96,
+        "bestPractices": null,
+        "pwa": null,
+        "metrics": {
+          "lcp": 2439.5075500000003,
+          "fcp": 1075.6717,
+          "tbt": 50.5,
+          "cls": 0,
+          "speedIndex": 1075.6717,
+          "interactive": 2713.0075500000003
+        }
+      }
+    },
+    {
+      "path": "/projects",
+      "url": "http://localhost:3012/projects",
+      "summary": {
+        "performance": 0.97,
+        "seo": 1,
+        "accessibility": 1,
+        "bestPractices": null,
+        "pwa": null,
+        "metrics": {
+          "lcp": 2457.5676000000003,
+          "fcp": 1080.3784,
+          "tbt": 65,
+          "cls": 0,
+          "speedIndex": 1080.3784,
+          "interactive": 2743.0676000000003
+        }
+      }
+    },
+    {
+      "path": "/why-us",
+      "url": "http://localhost:3012/why-us",
+      "summary": {
+        "performance": 0.98,
+        "seo": 1,
+        "accessibility": 1,
+        "bestPractices": null,
+        "pwa": null,
+        "metrics": {
+          "lcp": 2406.99255,
+          "fcp": 1074.6617,
+          "tbt": 35,
+          "cls": 0,
+          "speedIndex": 1074.6617,
+          "interactive": 2704.49255
+        }
+      }
+    }
+  ]
+}

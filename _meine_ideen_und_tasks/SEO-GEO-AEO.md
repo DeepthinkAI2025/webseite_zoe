@@ -248,3 +248,34 @@ Diese Planung basiert auf einem Agile-Template (z. B. aus ClickUp oder Google Sh
 **Gesamttimeline:** 90 Tage bis MVP (Minimum Viable Optimization). **Ressourcen:** 20-30 Std./Woche für Developer; Budget: 200-500 € für Tools/APIs. **Risiken:** Algorithmus-Updates – plane monatliche Audits ein.
 
 **Nächste Schritte:** Teilen Sie diese Docs/Plan mit Ihrem Developer. Wenn Sie branchenspezifische Anpassungen brauchen (z. B. E-Commerce), lassen Sie es mich wissen – ich kann erweitern!
+
+---
+
+## Technische Sichtbarkeits-Maßnahmen (Status Übersicht)
+
+Aktualisierter Überblick über implementierte / geplante Module (Stand: 2025-09-13).
+
+| Maßnahme | Status | Notizen |
+|----------|--------|---------|
+| Strukturierte Daten Basis (Organization, WebSite, Offer, Breadcrumb, FAQ) | ✔ | Kernseiten abgedeckt |
+| LocalBusiness + GEO Städte-Seiten | ✔ | Generator + dynamische Sitemap |
+| City Performance Pipeline (Lighthouse History & Diff) | ✔ | Historisierung & Diffs aktiv |
+| Ranking + Composite Score + Badge | ✔ | Automatisiert (Workflow + README Badge) |
+| Regression Detection (LCP) | ✔ | Delta-Überwachung vorbereitet |
+| IndexNow Endpoint | ✔ | API Route /api/indexnow (Batch + Single URL) |
+| Speakable Schema (Voice) | ✔ | Home & FAQ implementiert |
+| AI Citation Messung (Scaffold) | ✔ | Skript erzeugt ai-citation-results.json |
+| Article Schema Generator (OpenAI optional) | ✔ | generate-article-schema.mjs vorhanden |
+| Content Hub Plan (Cluster) | ⏳ | Erste Fassung erstellt (iteration offen) |
+| Erweiterte Voice / Multimodal (Audio/Video Markup) | ◻ | Noch nicht priorisiert |
+| INP / Responsiveness Tracking | ◻ | Geplant für nächste Performance-Ausbaustufe |
+| Automatisierte AI Citation Scheduling (Workflow) | ◻ | Skript noch nicht in CI integriert |
+
+Legende: ✔ erledigt · ⏳ in Arbeit / initial draft · ◻ offen
+
+Nächste Quick Wins:
+1. CI-Workflow für AI Citation Messung (täglich / wöchentlich) hinzufügen.
+2. README Update mit Kurzabschnitten zu IndexNow & Schema-Generator.
+3. INP Messung in bestehende RUM / Lighthouse Pipeline aufnehmen.
+
+Falls du die Quick Wins sofort umgesetzt haben möchtest, sag einfach kurz "go".
