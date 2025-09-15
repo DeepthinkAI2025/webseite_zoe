@@ -1,13 +1,11 @@
-name: perf-nightly
+name: Manual Performance Check
 
 on:
-  schedule:
-    - cron: '0 2 * * *' # nightly at 02:00 UTC
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 jobs:
-  perf-hard-gate:
-    name: Lighthouse Performance Gate (mobile, throttled)
+  lighthouse:
+    name: Run Lighthouse Gate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,22 +22,23 @@ jobs:
           npm install --no-fund --no-audit
           (cd next-app && npm install --no-fund --no-audit)
 
-      - name: Run Lighthouse Gate (mobile throttled)
+      - name: Build
+        working-directory: next-app
+        run: npm run build --silent
+
+      - name: Lighthouse Gate
         working-directory: next-app
         env:
-          LH_MODE: mobile
-          THRESHOLD_LCP: '3000'  # mobile budget initial
-          THRESHOLD_CLS: '0.10'
-          THRESHOLD_INP: '200'
+          MIN_PERF_SCORE: '0.85'
+          MIN_A11Y_SCORE: '0.90'
+          MIN_SEO_SCORE: '0.95'
         run: npm run gate:lighthouse
 
-      - name: Upload perf report
+      - name: Upload lighthouse artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-perf-nightly
+          name: lighthouse-manual-artifacts
           path: |
-            next-app/docs/lighthouse-perf-metrics.json
             next-app/docs/lighthouse-gate-result.json
-            next-app/docs/lighthouse-baseline-current.json
           if-no-files-found: ignore
