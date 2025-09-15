@@ -39,7 +39,8 @@ next-app/
    src/components/... # UI & SEO Hilfskomponenten (JsonLd, Navigation, usw.)
    scripts/...        # SEO, CI, Generatoren, Audits
    content/...        # Programmatic & manuelle Inhalte (YAML/MDX)
-   docs/...           # Generierte Berichte & KPI Artifacts
+   docs/              # Generierte Berichte & KPI Artefakte
+      lighthouse-baselines/   # (NEU) Versionierte Lighthouse Snapshots (Rotation möglich)
 ```
 
 ## 3. Structured Data & Security
@@ -178,6 +179,7 @@ Implementierte KPI-Bausteine (Stand: aktuelle Migration abgeschlossen):
 |-------------|-----------------|-------------------|--------|
 | Structured Data Coverage | Fetch & Extraction mehrerer Kernseiten | `next-app/scripts/seo/kpi-dashboard.mjs` | ✅ |
 | Lighthouse Lab (Aggregat) | Baseline Report Einbindung | `docs/lighthouse-baseline-*.json` | ✅ |
+| Lighthouse Baseline Rotation | Geplanter Cleanup Task (ältere Snapshots entfernen) | `scripts/seo/lh-baseline-rotate.mjs` (geplant) | ⏳ |
 | KPI Dashboard Aggregation | Konsolidiertes JSON & Markdown | `docs/seo-kpi-dashboard.json` | ✅ |
 | Threshold Gate (Core Web Vitals) | LCP / CLS / INP / TBT / Types | `next-app/scripts/seo/ci-threshold-gate.mjs` | ✅ |
 | RUM Score Gating (Performance/A11y/SEO) | Erweiterte Mindestwerte | `ci-threshold-gate.mjs` (MIN_* Variablen) | ✅ (neu) |
@@ -390,6 +392,23 @@ RUM Sparklines (p75 Verlauf) generieren:
 node next-app/scripts/seo/rum-sparkline.mjs > docs/rum-sparklines.md
 ```
 Der Pull Request Kommentar bindet – sofern eine History vorhanden ist – diese Sparklines (LCP / INP / CLS / TTFB) zusätzlich zu den Lab KPI Sparklines ein.
+
+### Lighthouse Baseline Verwaltung (Neu geplant)
+
+Aktuell liegen mehrere Dateien `next-app/docs/lighthouse-baseline-<timestamp>.json` + `lighthouse-baseline-current.json` & Fallbacks im Verzeichnis. Für langfristige Ordnung:
+
+Geplante Strategie:
+1. Verschiebung aller Snapshot-Dateien nach `next-app/docs/lighthouse-baselines/`
+2. Beibehaltung nur der letzten N (=5) Snapshots
+3. Automatischer Cleanup Workflow (`lighthouse-baseline-rotate.yml`) rotiert bei jedem Merge in `main`
+
+Geplante Konfigurationsvariablen:
+```
+LH_BASELINE_DIR=next-app/docs/lighthouse-baselines
+LH_BASELINE_KEEP=5
+```
+
+Offene Aufgabe: Rotation Script & Workflow hinzufügen (Backlog).
 
 ### Erweiterte Gate Variablen (inkl. RUM)
 

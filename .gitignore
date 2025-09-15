@@ -11,3 +11,7 @@ next-app/*.log
 *.log
 *.DS_Store
 *.swp
+
+# Lighthouse Baseline Rotation (geplanter Unterordner)
+next-app/docs/lighthouse-baselines/tmp
+next-app/docs/lighthouse-baselines/*.old.json
