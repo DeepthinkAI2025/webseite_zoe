@@ -67,17 +67,22 @@ Workflow: `.github/workflows/foerderung-auto-update.yml` (wöchentlich + manuell
 ## 6. Lead Pipeline (Kurz)
 Endpoint: `/api/lead` → Append JSONL (`data/leads-YYYY-MM-DD.jsonl`, gitignored). Honeypot, Rate Limit, UTM Attribution, Slack Webhook optional. Siehe ausführlich: `docs/developer-guide.md`.
 
-## 7. GitHub Actions (Auszug)
-| Workflow | Zweck | Trigger |
-|----------|-------|---------|
-| foerderung-auto-update | Förderprogramme anreichern & PR | schedule, workflow_dispatch |
-| legacy-audit | Legacy Inline Pattern Report | schedule, push (legacy paths) |
-| a11y-audit | Axe Smoke + JSON-LD Guard | push PR main |
-| perf-nightly | Lighthouse Kennzahlen & Artefakte | nightly schedule |
-| ci-a11y-seo | Sammel-Lint + Validatoren | push PR main |
-| icon-gate | Icon Bundle Health | push PR main |
+## 7. GitHub Actions (vereinfachtes Set)
+| Workflow | Zweck | Trigger | Blocking |
+|----------|-------|---------|----------|
+| CI – A11y & SEO Gates | Build, A11y Smoke, JSON-LD Guard, optional Lighthouse (non-blocking) | push, pull_request (main) | A11y & JSON-LD |
+| foerderung-auto-update | Förderprogramme zusammenführen (PR nur bei Diff) | schedule (wöchentlich), dispatch | Nur bei Fehlern |
+| indexnow-ping (optional) | Manuelles Re-Index Signal | dispatch | Nein |
 
-Details & Schwellenwerte: `docs/operations.md`.
+Alle anderen früheren Workflows wurden entfernt oder archiviert, um Rauschen zu reduzieren.
+
+### A11y Konfiguration
+Um Schwellwerte anzupassen:
+```
+A11Y_FAIL_SEVERITY=critical   # nur wirklich harte Issues blocken
+A11Y_IGNORE_ALT_BUTTON=1      # (geplant) Alt/Button Heuristiken ignorieren
+```
+Standard ist `serious`. Report: `next-app/docs/a11y-smoke-report.json`.
 
 ## 8. Qualitäts-Gates
 - A11y: Playwright + axe (Home + 1 City) → Fail bei severity ≥ serious
