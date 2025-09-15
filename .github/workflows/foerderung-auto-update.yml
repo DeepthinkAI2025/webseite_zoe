@@ -1,0 +1,76 @@
+name: Förderung Auto Update
+
+on:
+  schedule:
+    - cron: '30 3 * * 1' # Montags 03:30 UTC
+  workflow_dispatch:
+
+jobs:
+  foerderung-auto:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install root deps
+        run: npm ci --no-audit --no-fund || npm install --no-fund --no-audit
+
+      - name: Install app deps
+        working-directory: next-app
+        run: npm ci --no-audit --no-fund || npm install --no-fund --no-audit
+
+      - name: Auto Update (Tavily)
+        working-directory: next-app
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: node scripts/seo/foerderung-auto-update.mjs || echo "Auto-Update Fehler (weiter)"
+
+      - name: Generator (Merge)
+        working-directory: next-app
+        run: npm run gen:foerderung
+
+      - name: Validator
+        working-directory: next-app
+        run: npm run foerderung:validate
+
+      - name: Git Diff Check
+        id: diff
+        run: |
+          git add next-app/content/programmatic/foerderung-auto/*.auto.yml || true
+          git add next-app/content/generated/foerderung/*.mdx || true
+          if git diff --cached --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'chore(foerderung): auto update'
+          title: 'chore(foerderung): Auto Update Förderprogramme'
+          body: 'Automatisches Update & Merge der Förderprogramme (Tavily Heuristik). Bitte Inhalte prüfen bevor Merge.'
+          branch: chore/foerderung-auto-update
+          delete-branch: true
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Förderung Auto Update" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.diff.outputs.changed }}" = "true" ]; then
+            echo "Änderungen erkannt – PR erstellt oder aktualisiert." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "Keine Änderungen (Programme unverändert oder kein API Key)." >> $GITHUB_STEP_SUMMARY
+          fi
