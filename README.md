@@ -5,9 +5,9 @@ Photovoltaik Plattform: Programmatic Content, strukturierte Daten Governance, Pe
 ## 1. Schnellstart
 ```bash
 git clone <repo>
-cd webseite_zoe
-npm install        # Root installiert nur minimale Wrapper-Skripte
-npm run dev        # delegiert in next-app/
+cd webseite_zoe/next-app
+npm install
+npm run dev
 ```
 Dev UI: http://localhost:3000
 
@@ -24,7 +24,7 @@ Wichtige Skripte (aus `next-app/package.json`):
 | Förder-MDX regenerieren | `npm run gen:foerderung` |
 
 ## 2. Architektur Überblick
-Monorepo-Light: Root dient nur als dünne Hülle. Geschäftslogik, Pages & Scripts komplett unter `next-app/`.
+Single-App Layout: Alle Quellen, Builds, Skripte & Abhängigkeiten ausschließlich unter `next-app/`. Root enthält nur Meta-Dokumentation (`docs/`, `MIGRATION-LEGACY.md`, KPI Berichte).
 
 Domänen:
 - SEO / Structured Data: Zentraler `JsonLd` Server Component Renderer + Validierungs- / Guard-Skripte
