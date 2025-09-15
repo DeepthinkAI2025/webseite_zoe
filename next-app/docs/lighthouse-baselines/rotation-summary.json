@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-09-15T17:17:54.386Z",
+  "moved": [
+    "lighthouse-baseline-1757711438577.json",
+    "lighthouse-baseline-1757711864729.json",
+    "lighthouse-baseline-1757712088482.json",
+    "lighthouse-baseline-fallback-1757693570391.json",
+    "lighthouse-baseline-fallback-1757716581778.json"
+  ],
+  "pruned": [],
+  "kept": [
+    "lighthouse-baseline-1757711438577.json",
+    "lighthouse-baseline-1757711864729.json",
+    "lighthouse-baseline-1757712088482.json"
+  ],
+  "latest": "lighthouse-baseline-1757712088482.json"
+}

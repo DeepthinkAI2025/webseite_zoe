@@ -26,7 +26,8 @@
     "foerderung:auto:validate": "node scripts/ci/foerderung-auto-validate.mjs",
     "ci:verify": "npm run lint && tsc --noEmit && npm run lint:css && npm run ci:jsonld-guard && npm run ci:legacy-audit && npm run foerderung:validate && npm run foerderung:auto:validate && npm run test:a11y",
     "gate:lighthouse": "node scripts/ci/lighthouse-gate.mjs",
-    "lint:css": "stylelint 'src/**/*.{css,scss}' 'app/**/*.{css,scss}'"
+    "lint:css": "stylelint 'src/**/*.{css,scss}' 'app/**/*.{css,scss}'",
+    "ci:lh-baseline-rotate": "node scripts/ci/lh-baseline-rotate.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

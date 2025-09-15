@@ -1,0 +1,7 @@
+{
+  "generatedAt": "2025-09-12T22:36:21.778Z",
+  "base": "http://localhost:3010",
+  "warning": "Chrome konnte nicht gestartet werden.",
+  "error": "The CHROME_PATH environment variable must be set to a Chrome/Chromium executable no older than Chrome stable.",
+  "guidance": "Setze CHROME_PATH oder installiere puppeteer: npm i -D puppeteer; export CHROME_PATH=$(node -p \"require('puppeteer').executablePath()\")"
+}
