@@ -1,0 +1,60 @@
+# Förderprogramm Bayern 2025 – YAML Quelle
+# Kommentare werden vom Generator ignoriert (gray-matter liest nur YAML Schlüsselwerte)
+# Pflichtfelder: title, slug, region, updated, programmes[] (mind. eins), faq optional
+
+title: PV Förderung Bayern 2025
+slug: bayern-2025
+region: Bayern
+updated: "2025-09-15"
+foerdergeber: Freistaat Bayern / Kommunale Programme (Auszug)
+link_offiziell: https://www.stmwi.bayern.de/
+kurzbeschreibung: Übersicht relevanter PV & Speicher Förderansätze in Bayern 2025.
+programme_gesamtbudget: 'Variable je nach Programmfenster'
+programme_hinweis: 'Fristen & Mittelabrufe laufend prüfen – Budget oft vorzeitig ausgeschöpft.'
+
+programmes:
+  - name: Stromspeicher Bonus Bayern (Beispiel)
+    description: Zuschuss gestaffelt nach nutzbarer Speicherkapazität
+    rate: '200 € / kWh'
+    cap: 'Bis 10 kWh (Beispielwert)'
+  - name: Kommunales Dach-Solar Programm
+    description: Förderung PV auf öffentlichen / gemeinnützigen Gebäuden
+    rate: '150 € / kWp'
+    cap: '30 kWp'
+  - name: Lastmanagement / Smart Meter Zusatz
+    description: Bonus für netzdienliche Steuerbarkeit & Messkonzept
+    rate: 'Einmalig 250 €'
+
+voraussetzungen:
+  - Anlage in Bayern gelegen
+  - Inbetriebnahme im Förderfenster 2025
+  - Einhaltung technischer Mindestanforderungen (VDE/AR-N 4105 etc.)
+  - Kombination nur, sofern Kumulierungsregeln eingehalten
+
+kombinierbarkeit:
+  - EEG Einspeisevergütung zulässig
+  - KfW Kredit / Ergänzungsfinanzierung möglich
+  - Keine Doppelförderung identischer Kostenpositionen
+
+gueltig_bis: '2025-12-31 (oder Budgeterschöpfung)'
+
+vorteile:
+  - Reduzierte Amortisationszeit
+  - Stärkung Eigenverbrauchsquote
+  - Höhere Investitionssicherheit
+
+schritte:
+  - Bedarf & Dimensionierung klären (Lastprofil, Speichergröße)
+  - Angebote einholen & Wirtschaftlichkeit simulieren
+  - Förderfenster & Fristen prüfen
+  - Antrag mit Unterlagen einreichen (Angebot, technische Daten)
+  - Bewilligung abwarten (keine vorzeitige Umsetzung, sofern untersagt)
+  - Umsetzung & Nachweisführung
+
+faq:
+  - q: Kann ich mehrere Programme kombinieren?
+    a: Ja, solange keine verbotene Doppelförderung identischer Kosten eintritt und Kumulierungsgrenzen eingehalten werden.
+  - q: Wann sollte der Antrag gestellt werden?
+    a: So früh wie möglich – oft gilt Eingang / Budgettimestamp.
+  - q: Zählt ein späterer Kapazitätsausbau erneut?
+    a: Erweiterungen benötigen häufig einen neuen Antrag – Bedingungen prüfen.

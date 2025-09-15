@@ -1,0 +1,15 @@
+{
+  "globalstrahlung": 2.2,
+  "spezifischer": 1.8,
+  "ertrag": 1.6,
+  "netzanschluss": 1.7,
+  "bearbeitungsdauer": 1.5,
+  "verschattung": 2.0,
+  "dachformen": 1.4,
+  "speicher": 1.5,
+  "speicherquote": 1.6,
+  "kwp": 1.4,
+  "einspeisung": 1.5,
+  "amortisation": 1.7,
+  "speicheroptimierung": 1.9
+}

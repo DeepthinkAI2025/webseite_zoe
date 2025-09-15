@@ -1,0 +1,25 @@
+---
+slug: optimizing-lcp-images
+title: "LCP verbessern: Bilder strategisch optimieren"
+date: 2025-09-13
+description: "Praktische Schritte zur Reduktion von Largest Contentful Paint Zeiten durch Bildoptimierung"
+author: "ZOE Team"
+tags: ["performance","lcp","images"]
+cover: "/images/blog/optimizing-lcp.jpg"
+---
+
+## Überblick
+
+Der LCP ist häufig das Hero-Bild oder ein prominentes Element. Wir zeigen taktische Schritte.
+
+## Maßnahmen
+
+1. `<Image />` von Next.js für automatische Größen & Formats.
+2. Critical Images priorisieren (`priority` Flag setzen).
+3. Placeholder (blur) für wahrgenommenen Speed.
+4. Formatstrategie: AVIF/WebP bevorzugen.
+5. Lazy Loading nur für non-critical assets.
+
+## Nächste Schritte
+
+In einem kommenden Re-Audit vergleichen wir Lighthouse-Metriken vor und nach der Umstellung.

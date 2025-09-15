@@ -1,0 +1,37 @@
+[
+  {
+    "q": "Was kostet eine 10 kWp Photovoltaik-Anlage 2025?",
+    "a": "Je nach Dach, Komponenten und Speicher liegt eine 10 kWp Anlage 2025 typischerweise zwischen 18.000 und 24.000 € brutto inkl. Installation.",
+    "short": "10 kWp: meist 18k–24k € inkl. Montage (2025)."
+  },
+  {
+    "q": "Wie lange ist die Amortisationszeit einer PV-Anlage?",
+    "a": "Durch steigende Strompreise und Eigenverbrauch liegt die Amortisationszeit konservativ bei 9–12 Jahren – abhängig von Verbrauch, Speicher und Förderungen.",
+    "short": "Oft 9–12 Jahre (Verbrauch, Speicher, Förderung beeinflussen)."
+  },
+  {
+    "q": "Brauche ich einen Stromspeicher?",
+    "a": "Nicht zwingend – er erhöht den Eigenverbrauch und die Autarkie. Wirtschaftlich sinnvoll, wenn Lastverschiebung und Nachtverbrauch hoch sind.",
+    "short": "Optional – Speicher erhöht Eigenverbrauch & Autarkie bei Nachtlast."
+  },
+  {
+    "q": "Welche Garantie haben Module?",
+    "a": "Aktuelle Premium-Module haben oft 25–30 Jahre lineare Leistungsgarantie und 15–25 Jahre Produktgarantie.",
+    "short": "Premium-Module: 25–30 J. Leistung / 15–25 J. Produkt."
+  },
+  {
+    "q": "Wie groß sollte der Speicher dimensioniert werden?",
+    "a": "Eine grobe Faustregel: 0,8–1,2 kWh Speicherkapazität pro 1.000 kWh Jahresstromverbrauch. Feinabstimmung hängt von Lastprofil (Nacht / E-Mobilität / WP) ab.",
+    "short": "≈1 kWh Speicher je 1.000 kWh Jahresverbrauch (anpassen nach Profil)."
+  },
+  {
+    "q": "Welche Förderung kann ich 2025 nutzen?",
+    "a": "Regionale Programme (z.B. KfW, Landeszuschüsse) plus mögliche steuerliche Vorteile (USt-Befreiung für bestimmte Anlagengrößen). Verfügbarkeit variiert – früh prüfen.",
+    "short": "Regionale Zuschüsse + evtl. Steuerbefreiung – früh prüfen."
+  },
+  {
+    "q": "Was bedeutet Eigenverbrauchsquote?",
+    "a": "Anteil des erzeugten Solarstroms, den Sie direkt selbst nutzen (ohne Netzeinspeisung). Höhere Quote steigert wirtschaftliche Wirkung Ihrer Anlage.",
+    "short": "Direkt genutzter PV-Anteil – erhöht Wirtschaftlichkeit."
+  }
+]

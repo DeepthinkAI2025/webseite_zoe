@@ -1,0 +1,20 @@
+{
+  "uspPool": [
+    "Regionale Dachstatik & Verschattungsanalyse",
+    "Optimierte Speicher Dimensionierung nach Lastprofil",
+    "Hybrid Wechselrichter Effizienz Fokus",
+    "Netzbetreiber Unterlagen & Anmeldung",
+    "Monitoring & Performance KPI Tracking",
+    "Fördermittel & Wirtschaftlichkeit Bewertung",
+    "Wallbox & Lastmanagement Vorbereitung",
+    "Skalierbare Speicher-Nachrüstung Option"
+  ],
+  "faqPool": [
+    { "q": "Wie schnell erfolgt die Netzbetreiber Anmeldung?", "a": "Typisch Einreichung innerhalb weniger Tage nach technischer Prüfung." },
+    { "q": "Lohnt sich ein Speicher bei meinem Verbrauch?", "a": "Ab ca. 3.000–3.500 kWh Jahresverbrauch steigt die Eigenverbrauchsquote mit Speicher signifikant." },
+    { "q": "Kann ich später erweitern?", "a": "Ja – modular ausgelegte Strings & Hybridkonzepte erlauben spätere Leistungs- und Speichererweiterung." },
+    { "q": "Welche Garantien gelten?", "a": "Module Leistungs- & Produktgarantie (typisch 20–25J) plus Wechselrichter & Speicher Herstellergarantie." },
+    { "q": "Brauche ich einen Hybrid Wechselrichter direkt?", "a": "Für geplante Speicherintegration ist Hybrid meist effizienter als späterer AC Speicher Zusatz." },
+    { "q": "Wie wird Verschattung berücksichtigt?", "a": "Layout & Simulation (Stringing, Optimierer falls nötig) basierend auf Dachgeometrie & Hindernissen." }
+  ]
+}

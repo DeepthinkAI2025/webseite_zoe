@@ -1,0 +1,72 @@
+[
+  {
+    "id": "solar-einfach-erklaert",
+    "query": "Was ist eine Photovoltaik Anlage einfach erklärt?",
+    "intent": "Definition",
+    "page": "/technology",
+    "importance": 5
+  },
+  {
+    "id": "solar-kosten",
+    "query": "Was kostet eine 10 kWp Solaranlage 2025?",
+    "intent": "Pricing",
+    "page": "/pricing",
+    "importance": 5
+  },
+  {
+    "id": "amortisation",
+    "query": "Wie lange ist die Amortisationszeit einer Solaranlage?",
+    "intent": "ROI",
+    "page": "/pricing",
+    "importance": 4
+  },
+  {
+    "id": "foerderung",
+    "query": "Welche Förderung gibt es für PV in Deutschland?",
+    "intent": "Incentives",
+    "page": "/pricing",
+    "importance": 3
+  },
+  {
+    "id": "wartung",
+    "query": "Wie viel Wartung braucht eine PV Anlage?",
+    "intent": "Maintenance",
+    "page": "/technology",
+    "importance": 3
+  },
+  {
+    "id": "brands",
+    "query": "ZOE Solar Bewertung",
+    "intent": "Brand",
+    "page": "/why-us",
+    "importance": 5
+  },
+  {
+    "id": "vergleich-speicher",
+    "query": "Solaranlage mit oder ohne Speicher sinnvoll?",
+    "intent": "Comparison",
+    "page": "/technology",
+    "importance": 4
+  },
+  {
+    "id": "installation-schritte",
+    "query": "Wie läuft die Installation einer PV Anlage ab?",
+    "intent": "Process",
+    "page": "/pricing",
+    "importance": 4
+  },
+  {
+    "id": "leistung-winter",
+    "query": "Wie viel Leistung hat eine Solaranlage im Winter?",
+    "intent": "Seasonal",
+    "page": "/technology",
+    "importance": 2
+  },
+  {
+    "id": "vorteile-pv",
+    "query": "Was sind die Vorteile einer eigenen PV Anlage?",
+    "intent": "Benefits",
+    "page": "/why-us",
+    "importance": 5
+  }
+]

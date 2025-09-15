@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basis HSL Tokens (werden weiter unten erweitert) */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 210 15% 10%;
+  color-scheme: light dark;
+}
+
+/* Entfernt: @theme inline Block (Tailwind v4 Draft) – ersetzte Tokens liegen bereits in :root. */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 210 15% 8%;
+    --foreground: 210 20% 92%;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+  
+/* Einheitlicher Focus Ring */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+  border-radius: var(--radius-sm);
+  transition: box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+/* Design Tokens Erweiterung */
+:root {
+  /* Farbpalette Solar / Energie */
+  --color-solar-50: #fff9e6;
+  --color-solar-100: #ffefbf;
+  --color-solar-200: #ffe38c;
+  --color-solar-300: #ffd352;
+  --color-solar-400: #ffc326;
+  --color-solar-500: #f4a900; /* Primär Akzent */
+  --color-solar-600: #d68300;
+  --color-solar-700: #b66200;
+  --color-solar-800: #8f4802;
+  --color-solar-900: #753a05;
+  --color-solar-950: #431e00;
+
+  /* Graphite / Neutral Depth */
+  --color-graphite-50: #f8f8f9;
+  --color-graphite-100: #f1f2f3;
+  --color-graphite-200: #e2e3e6;
+  --color-graphite-300: #cfd1d5;
+  --color-graphite-400: #adb1b8;
+  --color-graphite-500: #8a9099;
+  --color-graphite-600: #666d78;
+  --color-graphite-700: #4d535c;
+  --color-graphite-800: #343a41;
+  --color-graphite-900: #1d2227;
+  --color-graphite-950: #121518;
+
+  /* Accent Emerald (Tech / Eco) */
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+
+  /* Elevation & Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px -1px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03);
+  --shadow-sm: 0 2px 4px -2px rgba(0,0,0,0.1), 0 4px 6px -1px rgba(0,0,0,0.08);
+  --shadow-md: 0 6px 12px -4px rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-glow: 0 0 0 1px rgba(255,255,255,0.06), 0 2px 10px -2px rgba(255,170,0,0.35), 0 4px 28px -4px rgba(244,169,0,0.45);
+
+  /* Gradients */
+  --gradient-solar-radial: radial-gradient(circle at 30% 20%, #ffe38c 0%, rgba(255,227,140,0) 55%), radial-gradient(circle at 75% 60%, #ffc326 0%, rgba(255,195,38,0) 60%);
+  --gradient-hero-bg: radial-gradient(circle at 20% 15%, #fff3cc, #fff9e6 45%, #ffffff 80%);
+  --gradient-dark-energy: radial-gradient(circle at 25% 20%, rgba(255,200,64,0.18), rgba(255,200,64,0) 60%), radial-gradient(circle at 80% 70%, rgba(16,185,129,0.20), rgba(16,185,129,0) 65%), linear-gradient(135deg,#121518,#1d2227 55%,#101214);
+  --gradient-border-faint: linear-gradient(145deg, rgba(255,195,38,0.4), rgba(16,185,129,0.35));
+
+  /* Timing / Motion */
+  --ease-standard: cubic-bezier(.4,.0,.2,1);
+  --ease-emphasized: cubic-bezier(.2,.0,.0,1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 420ms;
+
+  /* --- Unified Semantic HSL Tokens (align mit tailwind.config.js) --- */
+  /* Hinweis: Alle HSL Werte nur numerisch (h s% l%) damit hsl(var(--token)) funktioniert */
+  --background: 0 0% 100%;
+  --foreground: 210 15% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 15% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 15% 10%;
+  --primary: 42 100% 48%; /* f4a900 */
+  --primary-foreground: 35 100% 14%; /* dunkelbraun lesbar auf Gelb */
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 210 22% 25%;
+  --muted: 210 32% 94%;
+  --muted-foreground: 210 15% 40%;
+  --accent: 158 86% 39%; /* #10b981 */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 46%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 20% 88%;
+  --input: 210 20% 88%;
+  --ring: 42 100% 48%;
+
+  /* Radius Mapping (bereits genutzt in Tailwind) */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gradient-hero-bg: radial-gradient(circle at 25% 18%, rgba(255,195,38,0.18), rgba(255,195,38,0) 55%), radial-gradient(circle at 80% 65%, rgba(16,185,129,0.18), rgba(16,185,129,0) 60%), linear-gradient(135deg,#121518,#1d2227 70%,#121518);
+  }
+}
+
+/* Utility Klassen (präfix zo- um Konflikte zu vermeiden) */
+.zo-container { width:100%; margin-left:auto; margin-right:auto; padding-left:1.5rem; padding-right:1.5rem; max-width:76rem; }
+.zo-prose-muted { color: var(--color-graphite-600); }
+.dark .zo-prose-muted { color: var(--color-graphite-400); }
+
+.zo-card { position:relative; background:rgba(255,255,255,0.8); backdrop-filter:saturate(140%) blur(14px); border:1px solid rgba(0,0,0,0.06); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: box-shadow var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard), border-color var(--dur-base) var(--ease-standard); }
+.dark .zo-card { background:rgba(29,34,39,0.72); border-color: rgba(255,255,255,0.07); }
+.zo-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.zo-accent-border { position:relative; border-radius: var(--radius-lg); }
+.zo-accent-border::before { content:""; position:absolute; inset:0; padding:1px; border-radius:inherit; background:var(--gradient-border-faint); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
+
+.zo-kpi-tile { display:flex; flex-direction:column; gap:0.25rem; padding:1.1rem 1.1rem 1rem; border-radius: var(--radius-md); background:linear-gradient(135deg,rgba(255,195,38,0.12),rgba(255,195,38,0) 60%), rgba(255,255,255,0.85); border:1px solid rgba(255,195,38,0.35); font-feature-settings:"tnum" on,"lnum" on; }
+.dark .zo-kpi-tile { background:linear-gradient(135deg,rgba(255,195,38,0.20),rgba(255,195,38,0) 65%), rgba(29,34,39,0.85); border-color: rgba(255,195,38,0.40); }
+
+.zo-number-badge { --size:2.25rem; width:var(--size); height:var(--size); display:inline-flex; align-items:center; justify-content:center; font-weight:600; border-radius: var(--radius-pill); background:linear-gradient(135deg,#ffd352,#f4a900); color:#432b00; font-variant-numeric:tabular-nums; box-shadow:0 2px 6px -2px rgba(0,0,0,0.25); }
+.dark .zo-number-badge { background:linear-gradient(135deg,#ffc326,#b66200); color:#fff3cc; }
+
+.zo-glow-panel { position:relative; border-radius: var(--radius-xl); background:linear-gradient(145deg,rgba(255,195,38,0.08),rgba(16,185,129,0.08)); border:1px solid rgba(255,255,255,0.08); box-shadow: var(--shadow-glow); }
+.zo-glow-panel::after { content:""; position:absolute; inset:-1px; border-radius:inherit; background:radial-gradient(circle at 30% 20%, rgba(255,195,38,0.25), rgba(255,195,38,0) 60%); pointer-events:none; mix-blend-mode:overlay; }
+
+.zo-hero-heading { letter-spacing:-0.02em; line-height:1.05; background:linear-gradient(90deg,#101214,#432b00 40%,#101214); background-clip:text; color:transparent; }
+.dark .zo-hero-heading { background:linear-gradient(90deg,#ffe38c,#ffc326 45%,#10b981); background-clip:text; color:transparent; }
+
+.zo-fade-in { opacity:0; transform:translateY(12px); animation:zo-fade-in var(--dur-slow) var(--ease-emphasized) forwards; }
+@keyframes zo-fade-in { to { opacity:1; transform:translateY(0); } }
+
+/* Intersection Reveal (progressive enhancement) */
+[data-animate] { opacity:0; transform:translateY(14px); transition:opacity var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard); }
+[data-animate][data-revealed="true"] { opacity:1; transform:translateY(0); }
+[data-animate="stagger"] > * { opacity:0; transform:translateY(16px); transition:opacity var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard); }
+[data-animate="stagger"][data-revealed="true"] > * { opacity:1; transform:translateY(0); }
+[data-animate="stagger"][data-revealed="true"] > *:nth-child(1){ transition-delay:40ms; }
+[data-animate="stagger"][data-revealed="true"] > *:nth-child(2){ transition-delay:90ms; }
+[data-animate="stagger"][data-revealed="true"] > *:nth-child(3){ transition-delay:140ms; }
+[data-animate="stagger"][data-revealed="true"] > *:nth-child(4){ transition-delay:190ms; }
+[data-animate="stagger"][data-revealed="true"] > *:nth-child(5){ transition-delay:240ms; }
+[data-animate="stagger"][data-revealed="true"] > *:nth-child(6){ transition-delay:290ms; }
+@media (prefers-reduced-motion: reduce) {
+  [data-animate], [data-animate="stagger"], [data-animate="stagger"] > * { opacity:1 !important; transform:none !important; transition:none !important; }
+}
+
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .zo-fade-in { animation:none; opacity:1; transform:none; }
+  .zo-card, .zo-kpi-tile { transition:none; }
+}
+

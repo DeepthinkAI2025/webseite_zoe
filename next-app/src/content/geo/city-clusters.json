@@ -1,0 +1,79 @@
+[
+  {
+    "cluster": "berlin-brandenburg",
+    "cities": ["berlin", "potsdam", "brandenburg"],
+    "crosslink": {
+      "berlin": ["potsdam", "brandenburg"],
+      "potsdam": ["berlin", "brandenburg"],
+      "brandenburg": ["berlin", "potsdam"]
+    }
+  },
+  {
+    "cluster": "nord",
+    "cities": ["hamburg", "bremen", "rostock", "luebeck", "kiel"],
+    "crosslink": {
+      "hamburg": ["bremen", "luebeck", "kiel"],
+      "bremen": ["hamburg", "rostock", "kiel"],
+      "rostock": ["hamburg", "luebeck", "kiel"],
+      "luebeck": ["hamburg", "kiel", "rostock"],
+      "kiel": ["hamburg", "luebeck", "rostock"]
+    }
+  },
+  {
+    "cluster": "ruhr-rhein",
+    "cities": ["essen", "dortmund", "duesseldorf", "koeln", "bonn", "bielefeld"],
+    "crosslink": {
+      "essen": ["dortmund", "duesseldorf", "koeln"],
+      "dortmund": ["essen", "duesseldorf", "koeln"],
+      "duesseldorf": ["koeln", "essen", "bonn"],
+      "koeln": ["duesseldorf", "bonn", "essen"],
+      "bonn": ["koeln", "duesseldorf", "essen"],
+      "bielefeld": ["dortmund", "essen", "koeln"]
+    }
+  },
+  {
+    "cluster": "suedwest",
+    "cities": ["stuttgart", "karlsruhe", "mannheim", "heidelberg", "freiburg", "ulm"],
+    "crosslink": {
+      "stuttgart": ["karlsruhe", "mannheim", "ulm"],
+      "karlsruhe": ["stuttgart", "freiburg", "mannheim"],
+      "mannheim": ["heidelberg", "karlsruhe", "stuttgart"],
+      "heidelberg": ["mannheim", "karlsruhe", "stuttgart"],
+      "freiburg": ["karlsruhe", "stuttgart", "mannheim"],
+      "ulm": ["stuttgart", "mannheim", "karlsruhe"]
+    }
+  },
+  {
+    "cluster": "suedost",
+    "cities": ["muenchen", "regensburg", "ingolstadt", "augsburg", "wuerzburg"],
+    "crosslink": {
+      "muenchen": ["augsburg", "regensburg", "ingolstadt"],
+      "regensburg": ["muenchen", "ingolstadt", "wuerzburg"],
+      "ingolstadt": ["muenchen", "regensburg", "augsburg"],
+      "augsburg": ["muenchen", "ingolstadt", "regensburg"],
+      "wuerzburg": ["regensburg", "muenchen", "ingolstadt"]
+    }
+  },
+  {
+    "cluster": "mitte",
+    "cities": ["frankfurt", "darmstadt", "wiesbaden", "kassel", "oldenburg"],
+    "crosslink": {
+      "frankfurt": ["darmstadt", "wiesbaden", "kassel"],
+      "darmstadt": ["frankfurt", "wiesbaden", "kassel"],
+      "wiesbaden": ["frankfurt", "darmstadt", "kassel"],
+      "kassel": ["frankfurt", "wiesbaden", "darmstadt"],
+      "oldenburg": ["bremen", "hamburg", "kiel"]
+    }
+  },
+  {
+    "cluster": "ost",
+    "cities": ["leipzig", "dresden", "jena", "erfurt", "magdeburg"],
+    "crosslink": {
+      "leipzig": ["dresden", "jena", "magdeburg"],
+      "dresden": ["leipzig", "jena", "erfurt"],
+      "jena": ["leipzig", "erfurt", "dresden"],
+      "erfurt": ["jena", "leipzig", "dresden"],
+      "magdeburg": ["leipzig", "jena", "dresden"]
+    }
+  }
+]

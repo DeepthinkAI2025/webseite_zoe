@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "netz-berlin",
+    "name": "Stromnetz Berlin",
+    "region": "Berlin",
+    "portalUrl": "https://www.stromnetz.berlin/netzanschluss/",
+    "bearbeitungszeitHinweis": "Anschlussprüfung PV typ. 4–8 Wochen (Lastgänge / EVU Auslastung)",
+    "hinweis": "Frühzeitige Anmeldung reduziert Inbetriebnahmeverzögerung. Messkonzept vorab klären."
+  },
+  {
+    "slug": "netz-brandenburg",
+    "name": "E.DIS",
+    "region": "Brandenburg / Teile MV",
+    "portalUrl": "https://www.e-dis.de/netz/",
+    "bearbeitungszeitHinweis": "PV Anmeldung 6–10 Wochen; Speicher/WB Kombination kann zusätzliche Rückfragen auslösen",
+    "hinweis": "Unbedingt vollständige Unterlagen (Datenblätter Wechselrichter, Module, Speicher) einreichen."
+  },
+  {
+    "slug": "netz-bayern",
+    "name": "Bayernwerk Netz",
+    "region": "Bayern",
+    "portalUrl": "https://www.bayernwerk-netz.de/de/netzanschluss/",
+    "bearbeitungszeitHinweis": "Hohe Auslastung – teils 8–12 Wochen bei Spitzenlast",
+    "hinweis": "Projektpuffer für Zählersetzung einplanen (Engpässe)."
+  },
+  {
+    "slug": "netz-nrw",
+    "name": "Westnetz",
+    "region": "NRW / Teile RLP / Niedersachsen",
+    "portalUrl": "https://www.westnetz.de/",
+    "bearbeitungszeitHinweis": "PV Standard <7 kWp oft schneller, größere Anlagen verlängert",
+    "hinweis": "Bei Wallbox Integration direkt Ladepunktleistung angeben."
+  }
+]

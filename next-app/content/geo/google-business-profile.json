@@ -1,0 +1,11 @@
+{
+  "name": "ZOE Solar GmbH",
+  "url": "https://www.zoe-solar.de",
+  "mapUrl": "https://maps.google.com/?cid=XXXXXXXXXXXX", 
+  "placeId": "ChIJXXXXXXX", 
+  "categories": ["Solar energy company", "Energy Consultant"],
+  "aggregateRating": {
+    "ratingValue": 4.9,
+    "reviewCount": 128
+  }
+}

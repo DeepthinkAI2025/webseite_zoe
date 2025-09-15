@@ -1,1 +1,13 @@
 node_modules
+next-app/node_modules
+next-app/.next
+next-app/playwright-report
+next-app/test-results
+next-app/content/generated
+next-app/public/.next
+next-app/.turbo
+next-app/coverage
+next-app/*.log
+*.log
+*.DS_Store
+*.swp

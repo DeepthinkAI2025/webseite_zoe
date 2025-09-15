@@ -1,0 +1,47 @@
+[
+  {
+    "id": "fundamentals",
+    "title": "Fundamentals",
+    "description": "Core concepts: PV system basics, components & quality factors",
+    "links": [
+      { "type": "page", "label": "Technology", "url": "/technology" },
+      { "type": "blog", "label": "Hello Solar World", "url": "/blog/hello-solar-world" }
+    ]
+  },
+  {
+    "id": "economics",
+    "title": "Economics",
+    "description": "Cost structure, payback, tariff & incentive landscape",
+    "links": [
+      { "type": "page", "label": "Pricing", "url": "/pricing" },
+      { "type": "blog", "label": "Improving LCP with Images", "url": "/blog/optimizing-lcp-images" }
+    ]
+  },
+  {
+    "id": "performance",
+    "title": "Performance & CWV",
+    "description": "Core Web Vitals, monitoring & optimization workflow",
+    "links": [
+      { "type": "page", "label": "Projects", "url": "/projects" },
+      { "type": "blog", "label": "Improving LCP with Images", "url": "/blog/optimizing-lcp-images" }
+    ]
+  },
+  {
+    "id": "gaio",
+    "title": "GAIO / AEO",
+    "description": "Answer Engine & AI Overview optimization patterns",
+    "links": [
+      { "type": "page", "label": "FAQ", "url": "/faq" },
+      { "type": "page", "label": "Why Us", "url": "/why-us" }
+    ]
+  },
+  {
+    "id": "implementation",
+    "title": "Implementation",
+    "description": "Migration, architecture & deployment procedures",
+    "links": [
+      { "type": "page", "label": "Contact", "url": "/contact" },
+      { "type": "blog", "label": "Hello Solar World", "url": "/blog/hello-solar-world" }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+title: PV Förderung Hessen 2025
+slug: hessen-2025
+region: Hessen
+updated: "2025-09-15"
+foerdergeber: Land Hessen (Auswahl kommunaler & Landesprogramme)
+kurzbeschreibung: Überblick förderfähiger PV & Speicher Initiativen in Hessen 2025.
+programmes:
+  - name: Kommunales PV Dachprogramm
+    description: Zuschuss für öffentliche Gebäude
+    rate: '140 € / kWp'
+    cap: '40 kWp'
+  - name: Speicher Bonus Staffel
+    description: Staffelung nach nutzbarer Kapazität
+    rate: '180 € / kWh'
+    cap: '12 kWh'
+  - name: Netz-Dienstbarkeits Bonus
+    description: Bonus für netzdienliche Steuerung & Messkonzepte
+    rate: 'Einmalig 200 €'
+faq:
+  - q: Gibt es Kombi mit KfW?
+    a: Ja, sofern keine unzulässige Doppelförderung identischer Kostenpositionen entsteht.
+  - q: Müssen Angebote vor Antrag vorliegen?
+    a: In den meisten Programmen ja – verbindliche Anforderungen prüfen.

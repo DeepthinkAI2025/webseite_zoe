@@ -1,0 +1,22 @@
+[
+  {
+    "q": "Was kostet eine 10 kWp Photovoltaik-Anlage 2025?",
+    "a": "Je nach Dach, Komponenten und Speicher liegt eine 10 kWp Anlage 2025 typischerweise zwischen 18.000 und 24.000 € brutto inkl. Installation." ,
+    "short": "10 kWp: meist 18k–24k € inkl. Montage (2025)."
+  },
+  {
+    "q": "Wie lange ist die Amortisationszeit einer PV-Anlage?",
+    "a": "Durch steigende Strompreise und Eigenverbrauch liegt die Amortisationszeit konservativ bei 9–12 Jahren – abhängig von Verbrauch, Speicher und Förderungen.",
+    "short": "Oft 9–12 Jahre (Verbrauch, Speicher, Förderung beeinflussen)."
+  },
+  {
+    "q": "Brauche ich einen Stromspeicher?",
+    "a": "Nicht zwingend – er erhöht den Eigenverbrauch und die Autarkie. Wirtschaftlich sinnvoll, wenn Lastverschiebung und Nachtverbrauch hoch sind.",
+    "short": "Optional – Speicher erhöht Eigenverbrauch & Autarkie bei Nachtlast."
+  },
+  {
+    "q": "Welche Garantie haben Module?",
+    "a": "Aktuelle Premium-Module haben oft 25–30 Jahre lineare Leistungsgarantie und 15–25 Jahre Produktgarantie.",
+    "short": "Premium-Module: 25–30 J. Leistung / 15–25 J. Produkt."
+  }
+]

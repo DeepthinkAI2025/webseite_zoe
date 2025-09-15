@@ -1,0 +1,72 @@
+[
+  {
+    "intent": "pricing_basics",
+    "query": "Was kostet eine 10 kWp Photovoltaik Anlage 2025?",
+    "targetPage": "/pricing",
+    "expectedSignals": ["Offer", "FAQPage", "KeyTakeaways"],
+    "priority": 1
+  },
+  {
+    "intent": "storage_need",
+    "query": "Brauche ich einen Stromspeicher für meine PV Anlage?",
+    "targetPage": "/pricing",
+    "expectedSignals": ["FAQPage", "QA"],
+    "priority": 1
+  },
+  {
+    "intent": "amortisation_time",
+    "query": "Wie lange ist die Amortisationszeit einer Photovoltaik Anlage?",
+    "targetPage": "/pricing",
+    "expectedSignals": ["FAQPage", "QA"],
+    "priority": 1
+  },
+  {
+    "intent": "technology_modules",
+    "query": "Welche Module sind 2025 am effizientesten?",
+    "targetPage": "/technology",
+    "expectedSignals": ["BreadcrumbList"],
+    "priority": 2
+  },
+  {
+    "intent": "warranty_modules",
+    "query": "Welche Garantie haben PV Module?",
+    "targetPage": "/pricing",
+    "expectedSignals": ["FAQPage"],
+    "priority": 2
+  },
+  {
+    "intent": "local_installation",
+    "query": "Photovoltaik Anbieter Musterstadt Empfehlung",
+    "targetPage": "/contact",
+    "expectedSignals": ["LocalBusiness"],
+    "priority": 2
+  },
+  {
+    "intent": "why_choose",
+    "query": "Warum ZOE Solar wählen?",
+    "targetPage": "/why-us",
+    "expectedSignals": ["BreadcrumbList"],
+    "priority": 2
+  },
+  {
+    "intent": "project_examples",
+    "query": "Beispiele realisierte PV Anlagen 2025",
+    "targetPage": "/projects",
+    "expectedSignals": ["BreadcrumbList"],
+    "priority": 3
+  },
+  {
+    "intent": "pv_with_storage_costs",
+    "query": "Kosten PV Anlage mit Speicher 2025",
+    "targetPage": "/pricing",
+    "expectedSignals": ["Offer", "QA"],
+    "priority": 1
+  },
+  {
+    "intent": "installation_process",
+    "query": "Ablauf Photovoltaik Installation Schritte",
+    "targetPage": "/why-us",
+    "expectedSignals": ["QA"],
+    "priority": 3
+  }
+]

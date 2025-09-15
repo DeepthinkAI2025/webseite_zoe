@@ -1,0 +1,17 @@
+{
+  "name": "ZOE Solar GmbH",
+  "email": "kontakt@zoe-solar.de",
+  "phone": "+49-30-0000000",
+  "street": "Beispielstraße 12",
+  "postalCode": "10115",
+  "city": "Berlin",
+  "country": "DE",
+  "openingHours": ["Mo-Fr 09:00-18:00"],
+  "latitude": 52.520008,
+  "longitude": 13.404954,
+  "priceRange": "€€€",
+  "sameAs": [
+    "https://www.linkedin.com/company/zoe-solar",
+    "https://www.xing.com/pages/zoe-solar"
+  ]
+}

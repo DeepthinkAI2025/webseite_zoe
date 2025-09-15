@@ -1,0 +1,19 @@
+{
+  "name": "ZOE Solar",
+  "legalName": "ZOE Solar GmbH",
+  "street": "Musterstraße 12",
+  "postalCode": "12345",
+  "city": "Musterstadt",
+  "country": "DE",
+  "email": "service@zoe-solar.de",
+  "phone": "+49-XXX-XXXXXXX",
+  "openingHours": ["Mo-Fr 09:00-18:00"],
+  "latitude": 52.52,
+  "longitude": 13.405,
+  "priceRange": "€€",
+  "sameAs": [
+    "https://www.facebook.com/zoesolar",
+    "https://www.instagram.com/zoesolar",
+    "https://www.linkedin.com/company/zoe-solar"
+  ]
+}

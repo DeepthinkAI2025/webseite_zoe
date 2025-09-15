@@ -1,0 +1,79 @@
+[
+  {
+    "query": "photovoltaik kosten 2025",
+    "intent": "commercial research",
+    "priority": 1,
+    "target": "/pricing",
+    "notes": "Preis- & Angebotsmodul relevant (Vergleichstabelle)"
+  },
+  {
+    "query": "pv anlage förderung berlin",
+    "intent": "informational",
+    "priority": 2,
+    "target": "/faq",
+    "notes": "Förder-/FAQ Bereich, später eigener Abschnitt"
+  },
+  {
+    "query": "solar speicher lebensdauer lifepo4",
+    "intent": "informational",
+    "priority": 2,
+    "target": "/technology",
+    "notes": "Glossar + Technologie Karten"
+  },
+  {
+    "query": "hybrid wechselrichter vorteile",
+    "intent": "informational",
+    "priority": 3,
+    "target": "/technology",
+    "notes": "Q&A Block + Glossar Defs"
+  },
+  {
+    "query": "pv anlage amortisation jahre",
+    "intent": "informational",
+    "priority": 1,
+    "target": "/pricing",
+    "notes": "Kann später Rechenbeispiel / HowTo bekommen"
+  },
+  {
+    "query": "photovoltaik anbieter musterstadt",
+    "intent": "local",
+    "priority": 1,
+    "target": "/contact",
+    "notes": "LocalBusiness + Footer NAP"
+  },
+  {
+    "query": "pv speicher größe berechnen",
+    "intent": "informational",
+    "priority": 3,
+    "target": "/technology",
+    "notes": "Potentielles zukünftiges Tool / Rechner"
+  },
+  {
+    "query": "solar service wartung",
+    "intent": "informational",
+    "priority": 3,
+    "target": "/faq",
+    "notes": "FAQ Eintrag Wartung / Service"
+  },
+  {
+    "query": "eeffizienzklasse photovoltaik angebote",
+    "intent": "commercial research",
+    "priority": 2,
+    "target": "/pricing",
+    "notes": "OfferCatalog efficiencyClass"
+  },
+  {
+    "query": "pv installation dauer tage",
+    "intent": "informational",
+    "priority": 2,
+    "target": "/faq",
+    "notes": "FAQ + HowTo Schema Erweiterung möglich"
+  },
+  {
+    "query": "strom autarkie haus 5kw speicher",
+    "intent": "informational",
+    "priority": 3,
+    "target": "/technology",
+    "notes": "Künftiger Ratgeberartikel / Q&A Ergänzung"
+  }
+]
