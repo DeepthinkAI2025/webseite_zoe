@@ -41,6 +41,8 @@ for(const f of files){
   if(Array.isArray(programmes)){
     programmes.forEach((p,i)=>{
       if(!p.name) fail(`${f}: programmes[${i}].name fehlt`);
+      if(p.source && typeof p.source !== 'string') fail(`${f}: programmes[${i}].source kein String`);
+      if(p.confidence != null && (typeof p.confidence !== 'number' || p.confidence < 0 || p.confidence > 1)) fail(`${f}: programmes[${i}].confidence außerhalb 0..1`);
     });
   }
 }

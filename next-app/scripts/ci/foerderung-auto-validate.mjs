@@ -26,7 +26,10 @@ for(const f of files){
   if(!updated_auto) fail(`${f}: updated_auto fehlt`); else if(!/^\d{4}-\d{2}-\d{2}$/.test(updated_auto)) fail(`${f}: updated_auto kein ISO YYYY-MM-DD`);
   if(!Array.isArray(programmes) || !programmes.length) fail(`${f}: programmes leer/fehlt`);
   if(Array.isArray(programmes)){
-    programmes.forEach((p,i)=> { if(!p.name) fail(`${f}: programmes[${i}].name fehlt`); });
+    programmes.forEach((p,i)=> { 
+      if(!p.name) fail(`${f}: programmes[${i}].name fehlt`);
+      if(p.confidence != null && (typeof p.confidence !== 'number' || p.confidence < 0 || p.confidence > 1)) fail(`${f}: programmes[${i}].confidence außerhalb 0..1`);
+    });
   }
 }
 

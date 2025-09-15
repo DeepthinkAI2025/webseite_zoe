@@ -28,6 +28,7 @@
     "gate:lighthouse": "node scripts/ci/lighthouse-gate.mjs",
     "lint:css": "stylelint 'src/**/*.{css,scss}' 'app/**/*.{css,scss}'",
     "ci:lh-baseline-rotate": "node scripts/ci/lh-baseline-rotate.mjs"
+    ,"ci:pr-comment": "node scripts/ci/pr-comment-report.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

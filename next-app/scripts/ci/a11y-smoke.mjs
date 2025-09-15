@@ -9,7 +9,13 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const TARGETS = process.env.A11Y_PATHS ? process.env.A11Y_PATHS.split(',') : ['/', '/standorte/berlin'];
+const TARGETS = process.env.A11Y_PATHS ? process.env.A11Y_PATHS.split(',') : [
+  '/',
+  '/standorte/berlin',
+  '/pricing',
+  '/contact',
+  '/technology'
+];
 const BASE = process.env.BASE_URL || 'http://localhost:3000';
 const MAX_SEVERITY_FAIL = 'serious';
 const SEVERITY_ORDER = ['minor','moderate','serious','critical'];
